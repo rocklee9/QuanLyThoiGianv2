@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/edt_margin_top"
+    android:layout_marginBottom="@dimen/edt_margin_bottom"
+    android:layout_marginLeft="@dimen/edt_margin_left"
+    android:layout_marginRight="@dimen/edt_margin_right"
+    tools:context="com.gameloft.pc.quanlythoigian.daylist">
+
+    <Button
+        android:id="@+id/daylish"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#20ed2e"
+        android:text="MONDAY"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="-8dp"
+        android:background="#735a5a"
+        android:text="TUESDAY"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:layout_weight="1"
+        />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#ef1d1d"
+        android:text="WEDNESDAY"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="0dp"
+        android:background="#f4862d"
+        android:text="THURDAY"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#2f1a69"
+        android:text="FRIDAY"
+        android:textColor="#fff"
+        android:textSize="24sp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="0dp"
+        android:background="#ed332929"
+        android:text="SATTURDAY"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#06f7d3"
+        android:text="SUNDAY"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:layout_weight="1"/>
+
+
+</LinearLayout>

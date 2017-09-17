@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">QuanLyThoiGian</string>
+
+    <string name="titles_name_2">MONDAY</string>
+    <string name="text_time">Thời gian:</string>
+    <string name="text_room">Phòng:</string>
+    <string name="text_subject">Môn:</string>
+    <string name="title_name_note">MÔN HỌC</string>
+    <string name="text_note">Ghi chú:</string>
+</resources>

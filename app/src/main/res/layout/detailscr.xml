@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="100dp"
+            android:layout_height="205dp"
+            app:srcCompat="@drawable/imgdetail_monhoc"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <TextView
+            android:id="@+id/txtvmon"
+            android:layout_width="63dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="#ed1111"
+            android:text="Môn:"
+            android:gravity="center"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@+id/imageView"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <TextView
+            android:id="@+id/txtvphong"
+            android:layout_width="62dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Phòng:"
+            android:gravity="center"
+            android:textColor="#0731ec"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/txtvmon"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="65dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="12dp"
+            android:text="Thời Gian:"
+            android:gravity="center"
+            android:textColor="#0731ec"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/txtvphong"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/txttenm"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="8dp"
+            android:text="tên"
+            android:gravity="center_vertical"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toRightOf="@+id/txtvmon"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <TextView
+            android:id="@+id/txtphong"
+            android:layout_width="180dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:text="tenphong"
+            android:gravity="center_vertical"
+            app:layout_constraintLeft_toRightOf="@+id/txtvphong"
+            app:layout_constraintTop_toBottomOf="@+id/txttenm"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="0dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_bias="1.0" />
+
+        <TextView
+            android:id="@+id/txttg"
+            android:layout_width="170dp"
+            android:layout_height="55dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="12dp"
+            android:text="thoigianvao"
+            android:gravity="center_vertical"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtphong"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintLeft_toRightOf="@+id/textView3"
+            android:layout_marginLeft="24dp"
+            app:layout_constraintHorizontal_bias="1.0" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="100dp"
+            android:layout_height="170dp"
+            app:srcCompat="@drawable/imgdetail_giangvien"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="60dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="#ed1111"
+            android:text="Teacher"
+            android:gravity="center"
+            app:layout_constraintLeft_toRightOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="60dp"
+            android:layout_height="55dp"
+            android:text="email:"
+            android:gravity="center"
+            android:textColor="#0731ec"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            app:layout_constraintLeft_toRightOf="@+id/imageView2"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="60dp"
+            android:layout_height="55dp"
+            android:text="sdt:"
+            android:gravity="center"
+            android:textColor="#0731ec"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView8"
+            app:layout_constraintLeft_toRightOf="@+id/imageView2"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/txtgv"
+            android:layout_width="190dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="5dp"
+            android:text="tengiangvien"
+            android:gravity="center_vertical"
+            app:layout_constraintLeft_toRightOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/txttg"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/txtemail"
+            android:layout_width="190dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="8dp"
+            android:text="email"
+            android:gravity="center_vertical"
+            app:layout_constraintLeft_toRightOf="@+id/textView8"
+            app:layout_constraintTop_toBottomOf="@+id/txtgv"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/txtsdt"
+            android:layout_width="190dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="8dp"
+            android:text="sdt"
+            android:gravity="center_vertical"
+            app:layout_constraintLeft_toRightOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/txtemail"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="342dp"
+            android:layout_height="37dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Today"
+            android:gravity="center"
+            android:textColor="#f10914"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.538"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="370dp"
+            android:layout_height="73dp"
+            android:text="Ghi chú"
+            app:layout_constraintTop_toBottomOf="@+id/txtsdt"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
