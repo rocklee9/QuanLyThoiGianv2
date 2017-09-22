@@ -4,5 +4,6 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="white">#FFF</color>
-    <color name="OliveDrab2">#B3EE3A</color>
+    <color name="OliveDrab2">#9bdf11</color>
+    <color name="blue_dark">#223B73</color>
 </resources>
