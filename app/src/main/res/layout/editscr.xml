@@ -8,13 +8,14 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="#1e7bc9"
+        android:background="@color/phuc_blue"
         android:gravity="center"
         android:text="MONDAY"
         android:textColor="#fff"
         android:textSize="@dimen/text_size_title" />
 
     <TableLayout
+        android:id="@+id/btnxoa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -165,6 +166,7 @@
                 android:textSize="20sp" />
 
             <Button
+                android:id="@+id/btnxoadata"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/edt_margin_left"

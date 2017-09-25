@@ -1,233 +1,298 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/monhoc"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#1e7bc9"
+        android:gravity="center"
+        android:text="MON HOC"
+        android:textColor="#fff"
+        android:textSize="@dimen/text_size_title" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:stretchColumns="*">
 
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="100dp"
-            android:layout_height="205dp"
-            app:srcCompat="@drawable/imgdetail_monhoc"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="4dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_height="40dp"
+                android:background="@drawable/custom2"
+                android:drawableLeft="@drawable/mon_hoc"
+                android:gravity="center|left"
+                android:text="Môn học"
+                android:textColor="#f40505"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_height="40dp"
+                android:layout_span="1"
+                android:gravity="center"
+                android:text=":"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txttenm"
+                android:layout_height="40dp"
+                android:layout_span="15"
+                android:background="@drawable/custom_simple"
+                android:gravity="center_vertical"
+                android:textSize="18sp" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="4dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_height="40dp"
+                android:background="@drawable/custom2"
+                android:drawableLeft="@drawable/phong"
+                android:gravity="center|left"
+                android:text="Phòng"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_height="40dp"
+                android:layout_span="1"
+                android:gravity="center"
+                android:text=":"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtphong"
+                android:layout_height="40dp"
+                android:layout_span="15"
+                android:background="@drawable/custom_simple"
+                android:gravity="center_vertical"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="4dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_height="40dp"
+                android:background="@drawable/custom2"
+                android:drawableLeft="@drawable/thoigian"
+                android:gravity="center|left"
+                android:text="Thời gian"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_height="40dp"
+                android:layout_span="1"
+                android:gravity="center"
+                android:text=":"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txttg"
+                android:layout_height="40dp"
+                android:layout_span="15"
+                android:background="@drawable/custom_simple"
+                android:gravity="center_vertical"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="4dp" />
+        </TableRow>
+
+
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="4dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_height="40dp"
+                android:background="@drawable/custom2"
+                android:drawableLeft="@drawable/giang_vien"
+                android:gravity="center|left"
+                android:text="Giảng viên"
+                android:textColor="#f40505"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_height="40dp"
+                android:layout_span="1"
+                android:gravity="center"
+                android:text=":"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtgv"
+                android:layout_height="40dp"
+                android:layout_span="15"
+                android:background="@drawable/custom_simple"
+                android:gravity="center_vertical"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="4dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_height="40dp"
+                android:background="@drawable/custom2"
+                android:drawableLeft="@drawable/email"
+                android:gravity="center|left"
+                android:text="Email"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_height="40dp"
+                android:layout_span="1"
+                android:gravity="center"
+                android:text=":"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtemail"
+                android:layout_height="40dp"
+                android:layout_span="15"
+                android:background="@drawable/custom_simple"
+                android:gravity="center_vertical"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="4dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_height="40dp"
+
+                android:background="@drawable/custom2"
+                android:drawableLeft="@drawable/sdt"
+                android:gravity="center|left"
+                android:text="Sdt"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_height="40dp"
+                android:layout_span="1"
+                android:gravity="center"
+                android:text=":"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtsdt"
+                android:layout_height="40dp"
+                android:layout_span="15"
+                android:background="@drawable/custom_simple"
+                android:gravity="center_vertical"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="10dp"></TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom1"
+                android:drawableLeft="@drawable/notep"
+                android:gravity="center"
+                android:text="Note:"
+                android:textColor="#000000"
+                android:textSize="20dp" />
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/txtvmon"
-            android:layout_width="63dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="8dp"
-            android:textColor="#ed1111"
-            android:text="Môn:"
-            android:gravity="center"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toRightOf="@+id/imageView"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-        <TextView
-            android:id="@+id/txtvphong"
-            android:layout_width="62dp"
-            android:layout_height="65dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:text="Phòng:"
-            android:gravity="center"
-            android:textColor="#0731ec"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toRightOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/txtvmon"
-            android:layout_marginStart="8dp" />
+    </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="65dp"
-            android:layout_height="55dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="12dp"
-            android:text="Thời Gian:"
-            android:gravity="center"
-            android:textColor="#0731ec"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toRightOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/txtvphong"
-            android:layout_marginStart="8dp" />
-
-        <TextView
-            android:id="@+id/txttenm"
-            android:layout_width="180dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="8dp"
-            android:text="tên"
-            android:gravity="center_vertical"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintLeft_toRightOf="@+id/txtvmon"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView13" />
-
-        <TextView
-            android:id="@+id/txtphong"
-            android:layout_width="180dp"
-            android:layout_height="65dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:text="tenphong"
-            android:gravity="center_vertical"
-            app:layout_constraintLeft_toRightOf="@+id/txtvphong"
-            app:layout_constraintTop_toBottomOf="@+id/txttenm"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="0dp"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintHorizontal_bias="1.0" />
-
-        <TextView
-            android:id="@+id/txttg"
-            android:layout_width="170dp"
-            android:layout_height="55dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="12dp"
-            android:text="thoigianvao"
-            android:gravity="center_vertical"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtphong"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintLeft_toRightOf="@+id/textView3"
-            android:layout_marginLeft="24dp"
-            app:layout_constraintHorizontal_bias="1.0" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="100dp"
-            android:layout_height="170dp"
-            app:srcCompat="@drawable/imgdetail_giangvien"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginStart="8dp" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="60dp"
-            android:layout_height="55dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:textColor="#ed1111"
-            android:text="Teacher"
-            android:gravity="center"
-            app:layout_constraintLeft_toRightOf="@+id/imageView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView3"
-            android:layout_marginStart="8dp" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="60dp"
-            android:layout_height="55dp"
-            android:text="email:"
-            android:gravity="center"
-            android:textColor="#0731ec"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView7"
-            app:layout_constraintLeft_toRightOf="@+id/imageView2"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="60dp"
-            android:layout_height="55dp"
-            android:text="sdt:"
-            android:gravity="center"
-            android:textColor="#0731ec"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView8"
-            app:layout_constraintLeft_toRightOf="@+id/imageView2"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" />
-
-        <TextView
-            android:id="@+id/txtgv"
-            android:layout_width="190dp"
-            android:layout_height="55dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="5dp"
-            android:text="tengiangvien"
-            android:gravity="center_vertical"
-            app:layout_constraintLeft_toRightOf="@+id/textView7"
-            app:layout_constraintTop_toBottomOf="@+id/txttg"
-            android:layout_marginStart="8dp" />
-
-        <TextView
-            android:id="@+id/txtemail"
-            android:layout_width="190dp"
-            android:layout_height="55dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="8dp"
-            android:text="email"
-            android:gravity="center_vertical"
-            app:layout_constraintLeft_toRightOf="@+id/textView8"
-            app:layout_constraintTop_toBottomOf="@+id/txtgv"
-            android:layout_marginStart="8dp" />
-
-        <TextView
-            android:id="@+id/txtsdt"
-            android:layout_width="190dp"
-            android:layout_height="55dp"
-            android:layout_marginLeft="14dp"
-            android:layout_marginTop="8dp"
-            android:text="sdt"
-            android:gravity="center_vertical"
-            app:layout_constraintLeft_toRightOf="@+id/textView9"
-            app:layout_constraintTop_toBottomOf="@+id/txtemail"
-            android:layout_marginStart="8dp" />
-
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="342dp"
-            android:layout_height="37dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
-            android:text="Today"
-            android:gravity="center"
-            android:textColor="#f10914"
-            android:textAllCaps="true"
-            android:textStyle="bold"
-            app:layout_constraintHorizontal_bias="0.538"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp" />
-
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="370dp"
-            android:layout_height="73dp"
-            android:text="Ghi chú"
-            app:layout_constraintTop_toBottomOf="@+id/txtsdt"
-            android:layout_marginRight="8dp"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp" />
-    </android.support.constraint.ConstraintLayout>
-</ScrollView>
+</LinearLayout>
