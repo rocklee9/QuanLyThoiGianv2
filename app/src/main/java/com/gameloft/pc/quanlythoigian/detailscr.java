@@ -1,30 +1,28 @@
 package com.gameloft.pc.quanlythoigian;
 
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 public class detailscr extends AppCompatActivity {
 
-    TextView txtten,txtphong,txttg,txtgv,txtemail,txtsdt;
+    private final String SHARED_PREFERENCES_NAME="data_detailscr";
+    private final String MON="mon";
+    private final String PHONG="phong";
+    private final String THOIGIAN="thoigian";
+    private final String GIANGVIEN="giangvien";
+    private final String EMAIL="email";
+    private final String SDT="sdt";
+    TextView txtten,txtphong,txttg,txtgv,txtemail,txtsdt,monhoc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detailscr);
         anhxa();
-        Intent lay=getIntent();
-        Bundle bd=lay.getBundleExtra("hienthi");
-
-
-        txtten.setText(bd.getString("mon"));
-        txtphong.setText(bd.getString("phong"));
-        txttg.setText(bd.getString("thoigian"));
-        txtgv.setText(bd.getString("giangvien"));
-        txtemail.setText(bd.getString("email"));
-        txtsdt.setText(bd.getString("sdt"));
-
+        final String mon=null;
+        read_data();
     }
     private void anhxa(){
         txtten=(TextView)findViewById(R.id.txttenm);
@@ -33,8 +31,18 @@ public class detailscr extends AppCompatActivity {
         txtgv=(TextView)findViewById(R.id.txtgv);
         txtemail=(TextView)findViewById(R.id.txtemail);
         txtsdt=(TextView)findViewById(R.id.txtsdt);
+        monhoc=(TextView)findViewById(R.id.monhoc);
 
     }
-
+    public void read_data(){
+        SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
+        txtten.setText(sharedPreferences.getString(MON,""));
+        monhoc.setText(sharedPreferences.getString(MON,"MON HOC"));
+        txtphong.setText(sharedPreferences.getString(PHONG,""));
+        txttg.setText(sharedPreferences.getString(THOIGIAN,""));
+        txtgv.setText(sharedPreferences.getString(GIANGVIEN,""));
+        txtemail.setText(sharedPreferences.getString(EMAIL,""));
+        txtsdt.setText(sharedPreferences.getString(SDT,""));
+    }
 }
 
