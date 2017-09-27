@@ -63,11 +63,11 @@ public class thoi_khoa_bieu extends AppCompatActivity {
         lvMonHoc.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(thoi_khoa_bieu.this,detailscr.class);
+                Intent intent1 = new Intent(thoi_khoa_bieu.this,detailscr.class);
                 Bundle bundle = new Bundle();
                 bundle.putInt("pos",position); //gui sang vi tri cua mon dc chon --> de hien thi detail
-                intent.putExtra("MyPackage",bundle);//chứ ko có vị trí thì biết hiển thị detail của môn nào ?
-                startActivity(intent); // ko cần trả về dữ liệu, chỉ vào xem detail thôi.
+                intent1.putExtra("MyPackage",bundle);//chứ ko có vị trí thì biết hiển thị detail của môn nào ?
+                startActivity(intent1); // ko cần trả về dữ liệu, chỉ vào xem detail thôi.
             }
         });
 
