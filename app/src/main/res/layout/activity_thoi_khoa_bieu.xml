@@ -47,12 +47,23 @@
         android:layout_weight="0.92">
     </ListView>
 
-    <ImageButton
-        android:id="@+id/btnAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/plus_icon"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:background="@drawable/vientron"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="10dp">
+
+        <ImageButton
+            android:id="@+id/btnAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/nomal_add"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
 
 
 
