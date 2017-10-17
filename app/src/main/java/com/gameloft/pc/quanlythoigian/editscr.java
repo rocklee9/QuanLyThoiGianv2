@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
@@ -37,7 +36,7 @@ public class editscr extends AppCompatActivity {
             public void onClick(View view) {
                 Bundle bd=new Bundle();
                 add_data();
-                Intent ht=new Intent(editscr.this,thoi_khoa_bieu.class);
+                Intent ht=new Intent(editscr.this,thoi_khoa_bieu1.class);
                 startActivity(ht);
             }
 
@@ -49,7 +48,7 @@ public class editscr extends AppCompatActivity {
             public void onClick(View v) {
                 Bundle bd=new Bundle();
                 remove_data();
-                Intent ht1=new Intent(editscr.this,thoi_khoa_bieu.class);
+                Intent ht1=new Intent(editscr.this,thoi_khoa_bieu1.class);
                 startActivity(ht1);
             }
         });
@@ -76,7 +75,7 @@ public class editscr extends AppCompatActivity {
         edtemail=(EditText)findViewById(R.id.email);
         edtsdt=(EditText)findViewById(R.id.sdt);
         btnluu=(Button)findViewById(R.id.btnhienthi);
-        btnxoa=(Button)findViewById(R.id.btnxoadata);
+        //btnxoa=(Button)findViewById(R.id.btnxoadata);
         edtThoiGianBatDau=(EditText) findViewById(R.id.thoigianbatdau);
         edtThoiGianKetThuc=(EditText) findViewById(R.id.thoigianketthuc);
     }

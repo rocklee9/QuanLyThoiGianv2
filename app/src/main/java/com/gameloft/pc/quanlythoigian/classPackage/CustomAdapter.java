@@ -35,16 +35,27 @@ public class CustomAdapter extends ArrayAdapter<monHoc> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        convertView = LayoutInflater.from(context).inflate(R.layout.dong_listview,parent,false);
-        TextView tvMonHoc = (TextView) convertView.findViewById(R.id.tvMonHoc);
-        TextView tvTime = (TextView) convertView.findViewById(R.id.tvTime);
-        TextView tvPhong = (TextView) convertView.findViewById(R.id.tvPhong);
+        ViewHolder viewHolder;
+        if (convertView == null){
+            convertView = LayoutInflater.from(context).inflate(R.layout.dong_listview,parent,false);
+            viewHolder = new ViewHolder();
+            viewHolder.tvMonHoc = (TextView) convertView.findViewById(R.id.tvMonHoc);
+            viewHolder.tvTime = (TextView) convertView.findViewById(R.id.tvTime);
+            viewHolder.tvPhong = (TextView) convertView.findViewById(R.id.tvPhong);
+            convertView.setTag(viewHolder);
+        }else {
+            viewHolder = (ViewHolder) convertView.getTag();
+        }
 
         monHoc monHoc = arrMonHoc.get(position);
-        tvMonHoc.setText(" "+monHoc.getTenMonHoc());
-        tvTime.setText(" "+monHoc.getThoiGian());
-        tvPhong.setText(" "+monHoc.getPhong());
+        viewHolder.tvMonHoc.setText(" "+monHoc.getTenMonHoc());
+        viewHolder.tvTime.setText(" "+monHoc.getThoiGian());
+        viewHolder.tvPhong.setText(" "+monHoc.getPhong());
 
         return convertView;
+    }
+
+    public  class ViewHolder{
+        TextView tvMonHoc, tvTime, tvPhong;
     }
 }

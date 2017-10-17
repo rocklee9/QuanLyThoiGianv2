@@ -1,99 +1,102 @@
 package com.gameloft.pc.quanlythoigian;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ListView;
+import android.widget.TabHost;
 
+public class thoi_khoa_bieu extends AppCompatActivity implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener {
 
-import com.gameloft.pc.quanlythoigian.classPackage.CustomAdapter;
-import com.gameloft.pc.quanlythoigian.classPackage.monHoc;
-
-
-import java.util.ArrayList;
-
-public class thoi_khoa_bieu extends AppCompatActivity {
-
-    Button btnLeft;
-    Button btnRight;
-    ImageButton btnAdd;
-    ListView lvMonHoc;
+    ViewPager viewPager;
+    TabHost tabHost;
 
     @Override
-    protected void onCreate (Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thoi_khoa_bieu);
 
-        lvMonHoc = (ListView) findViewById(R.id.lvMonHoc);
-        btnAdd = (ImageButton) findViewById(R.id.btnAdd);
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        tabHost = (TabHost) findViewById(R.id.tab);
 
-        ArrayList<monHoc> arrayList = new ArrayList<>();
-        monHoc monHoc1 = new monHoc("Cong nghe di dong", "9:09", "F101");
-        monHoc monHoc2 = new monHoc("Lap trinh Java", "9:14", "F301");
-        monHoc monHoc3 = new monHoc("Lap trinh huong doi tuong", "9:12", "F410");
-        monHoc monHoc4 = new monHoc("Xu li tin hieu so", "10:5", "H307");
-        monHoc monHoc5 = new monHoc("Tu tuong HCM", "10:5", "H307");
-        monHoc monHoc6 = new monHoc("Co so du lieu", "10:5", "E510");
-        monHoc monHoc7 = new monHoc("The duc", "10:5", "H307");
-        monHoc monHoc8 = new monHoc("Tu hoc", "10:5", "G892");
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(adapter);
 
-        arrayList.add(monHoc1);
-        arrayList.add(monHoc2);
-        arrayList.add(monHoc3);
-        arrayList.add(monHoc4);
-        arrayList.add(monHoc5);
-        arrayList.add(monHoc6);
-        arrayList.add(monHoc7);
-        arrayList.add(monHoc8);
-        CustomAdapter customAdapter = new CustomAdapter(this, R.layout.dong_listview, arrayList);
-        lvMonHoc.setAdapter(customAdapter);
+        tabHost.setup();
 
-        btnAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(thoi_khoa_bieu.this,editscr.class);
-                startActivityForResult(intent,2); //cho` ket qua tra ve tu editscr nhe !!!
-            }// bên editscr muốn biết là do bấm nút Add nên nhảy qua thì phải kiểm tra requestCode là 2 nhé
-        });
+        TabHost.TabSpec tab_mon = tabHost.newTabSpec("MON");
+        tab_mon.setIndicator("T2");
+        tab_mon.setContent(new FakeContentTab(this));
 
-        lvMonHoc.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent1 = new Intent(thoi_khoa_bieu.this,detailscr.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("pos",position); //gui sang vi tri cua mon dc chon --> de hien thi detail
-                intent1.putExtra("MyPackage",bundle);//chứ ko có vị trí thì biết hiển thị detail của môn nào ?
-                startActivity(intent1); // ko cần trả về dữ liệu, chỉ vào xem detail thôi.
-            }
-        });
+        TabHost.TabSpec tab_tue = tabHost.newTabSpec("TUE");
+        tab_tue.setIndicator("T3");
+        tab_tue.setContent(new FakeContentTab(this));
 
-        lvMonHoc.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(thoi_khoa_bieu.this,editscr.class);
-                startActivityForResult(intent,3);
-                //tương tự, chỗ này chuyển qua editscr vs mã requestCode = 3 (để phân biệt vs nút bấm Add)
-                return false;
-            }
-        });
+        TabHost.TabSpec tab_wed = tabHost.newTabSpec("WED");
+        tab_wed.setIndicator("T4");
+        tab_wed.setContent(new FakeContentTab(this));
+
+        TabHost.TabSpec tab_thu = tabHost.newTabSpec("THU");
+        tab_thu.setIndicator("T5");
+        tab_thu.setContent(new FakeContentTab(this));
+
+        TabHost.TabSpec tab_fri = tabHost.newTabSpec("FRI");
+        tab_fri.setIndicator("T6");
+        tab_fri.setContent(new FakeContentTab(this));
+
+        TabHost.TabSpec tab_sat = tabHost.newTabSpec("SAT");
+        tab_sat.setIndicator("T7");
+        tab_sat.setContent(new FakeContentTab(this));
+
+        TabHost.TabSpec tab_sun = tabHost.newTabSpec("SUN");
+        tab_sun.setIndicator("CN");
+        tab_sun.setContent(new FakeContentTab(this));
+
+        tabHost.addTab(tab_mon);
+        tabHost.addTab(tab_tue);
+        tabHost.addTab(tab_wed);
+        tabHost.addTab(tab_thu);
+        tabHost.addTab(tab_fri);
+        tabHost.addTab(tab_sat);
+        tabHost.addTab(tab_sun);
+
+        tabHost.setOnTabChangedListener(this);
+        viewPager.setOnPageChangeListener(this);
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == 2){//kq trả về từ việc thêm thông tin
-            //lay thong tin tu editscr nhe (lay Monhoc, thoigian, phong de hien thi len listview)
+    public void onTabChanged(String s) {
+        int position = tabHost.getCurrentTab();
+        viewPager.setCurrentItem(position);
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        tabHost.setCurrentTab(position);
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
+
+    public class FakeContentTab implements TabHost.TabContentFactory{
+        Context context;
+        public FakeContentTab(Context context){
+            this.context = context;
         }
-        if(resultCode == 3){//kq trả về từ việc sửa thông tin
-            //lấy thông tin từ editscr để hiển thị lên listview
+        @Override
+        public View createTabContent(String s) {
+            View view = new View(context);
+            view.setMinimumHeight(0);
+            view.setMinimumWidth(0);
+            return view;
         }
     }
 }
-
-//Tuy nhiên mình vẫn ko hiểu làm thế nào để editscr phân biệt được lúc mở nó lên là do nút Add
-//hay do bấm vào item trên ListView
-//AE suy nghĩ thử
