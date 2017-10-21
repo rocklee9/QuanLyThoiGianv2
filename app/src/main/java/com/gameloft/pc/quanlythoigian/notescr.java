@@ -20,16 +20,36 @@ public class notescr extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.notescr);
 
+        init();
+        getWidgets();
+        setWidgets();
+        addWidgetsListener();
+
+    }
+
+    private void init() {
+    }
+
+    private void getWidgets() {
         btncam=(Button)findViewById(R.id.btnCamera);
         iv=(ImageView)findViewById(R.id.imgView);
+    }
 
+
+    private void setWidgets(){
+
+    }
+
+    private void addWidgetsListener() {
         btncam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 capturePicture();
             }
         });
+
     }
+
     private void capturePicture(){
         if(getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)){
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -46,4 +66,6 @@ public class notescr extends Activity {
         Bitmap bitmap = (Bitmap) data.getExtras().get("data");
         iv.setImageBitmap(bitmap);
     }
+
+
 }

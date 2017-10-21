@@ -2,6 +2,7 @@ package com.gameloft.pc.quanlythoigian;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,16 +12,31 @@ public class thoi_khoa_bieu extends AppCompatActivity implements TabHost.OnTabCh
 
     ViewPager viewPager;
     TabHost tabHost;
+    private ViewPagerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thoi_khoa_bieu);
 
+        init();
+        getWidgets();
+        setWidgets();
+        addWidgetsListener();
+
+    }
+
+    private void init() {
+        adapter = new ViewPagerAdapter(getSupportFragmentManager());
+    }
+
+    private void getWidgets() {
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         tabHost = (TabHost) findViewById(R.id.tab);
 
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+    }
+
+    private void setWidgets() {
         viewPager.setAdapter(adapter);
 
         tabHost.setup();
@@ -63,6 +79,9 @@ public class thoi_khoa_bieu extends AppCompatActivity implements TabHost.OnTabCh
 
         tabHost.setOnTabChangedListener(this);
         viewPager.setOnPageChangeListener(this);
+    }
+
+    private void addWidgetsListener() {
     }
 
     @Override

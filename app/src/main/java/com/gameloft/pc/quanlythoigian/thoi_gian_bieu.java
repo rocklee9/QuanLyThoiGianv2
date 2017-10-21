@@ -11,5 +11,6 @@ public class thoi_gian_bieu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thoi_gian_bieu);
+
     }
 }

@@ -20,11 +20,20 @@ public class detailscr extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detailscr);
-        anhxa();
-        final String mon=null;
-        read_data();
+
+        init();
+        getWidgets();
+        setWidgets();
+        addWidgetsListener();
+
+        //final String mon=null;
     }
-    private void anhxa(){
+
+    private void init() {
+        final String mon=null;
+    }
+
+    private void getWidgets() {
         txtten=(TextView)findViewById(R.id.txttenm);
         txtphong=(TextView)findViewById(R.id.txtphong);
         txttg=(TextView)findViewById(R.id.txttg);
@@ -32,9 +41,9 @@ public class detailscr extends AppCompatActivity {
         txtemail=(TextView)findViewById(R.id.txtemail);
         txtsdt=(TextView)findViewById(R.id.txtsdt);
         monhoc=(TextView)findViewById(R.id.monhoc);
-
     }
-    public void read_data(){
+
+    private void setWidgets() {
         SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
         txtten.setText(sharedPreferences.getString(MON,""));
         monhoc.setText(sharedPreferences.getString(MON,"MON HOC"));
@@ -44,5 +53,10 @@ public class detailscr extends AppCompatActivity {
         txtemail.setText(sharedPreferences.getString(EMAIL,""));
         txtsdt.setText(sharedPreferences.getString(SDT,""));
     }
+
+    private void addWidgetsListener() {
+    }
+
+
 }
 

@@ -15,11 +15,28 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        init();
+        getWidgets();
+        setWidgets();
+        addWidgetsListener();
+
+    }
+
+    private void init() {
+    }
+
+    private void getWidgets() {
         btntkb =(Button)findViewById(R.id.btntkb);
         btntgb=(Button)findViewById(R.id.btntgb);
         manhinh=(ConstraintLayout)findViewById(R.id.manHinh);
         manhinh.setBackgroundResource(R.drawable.bia1);
+    }
 
+    private void setWidgets() {
+    }
+
+    private void addWidgetsListener() {
         btntkb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

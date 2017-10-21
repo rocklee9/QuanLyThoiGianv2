@@ -30,7 +30,42 @@ public class editscr extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.editscr);
 
-        anhxa();
+        init();
+        getWidgets();
+        setWidgets();
+        addWidgetsListener();
+
+        //inraeditscr() hàm này được thay bởi hàm setWidgets()
+    }
+    private void init() {
+        edtmon=(EditText)findViewById(R.id.môn);
+        edtphong=(EditText)findViewById(R.id.phong);
+        edttg=(EditText) findViewById(R.id.thoigianbatdau);
+        edtgv=(EditText)findViewById(R.id.giangvien);
+        edtemail=(EditText)findViewById(R.id.email);
+        edtsdt=(EditText)findViewById(R.id.sdt);
+        btnluu=(Button)findViewById(R.id.btnhienthi);
+        //btnxoa=(Button)findViewById(R.id.btnxoadata);
+        edtThoiGianBatDau=(EditText) findViewById(R.id.thoigianbatdau);
+        edtThoiGianKetThuc=(EditText) findViewById(R.id.thoigianketthuc);
+    }
+
+    private void getWidgets() {
+
+    }
+
+    private void setWidgets() {
+        SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
+        edtmon.setText(sharedPreferences.getString(MON,""));
+        edtphong.setText(sharedPreferences.getString(PHONG,""));
+        edttg.setText(sharedPreferences.getString(THOIGIAN,""));
+        edtgv.setText(sharedPreferences.getString(GIANGVIEN,""));
+        edtemail.setText(sharedPreferences.getString(EMAIL,""));
+        edtsdt.setText(sharedPreferences.getString(SDT,""));
+
+    }
+
+    private void addWidgetsListener() {
         btnluu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,21 +99,9 @@ public class editscr extends AppCompatActivity {
                 showTimePickerDialogKetThuc();
             }
         });
-        inraeditscr();
     }
 
-    private void anhxa(){
-        edtmon=(EditText)findViewById(R.id.môn);
-        edtphong=(EditText)findViewById(R.id.phong);
-        edttg=(EditText) findViewById(R.id.thoigianbatdau);
-        edtgv=(EditText)findViewById(R.id.giangvien);
-        edtemail=(EditText)findViewById(R.id.email);
-        edtsdt=(EditText)findViewById(R.id.sdt);
-        btnluu=(Button)findViewById(R.id.btnhienthi);
-        //btnxoa=(Button)findViewById(R.id.btnxoadata);
-        edtThoiGianBatDau=(EditText) findViewById(R.id.thoigianbatdau);
-        edtThoiGianKetThuc=(EditText) findViewById(R.id.thoigianketthuc);
-    }
+
 
     public void add_data(){
         SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
@@ -91,6 +114,15 @@ public class editscr extends AppCompatActivity {
         editor.putString(SDT,edtsdt.getText().toString());
         editor.apply();
     }
+
+    public void remove_data(){
+        SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+    }
+
+/*
     public void inraeditscr(){
         SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
         edtmon.setText(sharedPreferences.getString(MON,""));
@@ -100,12 +132,7 @@ public class editscr extends AppCompatActivity {
         edtemail.setText(sharedPreferences.getString(EMAIL,""));
         edtsdt.setText(sharedPreferences.getString(SDT,""));
     }
-    public void remove_data(){
-        SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME,MODE_PRIVATE);
-        SharedPreferences.Editor editor=sharedPreferences.edit();
-        editor.clear();
-        editor.apply();
-    }
+*/
 
     private void showTimePickerDialogBatDau() {
         Calendar calendar= Calendar.getInstance();
