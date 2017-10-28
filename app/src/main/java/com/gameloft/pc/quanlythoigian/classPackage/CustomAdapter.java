@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,11 +20,11 @@ import java.util.List;
  * Created by HOAN on 9/20/2017.
  */
 
-public class CustomAdapter extends ArrayAdapter<monHoc> {
+public class CustomAdapter extends ArrayAdapter<MonHoc> {
     private Context context;
     private int resource;
-    private ArrayList<monHoc> arrMonHoc;
-    public CustomAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull ArrayList<monHoc> objects) {
+    private List<MonHoc> arrMonHoc;
+    public CustomAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<MonHoc> objects) {
         super(context, resource, objects);
         this.context = context;
         this.resource = resource;
@@ -47,9 +46,9 @@ public class CustomAdapter extends ArrayAdapter<monHoc> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        monHoc monHoc = arrMonHoc.get(position);
+        MonHoc monHoc = arrMonHoc.get(position);
         viewHolder.tvMonHoc.setText(" "+monHoc.getTenMonHoc());
-        viewHolder.tvTime.setText(" "+monHoc.getThoiGian());
+        viewHolder.tvTime.setText(" "+monHoc.getThoiGian1()+" - "+monHoc.getThoiGian2());
         viewHolder.tvPhong.setText(" "+monHoc.getPhong());
 
         return convertView;

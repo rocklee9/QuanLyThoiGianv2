@@ -1,19 +1,30 @@
 package com.gameloft.pc.quanlythoigian.TabFragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.gameloft.pc.quanlythoigian.AddActivity;
+import com.gameloft.pc.quanlythoigian.MyDatabase.DatabaseAdapter;
 import com.gameloft.pc.quanlythoigian.classPackage.CustomAdapter;
 import com.gameloft.pc.quanlythoigian.R;
-import com.gameloft.pc.quanlythoigian.classPackage.monHoc;
+import com.gameloft.pc.quanlythoigian.classPackage.MonHoc;
+import com.gameloft.pc.quanlythoigian.detailscr;
+import com.gameloft.pc.quanlythoigian.editscr;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +34,16 @@ public class TabFragment_friday extends Fragment {
 
     ListView lvMonHoc;
     ImageButton btnAdd;
+    List<MonHoc> listMonHoc;
+    DatabaseAdapter database;
+    CustomAdapter customAdapter;
+    View view;
+
+    public static final int REQUEST_CODE_ADD = 1;
+    public static final int REQUEST_CODE_EDIT = 2;
+
+    public static final int RESULT_CODE_ADD = 3;
+    public static final int RESULT_CODE_EDIT = 4;
 
     public TabFragment_friday() {
         // Required empty public constructor
@@ -33,33 +54,124 @@ public class TabFragment_friday extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_tab_fragment_friday, container, false);
+        view = inflater.inflate(R.layout.fragment_tab_fragment_friday, container, false);
 
+        init();
+        getWidgets();
+        setWidgets();
+        addWidgetsListener();
+
+        return view;
+    }
+
+    private void init(){
+        listMonHoc =  new ArrayList<MonHoc>();
+        database = new DatabaseAdapter(TabFragment_friday.super.getContext());
+    }
+
+    private void getWidgets(){
         lvMonHoc = (ListView) view.findViewById(R.id.lvMonHoc);
         btnAdd = (ImageButton) view.findViewById(R.id.btnAdd);
 
-        ArrayList<monHoc> arrayList = new ArrayList<>();
-        monHoc monHoc1 = new monHoc("Cong nghe di dong", "9:09", "F101");
-        monHoc monHoc2 = new monHoc("Lap trinh Java", "9:14", "F301");
-        monHoc monHoc3 = new monHoc("Lap trinh huong doi tuong", "9:12", "F410");
-        monHoc monHoc4 = new monHoc("Xu li tin hieu so", "10:5", "H307");
-        monHoc monHoc5 = new monHoc("Tu tuong HCM", "10:5", "H307");
-        monHoc monHoc6 = new monHoc("Co so du lieu", "10:5", "E510");
-        monHoc monHoc7 = new monHoc("The duc", "10:5", "H307");
-        monHoc monHoc8 = new monHoc("Tu hoc", "10:5", "G892");
+    }
 
-        arrayList.add(monHoc1);
-        arrayList.add(monHoc2);
-        arrayList.add(monHoc3);
-        arrayList.add(monHoc4);
-        arrayList.add(monHoc5);
-        arrayList.add(monHoc6);
-        arrayList.add(monHoc7);
-        arrayList.add(monHoc8);
-        CustomAdapter customAdapter = new CustomAdapter(getActivity(), R.layout.dong_listview, arrayList);
+    private void setWidgets(){
+        database.open();
+        listMonHoc = database.getData(6);
+        customAdapter = new CustomAdapter(getActivity(), R.layout.dong_listview, listMonHoc);
         lvMonHoc.setAdapter(customAdapter);
+        registerForContextMenu(lvMonHoc);
+    }
 
-        return view;
+    private void addWidgetsListener() {
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TabFragment_friday.super.getContext(),AddActivity.class);
+                startActivityForResult(intent,REQUEST_CODE_ADD);
+            }
+        });
+
+        lvMonHoc.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(TabFragment_friday.super.getContext(),detailscr.class);
+                MonHoc monHoc;
+                monHoc = listMonHoc.get(position);
+                intent.putExtra("chitietmonhoc",monHoc);
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater menuInflater = getActivity().getMenuInflater();
+        menuInflater.inflate(R.menu.context_menu,menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        if(getUserVisibleHint()){
+            AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+            switch (item.getItemId()){
+                case R.id.itDelete:
+                    MonHoc monHoc = listMonHoc.get(menuInfo.position);
+                    boolean check = database.delete(monHoc,6);
+                    if(check){
+                        customAdapter.remove(monHoc);
+                        customAdapter.notifyDataSetChanged();
+                        Toast.makeText(TabFragment_friday.super.getActivity(),"Đã xóa !",Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(TabFragment_friday.super.getActivity(),"Sorry! Lỗi cập nhật dữ liệu.",Toast.LENGTH_SHORT).show();
+                    }
+                    return true;
+                case R.id.itEdit:
+                    Intent iEdit = new Intent(TabFragment_friday.super.getContext(),editscr.class);
+                    MonHoc monHocEdit = listMonHoc.get(menuInfo.position);
+                    iEdit.putExtra("monhocEdit",monHocEdit);
+                    startActivityForResult(iEdit,REQUEST_CODE_EDIT);
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == REQUEST_CODE_ADD){
+            switch (resultCode){
+                case RESULT_CODE_ADD:
+                    MonHoc monHoc = (MonHoc) data.getSerializableExtra("monhoc");
+                    boolean check = database.AddMonHoc(monHoc,6);
+                    if(check){
+                        listMonHoc.add(monHoc);
+                        customAdapter.notifyDataSetChanged();
+                        Toast.makeText(TabFragment_friday.super.getActivity(),"Đã thêm môn học mới !",Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(TabFragment_friday.super.getActivity(),"Sorry! Lỗi cập nhật dữ liệu.",Toast.LENGTH_SHORT).show();
+                    }
+                    //database.close();
+            }
+        }
+
+        if(requestCode == REQUEST_CODE_EDIT){
+            switch (resultCode){
+                case RESULT_CODE_EDIT:
+                    MonHoc monHoc = (MonHoc) data.getSerializableExtra("monhocEdited");
+                    boolean check = database.update(monHoc,6);
+                    if(check){
+                        listMonHoc = database.getData(6);
+                        customAdapter = new CustomAdapter(getActivity(), R.layout.dong_listview, listMonHoc);
+                        lvMonHoc.setAdapter(customAdapter);
+                        Toast.makeText(TabFragment_friday.super.getActivity(),"Cập nhật thành công !",Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(TabFragment_friday.super.getActivity(),"Sorry! Lỗi cập nhật dữ liệu.",Toast.LENGTH_SHORT).show();
+                    }
+            }
+        }
     }
 
 }

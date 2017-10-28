@@ -34,6 +34,7 @@
     </ListView>
 
     <LinearLayout
+
         android:orientation="vertical"
         android:layout_width="350dp"
         android:layout_height="70dp"

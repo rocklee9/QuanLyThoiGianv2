@@ -3,15 +3,27 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/monhoc"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="#1e7bc9"
-        android:gravity="center"
-        android:text="MON HOC"
-        android:textColor="#fff"
-        android:textSize="@dimen/text_size_title" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#1e7bc9">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:gravity="center"
+            android:text="CHI TIẾT"
+            android:textColor="#fff"
+            android:textSize="@dimen/text_size_title" />
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:background="@drawable/back"
+            />
+    </RelativeLayout>
 
     <TableLayout
         android:layout_width="match_parent"
@@ -32,7 +44,6 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView10"
                 android:layout_height="40dp"
                 android:background="@drawable/custom2"
                 android:drawableLeft="@drawable/mon_hoc"
@@ -43,7 +54,6 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView9"
                 android:layout_height="40dp"
                 android:layout_span="1"
                 android:gravity="center"
@@ -52,7 +62,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/txttenm"
+                android:id="@+id/tvTenMon"
                 android:layout_height="40dp"
                 android:layout_span="15"
                 android:background="@drawable/custom_simple"
@@ -91,7 +101,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/txtphong"
+                android:id="@+id/tvPhong"
                 android:layout_height="40dp"
                 android:layout_span="15"
                 android:background="@drawable/custom_simple"
@@ -128,7 +138,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/txttg"
+                android:id="@+id/tvTime"
                 android:layout_height="40dp"
                 android:layout_span="15"
                 android:background="@drawable/custom_simple"
@@ -176,7 +186,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/txtgv"
+                android:id="@+id/tvGV"
                 android:layout_height="40dp"
                 android:layout_span="15"
                 android:background="@drawable/custom_simple"
@@ -213,7 +223,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/txtemail"
+                android:id="@+id/tvEmail"
                 android:layout_height="40dp"
                 android:layout_span="15"
                 android:background="@drawable/custom_simple"
@@ -253,7 +263,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/txtsdt"
+                android:id="@+id/tvSdt"
                 android:layout_height="40dp"
                 android:layout_span="15"
                 android:background="@drawable/custom_simple"
@@ -289,7 +299,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tvNote"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

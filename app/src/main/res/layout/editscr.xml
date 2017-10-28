@@ -5,12 +5,12 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvDay"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="#1e7bc9"
         android:gravity="center"
-        android:text="MONDAY"
+        android:text="CHỈNH SỬA"
         android:textColor="#fff"
         android:textSize="@dimen/text_size_title" />
 
@@ -35,7 +35,7 @@
                 android:drawableLeft="@drawable/mon_hoc" />
 
             <EditText
-                android:id="@+id/môn"
+                android:id="@+id/edtTenMon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -56,7 +56,7 @@
                 android:drawableLeft="@drawable/phong"/>
 
             <EditText
-                android:id="@+id/phong"
+                android:id="@+id/edtPhong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -79,8 +79,8 @@
 
             <RelativeLayout>
                 <EditText
-                    android:id="@+id/thoigianbatdau"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/edtTime1"
+                    android:layout_width="100sp"
                     android:layout_height="wrap_content"
                     android:ems="5" />
 
@@ -90,11 +90,11 @@
                     android:layout_height="wrap_content"
                     android:text="To"
                     android:textSize="20sp"
-                    android:layout_toRightOf="@+id/thoigianbatdau" />
+                    android:layout_toRightOf="@+id/edtTime1" />
 
                 <EditText
-                    android:id="@+id/thoigianketthuc"
-                    android:layout_width="match_parent"
+                    android:id="@+id/edtTime2"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/textView4" />
             </RelativeLayout>
@@ -115,7 +115,7 @@
                 android:drawableLeft="@drawable/giang_vien"/>
 
             <EditText
-                android:id="@+id/giangvien"
+                android:id="@+id/edtGV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -136,7 +136,7 @@
                 android:drawableLeft="@drawable/email"/>
 
             <EditText
-                android:id="@+id/email"
+                android:id="@+id/edtEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -157,7 +157,7 @@
                 android:drawableLeft="@drawable/sdt"/>
 
             <EditText
-                android:id="@+id/sdt"
+                android:id="@+id/edtSDT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -170,7 +170,7 @@
             android:layout_marginTop="@dimen/edt_margin_top">
 
             <Button
-                android:id="@+id/btnhienthi"
+                android:id="@+id/btnSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/corner_button"
@@ -182,10 +182,11 @@
                 android:layout_marginRight="@dimen/edt_margin_right"/>
 
             <Button
+                android:id="@+id/btnCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/corner_btn_xoa"
-                android:text="Xóa"
+                android:text="Hủy"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:layout_marginLeft="@dimen/edt_margin_left"/>

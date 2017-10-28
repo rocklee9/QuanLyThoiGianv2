@@ -7,12 +7,20 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TabHost;
+import android.widget.Toast;
+
+import com.gameloft.pc.quanlythoigian.MyDatabase.DatabaseAdapter;
+import com.gameloft.pc.quanlythoigian.classPackage.MonHoc;
+
+import java.util.List;
 
 public class thoi_khoa_bieu extends AppCompatActivity implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener {
 
     ViewPager viewPager;
     TabHost tabHost;
     private ViewPagerAdapter adapter;
+//    public DatabaseAdapter db;
+ //   List<MonHoc> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +36,9 @@ public class thoi_khoa_bieu extends AppCompatActivity implements TabHost.OnTabCh
 
     private void init() {
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
+  //      db = new DatabaseAdapter(this);
+  //      db.open();
+//        list = db.getData(2);
     }
 
     private void getWidgets() {
@@ -78,6 +89,7 @@ public class thoi_khoa_bieu extends AppCompatActivity implements TabHost.OnTabCh
         tabHost.addTab(tab_sun);
 
         tabHost.setOnTabChangedListener(this);
+        viewPager.setOffscreenPageLimit(8);
         viewPager.setOnPageChangeListener(this);
     }
 
@@ -88,6 +100,8 @@ public class thoi_khoa_bieu extends AppCompatActivity implements TabHost.OnTabCh
     public void onTabChanged(String s) {
         int position = tabHost.getCurrentTab();
         viewPager.setCurrentItem(position);
+      //  list = db.getData(2);
+     //   Toast.makeText(this,position,Toast.LENGTH_SHORT).show();
     }
 
     @Override

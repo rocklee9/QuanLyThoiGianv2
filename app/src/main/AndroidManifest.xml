@@ -4,10 +4,11 @@
 
     <uses-feature
         android:name="android.hardware.Camera"
-        android:required="true"></uses-feature>
-    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -25,10 +26,10 @@
         </activity>
         <activity android:name=".thoi_khoa_bieu" />
         <activity android:name=".thoi_gian_bieu" />
-        <activity android:name=".daylist" />
         <activity android:name=".notescr" />
         <activity android:name=".editscr" />
-        <activity android:name=".detailscr"></activity>
+        <activity android:name=".detailscr" />
+        <activity android:name=".AddActivity"></activity>
     </application>
 
 </manifest>
