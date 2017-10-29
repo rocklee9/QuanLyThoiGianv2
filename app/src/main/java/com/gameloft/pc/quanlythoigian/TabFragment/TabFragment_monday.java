@@ -1,10 +1,11 @@
 package com.gameloft.pc.quanlythoigian.TabFragment;
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
@@ -16,11 +17,10 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.gameloft.pc.quanlythoigian.thoi_khoa_bieu;
 import com.gameloft.pc.quanlythoigian.AddActivity;
 import com.gameloft.pc.quanlythoigian.MyDatabase.DatabaseAdapter;
-import com.gameloft.pc.quanlythoigian.classPackage.CustomAdapter;
 import com.gameloft.pc.quanlythoigian.R;
+import com.gameloft.pc.quanlythoigian.classPackage.CustomAdapter;
 import com.gameloft.pc.quanlythoigian.classPackage.MonHoc;
 import com.gameloft.pc.quanlythoigian.detailscr;
 import com.gameloft.pc.quanlythoigian.editscr;
@@ -116,18 +116,33 @@ public class TabFragment_monday extends Fragment{
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         if(getUserVisibleHint()){
-            AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+            final AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
             switch (item.getItemId()){
                 case R.id.itDelete:
-                    MonHoc monHoc = listMonHoc.get(menuInfo.position);
-                    boolean check = database.delete(monHoc,2);
-                    if(check){
-                        customAdapter.remove(monHoc);
-                        customAdapter.notifyDataSetChanged();
-                        Toast.makeText(TabFragment_monday.super.getActivity(),"Đã xóa !",Toast.LENGTH_SHORT).show();
-                    }else {
-                        Toast.makeText(TabFragment_monday.super.getActivity(),"Sorry! Lỗi cập nhật dữ liệu.",Toast.LENGTH_SHORT).show();
-                    }
+                    final MonHoc monHoc = listMonHoc.get(menuInfo.position);
+                    AlertDialog.Builder rm=new AlertDialog.Builder(TabFragment_monday.super.getActivity());
+                    rm.setTitle("Question ?");
+                    rm.setMessage("Are you sure you want to delete ? ");
+                    rm.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    rm.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            final boolean check = database.delete(monHoc,2);
+                            if(check){
+                                customAdapter.remove(monHoc);
+                                customAdapter.notifyDataSetChanged();
+                                Toast.makeText(TabFragment_monday.super.getActivity(),"Đã xóa !",Toast.LENGTH_SHORT).show();
+                            }else {
+                                Toast.makeText(TabFragment_monday.super.getActivity(),"Sorry! Lỗi cập nhật dữ liệu.",Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                    rm.create().show();
                     return true;
                 case R.id.itEdit:
                     Intent iEdit = new Intent(TabFragment_monday.super.getContext(),editscr.class);
