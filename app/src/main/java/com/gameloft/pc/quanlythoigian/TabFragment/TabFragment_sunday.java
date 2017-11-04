@@ -121,15 +121,14 @@ public class TabFragment_sunday extends Fragment {
                 case R.id.itDelete:
                     final MonHoc monHoc = listMonHoc.get(menuInfo.position);
                     AlertDialog.Builder rm=new AlertDialog.Builder(TabFragment_sunday.super.getActivity());
-                    rm.setTitle("Question ?");
-                    rm.setMessage("Are you sure you want to delete ? ");
-                    rm.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    rm.setMessage("Bạn có chắc chắn muốn xóa ?");
+                    rm.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.cancel();
                         }
                     });
-                    rm.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    rm.setPositiveButton("Xóa", new DialogInterface.OnClickListener() {
 
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
