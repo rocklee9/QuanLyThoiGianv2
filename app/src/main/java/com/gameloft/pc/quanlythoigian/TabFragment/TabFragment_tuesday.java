@@ -80,6 +80,14 @@ public class TabFragment_tuesday extends Fragment {
     private void setWidgets(){
         database.open();
         listMonHoc = database.getData(3);
+
+        for(int i=0;i<listMonHoc.size()-1;i++){
+            if(timeConvert(listMonHoc.get(i).getThoiGian2()) > timeConvert(listMonHoc.get(i+1).getThoiGian1())){
+                listMonHoc.get(i).setWarning(true);
+                listMonHoc.get(i+1).setWarning(true);
+            }
+        }
+
         customAdapter = new CustomAdapter(getActivity(), R.layout.dong_listview, listMonHoc);
         lvMonHoc.setAdapter(customAdapter);
         registerForContextMenu(lvMonHoc);
@@ -189,5 +197,8 @@ public class TabFragment_tuesday extends Fragment {
             }
         }
     }
-
+    public int timeConvert(String time){
+        String[] strings = time.split(":");
+        return (Integer.valueOf(strings[0].trim())*60 + Integer.valueOf(strings[1].trim()));
+    }
 }

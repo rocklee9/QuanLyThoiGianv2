@@ -84,31 +84,31 @@ public class DatabaseAdapter {
         Cursor cursor;
         switch (day){
             case 2:
-                cursor = database.query(MyDatabase.TABLE_MONDAY,columns,null,null,null,null,null);
+                cursor = database.query(MyDatabase.TABLE_MONDAY,columns,null,null,null,null,MyDatabase.TIME1+" ASC");
                 break;
 
             case 3:
-                cursor = database.query(MyDatabase.TABLE_TUESDAY,columns,null,null,null,null,null);
+                cursor = database.query(MyDatabase.TABLE_TUESDAY,columns,null,null,null,null,MyDatabase.TIME1+" ASC");
                 break;
 
             case 4:
-                cursor = database.query(MyDatabase.TABLE_WEDNESDAY,columns,null,null,null,null,null);
+                cursor = database.query(MyDatabase.TABLE_WEDNESDAY,columns,null,null,null,null,MyDatabase.TIME1+" ASC");
                 break;
 
             case 5:
-                cursor = database.query(MyDatabase.TABLE_THURSDAY,columns,null,null,null,null,null);
+                cursor = database.query(MyDatabase.TABLE_THURSDAY,columns,null,null,null,null,MyDatabase.TIME1+" ASC");
                 break;
 
             case 6:
-                cursor = database.query(MyDatabase.TABLE_FRIDAY,columns,null,null,null,null,null);
+                cursor = database.query(MyDatabase.TABLE_FRIDAY,columns,null,null,null,null,MyDatabase.TIME1+" ASC");
                 break;
 
             case 7:
-                cursor = database.query(MyDatabase.TABLE_SATURDAY,columns,null,null,null,null,null);
+                cursor = database.query(MyDatabase.TABLE_SATURDAY,columns,null,null,null,null,MyDatabase.TIME1+" ASC");
                 break;
 
             default:
-                cursor = database.query(MyDatabase.TABLE_SUNDAY,columns,null,null,null,null,null);
+                cursor = database.query(MyDatabase.TABLE_SUNDAY,columns,null,null,null,null,MyDatabase.TIME1+" ASC");
                 break;
         }
         cursor.moveToFirst();

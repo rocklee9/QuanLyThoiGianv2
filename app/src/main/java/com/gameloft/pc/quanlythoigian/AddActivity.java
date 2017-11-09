@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.gameloft.pc.quanlythoigian.TabFragment.TabFragment_monday;
@@ -18,7 +19,8 @@ import java.util.Calendar;
 public class AddActivity extends AppCompatActivity{
 
     Button btnCancel, btnSave;
-    EditText edtTenMon, edtTime1, edtTime2, edtPhong, edtGV, edtEmail, edtSDT;
+    EditText edtTenMon, edtPhong, edtGV, edtEmail, edtSDT;
+    TextView tvTime1, tvTime2;
     MonHoc monHoc = new MonHoc();
 
     @Override
@@ -34,8 +36,8 @@ public class AddActivity extends AppCompatActivity{
         btnCancel = (Button) findViewById(R.id.btnCancel);
         btnSave = (Button) findViewById(R.id.btnSave);
         edtTenMon = (EditText) findViewById(R.id.edtTenMon);
-        edtTime1 = (EditText) findViewById(R.id.edtTime1);
-        edtTime2 = (EditText) findViewById(R.id.edtTime2);
+        tvTime1 = (TextView) findViewById(R.id.tvTime1);
+        tvTime2 = (TextView) findViewById(R.id.tvTime2);
         edtPhong = (EditText) findViewById(R.id.edtPhong);
         edtGV = (EditText) findViewById(R.id.edtGV);
         edtEmail = (EditText) findViewById(R.id.edtEmail);
@@ -43,13 +45,13 @@ public class AddActivity extends AppCompatActivity{
     }
 
     private void addWidgetsListener() {
-        edtTime1.setOnClickListener(new View.OnClickListener() {
+        tvTime1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showTimePickerDialogBatDau();
             }
         });
-        edtTime2.setOnClickListener(new View.OnClickListener() {
+        tvTime2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showTimePickerDialogKetThuc();
@@ -60,8 +62,8 @@ public class AddActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 monHoc.setTenMonHoc(edtTenMon.getText().toString());
-                monHoc.setThoiGian1(edtTime1.getText().toString());
-                monHoc.setThoiGian2(edtTime2.getText().toString());
+                monHoc.setThoiGian1(tvTime1.getText().toString());
+                monHoc.setThoiGian2(tvTime2.getText().toString());
                 monHoc.setPhong(edtPhong.getText().toString());
                 monHoc.setTenGV(edtGV.getText().toString());
                 monHoc.setEmail(edtEmail.getText().toString());
@@ -93,7 +95,7 @@ public class AddActivity extends AppCompatActivity{
                 calendar.set(Calendar.HOUR_OF_DAY,hourOfday);
                 calendar.set(Calendar.MINUTE,minute);
                 String s = dft.format(calendar.getTime());
-                edtTime1.setText(s);
+                tvTime1.setText(s);
             }
         };
 
@@ -113,7 +115,7 @@ public class AddActivity extends AppCompatActivity{
                 calendar.set(Calendar.HOUR_OF_DAY,hourOfday);
                 calendar.set(Calendar.MINUTE,minute);
                 String s = dft.format(calendar.getTime());
-                edtTime2.setText(s);
+                tvTime2.setText(s);
             }
         };
 

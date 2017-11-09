@@ -78,11 +78,13 @@
                 android:drawableLeft="@drawable/thoigian"/>
 
             <LinearLayout>
-                <EditText
-                    android:id="@+id/edtTime1"
+                <TextView
+                    android:id="@+id/tvTime1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:text="set time"
+                    android:textSize="20sp"
                     android:ems="5" />
 
                 <TextView
@@ -91,11 +93,13 @@
                     android:layout_height="wrap_content"
                     android:text="To" />
 
-                <EditText
-                    android:id="@+id/edtTime2"
+                <TextView
+                    android:id="@+id/tvTime2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:text="set time"
+                    android:textSize="20sp"/>
             </LinearLayout>
 
         </TableRow>
