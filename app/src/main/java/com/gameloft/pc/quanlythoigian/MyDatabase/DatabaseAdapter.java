@@ -123,6 +123,7 @@ public class DatabaseAdapter {
             String email = cursor.getString(cursor.getColumnIndex(MyDatabase.EMAIL));
             String sdt = cursor.getString(cursor.getColumnIndex(MyDatabase.SDT));
             String note = cursor.getString(cursor.getColumnIndex(MyDatabase.NOTE));
+            boolean warning = false;
 
             MonHoc monHoc = new MonHoc();
             monHoc.setId(id);
@@ -134,6 +135,7 @@ public class DatabaseAdapter {
             monHoc.setEmail(email);
             monHoc.setSdt(sdt);
             monHoc.setNote(note);
+            monHoc.setWarning(warning);
 
             listMonHoc.add(monHoc);
             cursor.moveToNext();

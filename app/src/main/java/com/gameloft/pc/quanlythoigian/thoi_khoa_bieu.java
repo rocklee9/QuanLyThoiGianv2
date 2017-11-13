@@ -49,7 +49,6 @@ public class thoi_khoa_bieu extends AppCompatActivity implements TabHost.OnTabCh
 
     private void setWidgets() {
         viewPager.setAdapter(adapter);
-
         tabHost.setup();
 
         TabHost.TabSpec tab_mon = tabHost.newTabSpec("MON");

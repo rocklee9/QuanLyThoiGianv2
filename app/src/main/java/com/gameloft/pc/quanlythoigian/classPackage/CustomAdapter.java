@@ -55,6 +55,7 @@ public class CustomAdapter extends ArrayAdapter<MonHoc> {
         viewHolder.tvPhong.setText(" "+monHoc.getPhong());
 
         if(monHoc.isWarning()) viewHolder.lnItem.setBackgroundResource(R.drawable.vientron2);
+            else viewHolder.lnItem.setBackgroundResource(R.drawable.vientron);
 //        if(position == 0){
 //            if((timeConvert(monHoc.getThoiGian2()) > timeConvert(arrMonHoc.get(position+1).getThoiGian1()))){
 //                viewHolder.lnItem.setBackgroundResource(R.drawable.vientron2);

@@ -24,6 +24,7 @@ import com.gameloft.pc.quanlythoigian.classPackage.CustomAdapter;
 import com.gameloft.pc.quanlythoigian.classPackage.MonHoc;
 import com.gameloft.pc.quanlythoigian.detailscr;
 import com.gameloft.pc.quanlythoigian.editscr;
+import com.gameloft.pc.quanlythoigian.notescr;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,9 +44,11 @@ public class TabFragment_thursday extends Fragment {
 
     public static final int REQUEST_CODE_ADD = 1;
     public static final int REQUEST_CODE_EDIT = 2;
+    public static final int REQUEST_CODE_NOTE = 3;
 
-    public static final int RESULT_CODE_ADD = 3;
-    public static final int RESULT_CODE_EDIT = 4;
+    public static final int RESULT_CODE_ADD = 4;
+    public static final int RESULT_CODE_EDIT = 5;
+    public static final int RESULT_CODE_NOTE = 6;
 
     public TabFragment_thursday() {
         // Required empty public constructor
@@ -158,6 +161,13 @@ public class TabFragment_thursday extends Fragment {
                     iEdit.putExtra("monhocEdit",monHocEdit);
                     startActivityForResult(iEdit,REQUEST_CODE_EDIT);
                     return true;
+
+                case R.id.itNote:
+                    Intent iNote = new Intent(TabFragment_thursday.super.getContext(),notescr.class);
+                    MonHoc monHocNote = listMonHoc.get(menuInfo.position);
+                    iNote.putExtra("monHocNote",monHocNote);
+                    startActivityForResult(iNote,REQUEST_CODE_NOTE);
+                    return true;
             }
         }
         return false;
@@ -197,8 +207,25 @@ public class TabFragment_thursday extends Fragment {
                     }
             }
         }
+
+        if(requestCode == REQUEST_CODE_NOTE){
+            switch (resultCode){
+                case RESULT_CODE_NOTE:
+                    MonHoc monHoc = (MonHoc) data.getSerializableExtra("monHocNoted");
+                    boolean check = database.update(monHoc,5);
+                    if(check){
+                        listMonHoc = database.getData(5);
+                        customAdapter = new CustomAdapter(getActivity(),R.layout.dong_listview, listMonHoc);
+                        lvMonHoc.setAdapter(customAdapter);
+                        Toast.makeText(TabFragment_thursday.super.getActivity(),"Đã lưu ghi chú !", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(TabFragment_thursday.super.getActivity(),"Sorry! Lỗi cập nhật dữ liệu.",Toast.LENGTH_SHORT).show();
+                    }
+            }
+        }
     }
     public int timeConvert(String time){
+        if(time.trim().isEmpty()) return 0;
         String[] strings = time.split(":");
         return (Integer.valueOf(strings[0].trim())*60 + Integer.valueOf(strings[1].trim()));
     }
