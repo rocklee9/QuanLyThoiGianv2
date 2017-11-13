@@ -7,12 +7,13 @@
     <TextView
         android:id="@+id/idTitle"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:background="#1e7bc9"
         android:gravity="center"
         android:text="THÊM MÔN HỌC"
+        android:textStyle="bold"
         android:textColor="#fff"
-        android:textSize="@dimen/text_size_title" />
+        android:textSize="40dp" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -29,9 +30,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Môn:"
+                android:text=" Môn"
                 android:textSize="20sp"
                 android:gravity="center|start"
+                android:textStyle="bold"
+                android:textColor="@color/phuc_blue"
                 android:drawableLeft="@drawable/mon_hoc" />
 
             <EditText
@@ -49,9 +52,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Phòng:"
+                android:text=" Phòng"
                 android:textSize="20sp"
                 android:gravity="center|left"
+                android:textStyle="bold"
+                android:textColor="#999999"
                 android:drawableLeft="@drawable/phong"/>
 
             <EditText
@@ -70,9 +75,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thời gian:"
+                android:text=" Thời gian"
                 android:textSize="20sp"
                 android:gravity="center|left"
+                android:textColor="#999999"
+                android:textStyle="bold"
                 android:drawableLeft="@drawable/thoigian"/>
 
             <LinearLayout>
@@ -81,23 +88,30 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:hint="set time"
+                    android:hint="Bắt đầu"
                     android:textSize="20sp"
-                    android:ems="5" />
+                    android:textStyle="bold"
+                    android:ems="5"
+                    android:textColor="#999999"/>
 
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="To" />
+                    android:text=":"
+                    android:textStyle="bold"
+                    android:textColor="#999999"/>
 
                 <TextView
                     android:id="@+id/tvTime2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:hint="set time"
-                    android:textSize="20sp"/>
+                    android:hint="Kết Thúc"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#999999"
+                    android:ems="5"/>
             </LinearLayout>
 
         </TableRow>
@@ -110,10 +124,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Giảng viên:"
+                android:text=" Giảng viên"
                 android:textSize="20sp"
                 android:gravity="center|left"
-                android:drawableLeft="@drawable/giang_vien"/>
+                android:drawableLeft="@drawable/giang_vien"
+                android:textStyle="bold"
+                android:textColor="@color/phuc_blue"/>
 
             <EditText
                 android:id="@+id/edtGV"
@@ -130,10 +146,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Email:"
+                android:text=" Email"
                 android:textSize="20sp"
                 android:gravity="center|left"
-                android:drawableLeft="@drawable/email"/>
+                android:drawableLeft="@drawable/email"
+                android:textColor="#999999"
+                android:textStyle="bold"/>
 
             <EditText
                 android:id="@+id/edtEmail"
@@ -150,10 +168,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Sdt:"
+                android:text=" Sdt"
                 android:textSize="20sp"
                 android:gravity="center|left"
-                android:drawableLeft="@drawable/sdt"/>
+                android:drawableLeft="@drawable/sdt"
+                android:textStyle="bold"
+                android:textColor="#999999"/>
 
             <EditText
                 android:id="@+id/edtSDT"
@@ -177,17 +197,19 @@
                 android:textSize="20sp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/edt_margin_right"/>
+                android:layout_marginRight="@dimen/edt_margin_right"
+                android:layout_marginTop="20dp"/>
 
             <Button
                 android:id="@+id/btnCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/corner_btn_xoa"
+                android:background="#999999"
                 android:text="Hủy"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                android:layout_marginLeft="@dimen/edt_margin_left"/>
+                android:layout_marginLeft="@dimen/edt_margin_left"
+                android:layout_marginTop="20dp"/>
         </RelativeLayout>
 
 
