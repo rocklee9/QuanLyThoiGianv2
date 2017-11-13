@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:orientation="horizontal"
         android:background="#1e7bc9">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="50dp"
             android:gravity="center"
             android:text="CHI TIẾT"
             android:textColor="#fff"
-            android:textSize="@dimen/text_size_title" />
+            android:textSize="@dimen/text_size_title"
+            android:textStyle="bold"/>
 
         <ImageButton
             android:id="@+id/btnBack"
@@ -45,29 +47,28 @@
 
             <TextView
                 android:layout_height="40dp"
-                android:background="@drawable/custom2"
                 android:drawableLeft="@drawable/mon_hoc"
                 android:gravity="center|left"
-                android:text="Môn học"
-                android:textColor="#f40505"
+                android:text=" Môn học"
+                android:textColor="@color/phuc_blue"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_height="40dp"
                 android:layout_span="1"
                 android:gravity="center"
                 android:text=":"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tvTenMon"
                 android:layout_height="40dp"
                 android:layout_span="15"
-                android:background="@drawable/custom_simple"
                 android:gravity="center_vertical"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:hint="________________________"
+                android:textStyle="bold"/>
 
         </TableRow>
 
@@ -84,11 +85,10 @@
 
             <TextView
                 android:layout_height="40dp"
-                android:background="@drawable/custom2"
                 android:drawableLeft="@drawable/phong"
                 android:gravity="center|left"
-                android:text="Phòng"
-                android:textColor="#000000"
+                android:text=" Phòng"
+                android:textColor="#999999"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -97,16 +97,16 @@
                 android:layout_span="1"
                 android:gravity="center"
                 android:text=":"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tvPhong"
                 android:layout_height="40dp"
                 android:layout_span="15"
-                android:background="@drawable/custom_simple"
                 android:gravity="center_vertical"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:hint="________________________"
+                android:textStyle="bold"/>
         </TableRow>
 
         <TableRow>
@@ -122,11 +122,10 @@
 
             <TextView
                 android:layout_height="40dp"
-                android:background="@drawable/custom2"
                 android:drawableLeft="@drawable/thoigian"
                 android:gravity="center|left"
-                android:text="Thời gian"
-                android:textColor="#000000"
+                android:text=" Thời gian"
+                android:textColor="#999999"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -135,16 +134,16 @@
                 android:layout_span="1"
                 android:gravity="center"
                 android:text=":"
-                android:textStyle="bold" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tvTime"
                 android:layout_height="40dp"
                 android:layout_span="15"
-                android:background="@drawable/custom_simple"
                 android:gravity="center_vertical"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:hint="________________________"
+                android:textStyle="bold"/>
         </TableRow>
 
         <TableRow>
@@ -169,11 +168,10 @@
 
             <TextView
                 android:layout_height="40dp"
-                android:background="@drawable/custom2"
                 android:drawableLeft="@drawable/giang_vien"
                 android:gravity="center|left"
-                android:text="Giảng viên"
-                android:textColor="#f40505"
+                android:text=" Giảng viên"
+                android:textColor="@color/phuc_blue"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -183,15 +181,16 @@
                 android:gravity="center"
                 android:text=":"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textColor="#999999" />
 
             <TextView
                 android:id="@+id/tvGV"
                 android:layout_height="40dp"
                 android:layout_span="15"
-                android:background="@drawable/custom_simple"
                 android:gravity="center_vertical"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:hint="________________________"
+                android:textStyle="bold"/>
         </TableRow>
 
         <TableRow>
@@ -207,11 +206,10 @@
 
             <TextView
                 android:layout_height="40dp"
-                android:background="@drawable/custom2"
                 android:drawableLeft="@drawable/email"
                 android:gravity="center|left"
-                android:text="Email"
-                android:textColor="#000000"
+                android:text=" Email"
+                android:textColor="#999999"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -219,17 +217,18 @@
                 android:layout_height="40dp"
                 android:layout_span="1"
                 android:gravity="center"
-                android:text=":"
-                android:textStyle="bold" />
+                android:textColor="#999999"
+                android:textSize="18sp"
+                android:text=":"/>
 
             <TextView
                 android:id="@+id/tvEmail"
                 android:layout_height="40dp"
                 android:layout_span="15"
-                android:background="@drawable/custom_simple"
                 android:gravity="center_vertical"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:hint="________________________"
+                android:textStyle="bold"/>
         </TableRow>
 
         <TableRow>
@@ -245,12 +244,10 @@
 
             <TextView
                 android:layout_height="40dp"
-
-                android:background="@drawable/custom2"
                 android:drawableLeft="@drawable/sdt"
                 android:gravity="center|left"
-                android:text="Sdt"
-                android:textColor="#000000"
+                android:text=" SĐT"
+                android:textColor="#999999"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -259,17 +256,17 @@
                 android:layout_span="1"
                 android:gravity="center"
                 android:text=":"
-                android:textColor="#000000"
-                android:textStyle="bold" />
+                android:textSize="18sp"
+                android:textColor="#999999" />
 
             <TextView
                 android:id="@+id/tvSdt"
                 android:layout_height="40dp"
                 android:layout_span="15"
-                android:background="@drawable/custom_simple"
                 android:gravity="center_vertical"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:hint="________________________"
+                android:textStyle="bold"/>
         </TableRow>
 
         <TableRow
@@ -284,24 +281,30 @@
         android:padding="5dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_width="350dp"
+            android:layout_height="210dp"
+            android:background="#B0E0E6"
+            android:orientation="vertical"
+            android:layout_gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custom1"
                 android:drawableLeft="@drawable/notep"
                 android:gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
                 android:text="Note:"
-                android:textColor="#000000"
-                android:textSize="20dp" />
+                android:textColor="#999999"
+                android:textSize="20dp"
+                android:layout_marginLeft="10dp" />
 
             <TextView
                 android:id="@+id/tvNote"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_width="320dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:textSize="15dp"/>
         </LinearLayout>
 
 
