@@ -2,10 +2,13 @@ package com.gameloft.pc.quanlythoigian;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.gameloft.pc.quanlythoigian.TabFragment.TabFragment_monday;
 import com.gameloft.pc.quanlythoigian.classPackage.MonHoc;
@@ -26,6 +29,13 @@ public class notescr extends Activity {
         getWidgets();
         setWidgets();
         addWidgetsListener();
+
+        btnCam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                capturePic();
+            }
+        });
 
     }
 
@@ -64,6 +74,16 @@ public class notescr extends Activity {
                 finish();
             }
         });
+    }
+
+    private void capturePic(){
+        if(getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)){
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(intent, 100);
+        }
+        else{
+            Toast.makeText(getApplication(), "Camera khong duoc ho tro",Toast.LENGTH_LONG).show();
+        }
     }
 
 

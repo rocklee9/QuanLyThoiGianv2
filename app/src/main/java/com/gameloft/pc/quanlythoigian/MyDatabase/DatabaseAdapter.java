@@ -141,6 +141,12 @@ public class DatabaseAdapter {
             cursor.moveToNext();
         }
 
+        for(int i=0;i<listMonHoc.size()-1;i++){
+            if(timeConvert(listMonHoc.get(i).getThoiGian2()) > timeConvert(listMonHoc.get(i+1).getThoiGian1())){
+                listMonHoc.get(i).setWarning(true);
+                listMonHoc.get(i+1).setWarning(true);
+            }
+        }
 
         return listMonHoc;
     }
@@ -218,5 +224,11 @@ public class DatabaseAdapter {
         }else{
             return false;
         }
+    }
+
+    public int timeConvert(String time){
+        if(time.trim().isEmpty()) return 0;
+        String[] strings = time.split(":");
+        return (Integer.valueOf(strings[0].trim())*60 + Integer.valueOf(strings[1].trim()));
     }
 }
