@@ -88,30 +88,29 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:hint="Bắt đầu"
+                    android:hint="  Bắt đầu"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:ems="5"
                     android:textColor="#999999"/>
 
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="-"
+                    android:text="       -      "
                     android:textStyle="bold"
                     android:textColor="#999999"/>
 
                 <TextView
                     android:id="@+id/tvTime2"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:hint="Kết Thúc"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="#999999"
-                    android:ems="5"/>
+                    />
             </LinearLayout>
 
         </TableRow>
@@ -179,6 +178,7 @@
                 android:id="@+id/edtSDT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:ems="10" />
         </TableRow>
 

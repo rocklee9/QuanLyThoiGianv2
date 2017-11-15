@@ -39,16 +39,10 @@
             android:stretchColumns="*">
 
 
-            <TableRow>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="4dp" />
-            </TableRow>
-
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp">
 
                 <TextView
                     android:layout_height="40dp"
@@ -63,7 +57,7 @@
                     android:layout_height="40dp"
                     android:layout_span="1"
                     android:gravity="center"
-                    android:text=":"
+                    android:text=": "
                     android:textSize="18sp" />
 
                 <TextView
@@ -77,16 +71,10 @@
 
             </TableRow>
 
-            <TableRow>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="4dp" />
-            </TableRow>
-
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp">
 
                 <TextView
                     android:layout_height="40dp"
@@ -101,7 +89,7 @@
                     android:layout_height="40dp"
                     android:layout_span="1"
                     android:gravity="center"
-                    android:text=":"
+                    android:text=": "
                     android:textSize="18sp" />
 
                 <TextView
@@ -114,16 +102,11 @@
                     android:textStyle="bold" />
             </TableRow>
 
-            <TableRow>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="4dp" />
-            </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp">
 
                 <TextView
                     android:layout_height="40dp"
@@ -138,7 +121,7 @@
                     android:layout_height="40dp"
                     android:layout_span="1"
                     android:gravity="center"
-                    android:text=":"
+                    android:text=": "
                     android:textSize="18sp" />
 
                 <TextView
@@ -151,24 +134,10 @@
                     android:textStyle="bold" />
             </TableRow>
 
-            <TableRow>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="4dp" />
-            </TableRow>
-
-
-            <TableRow>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="4dp" />
-            </TableRow>
-
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp">
 
                 <TextView
                     android:layout_height="40dp"
@@ -183,7 +152,7 @@
                     android:layout_height="40dp"
                     android:layout_span="1"
                     android:gravity="center"
-                    android:text=":"
+                    android:text=": "
                     android:textColor="#999999"
                     android:textSize="18sp" />
 
@@ -197,16 +166,11 @@
                     android:textStyle="bold" />
             </TableRow>
 
-            <TableRow>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="4dp" />
-            </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp">
 
                 <TextView
                     android:layout_height="40dp"
@@ -221,7 +185,7 @@
                     android:layout_height="40dp"
                     android:layout_span="1"
                     android:gravity="center"
-                    android:text=":"
+                    android:text=": "
                     android:textColor="#999999"
                     android:textSize="18sp" />
 
@@ -241,16 +205,10 @@
                     android:textStyle="bold" />
             </TableRow>
 
-            <TableRow>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="4dp" />
-            </TableRow>
-
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp">
 
                 <TextView
                     android:layout_height="40dp"
@@ -265,7 +223,7 @@
                     android:layout_height="40dp"
                     android:layout_span="1"
                     android:gravity="center"
-                    android:text=":"
+                    android:text=": "
                     android:textColor="#999999"
                     android:textSize="18sp" />
 
@@ -283,9 +241,6 @@
 
             </TableRow>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="10dp"></TableRow>
         </TableLayout>
 
         <ImageButton
@@ -330,7 +285,7 @@
 
         <LinearLayout
             android:layout_width="350dp"
-            android:layout_height="210dp"
+            android:layout_height="match_parent"
             android:background="#B0E0E6"
             android:orientation="vertical"
             android:layout_gravity="center">
@@ -344,7 +299,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Note:"
                 android:textColor="#999999"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:layout_marginLeft="10dp" />
 
             <TextView
@@ -352,7 +307,7 @@
                 android:layout_width="320dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:textSize="15dp"/>
+                android:textSize="20sp"/>
         </LinearLayout>
 
 
