@@ -8,4 +8,8 @@
     <item
         android:id="@+id/itDelete"
         android:title="Xóa"/>
+
+    <item
+        android:id="@+id/itNote"
+        android:title="Ghi chú"/>
 </menu>

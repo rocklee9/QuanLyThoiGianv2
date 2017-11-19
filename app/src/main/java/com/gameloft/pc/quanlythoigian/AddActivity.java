@@ -1,7 +1,9 @@
 package com.gameloft.pc.quanlythoigian;
 
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -61,17 +63,33 @@ public class AddActivity extends AppCompatActivity{
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                monHoc.setTenMonHoc(edtTenMon.getText().toString());
-                monHoc.setThoiGian1(tvTime1.getText().toString());
-                monHoc.setThoiGian2(tvTime2.getText().toString());
-                monHoc.setPhong(edtPhong.getText().toString());
-                monHoc.setTenGV(edtGV.getText().toString());
-                monHoc.setEmail(edtEmail.getText().toString());
-                monHoc.setSdt(edtSDT.getText().toString());
-                Intent data = new Intent();
-                data.putExtra("monhoc",monHoc);
-                setResult(TabFragment_monday.RESULT_CODE_ADD,data);
-                finish();
+                if(edtTenMon.getText().toString().isEmpty()){
+                    AlertDialog.Builder rm = new AlertDialog.Builder(AddActivity.this);
+                    rm.setMessage("Lưu mà không có tên môn học ?");
+                    rm.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    rm.setPositiveButton("Lưu", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            setMonHoc();
+                            Intent data = new Intent();
+                            data.putExtra("monhoc",monHoc);
+                            setResult(TabFragment_monday.RESULT_CODE_ADD,data);
+                            finish();
+                        }
+                    });
+                    rm.create().show();
+                }else{
+                    setMonHoc();
+                    Intent data = new Intent();
+                    data.putExtra("monhoc",monHoc);
+                    setResult(TabFragment_monday.RESULT_CODE_ADD,data);
+                    finish();
+                }
             }
         });
 
@@ -121,6 +139,16 @@ public class AddActivity extends AppCompatActivity{
 
         TimePickerDialog pic=new TimePickerDialog(this, onTimeSetListener, hour, min, true);
         pic.show();
+    }
+
+    public void setMonHoc(){
+        monHoc.setTenMonHoc(edtTenMon.getText().toString());
+        monHoc.setThoiGian1(tvTime1.getText().toString());
+        monHoc.setThoiGian2(tvTime2.getText().toString());
+        monHoc.setPhong(edtPhong.getText().toString());
+        monHoc.setTenGV(edtGV.getText().toString());
+        monHoc.setEmail(edtEmail.getText().toString());
+        monHoc.setSdt(edtSDT.getText().toString());
     }
 
 }

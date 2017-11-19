@@ -1,19 +1,27 @@
 package com.gameloft.pc.quanlythoigian;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.content.pm.PackageManager;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import com.gameloft.pc.quanlythoigian.TabFragment.TabFragment_monday;
+import com.gameloft.pc.quanlythoigian.classPackage.MonHoc;
+
+
 public class notescr extends Activity {
-    Button btncam;
-    ImageView iv;
+    Button btnCam, btnSave, btnCancel;
+    EditText edtNote;
+    MonHoc monHoc;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,44 +36,61 @@ public class notescr extends Activity {
     }
 
     private void init() {
+        monHoc = new MonHoc();
     }
 
     private void getWidgets() {
-        btncam=(Button)findViewById(R.id.btnCamera);
-        iv=(ImageView)findViewById(R.id.imgView);
+        btnCam = (Button) findViewById(R.id.btnCamera);
+        btnSave = (Button) findViewById(R.id.btnSave);
+        btnCancel = (Button) findViewById(R.id.btnCancel);
+        edtNote = (EditText) findViewById(R.id.edtNote);
     }
 
 
-    private void setWidgets(){
-
+    private void setWidgets() {
+        monHoc = (MonHoc) getIntent().getSerializableExtra("monHocNote");
+        edtNote.setText(monHoc.getNote());
     }
 
     private void addWidgetsListener() {
-        btncam.setOnClickListener(new View.OnClickListener() {
+        btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                capturePicture();
+                monHoc.setNote(edtNote.getText().toString());
+                Intent data = new Intent();
+                data.putExtra("monHocNoted", monHoc);
+                setResult(TabFragment_monday.RESULT_CODE_NOTE, data);
+                finish();
             }
         });
 
-    }
+        btnCam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ActivityCompat.requestPermissions(notescr.this,
+                        new String[]{Manifest.permission.CAMERA}, 100);
+            }
+        });
 
-    private void capturePicture(){
-        if(getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)){
-            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            startActivityForResult(intent, 100);
-        }else {
-            Toast.makeText(getApplication(),"Cam không được hỗ trợ", Toast.LENGTH_SHORT).show();
-        }
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        //Lấy ảnh từ intent Camera của mình về dưới dạng bitmap và hiển thị lên imageview của mình
-        Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-        iv.setImageBitmap(bitmap);
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        if (requestCode == 100 && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(intent, 100);
+        } else {
+            Toast.makeText(this, "ban khong duoc mo camera", Toast.LENGTH_LONG).show();
+        }
+
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
-
-
 }

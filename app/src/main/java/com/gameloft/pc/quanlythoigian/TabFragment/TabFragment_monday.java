@@ -24,6 +24,7 @@ import com.gameloft.pc.quanlythoigian.classPackage.CustomAdapter;
 import com.gameloft.pc.quanlythoigian.classPackage.MonHoc;
 import com.gameloft.pc.quanlythoigian.detailscr;
 import com.gameloft.pc.quanlythoigian.editscr;
+import com.gameloft.pc.quanlythoigian.notescr;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,9 +43,12 @@ public class TabFragment_monday extends Fragment{
 
     public static final int REQUEST_CODE_ADD = 1;
     public static final int REQUEST_CODE_EDIT = 2;
+    public static final int REQUEST_CODE_NOTE = 3;
 
-    public static final int RESULT_CODE_ADD = 3;
-    public static final int RESULT_CODE_EDIT = 4;
+    public static final int RESULT_CODE_ADD = 4;
+    public static final int RESULT_CODE_EDIT = 5;
+    public static final int RESULT_CODE_NOTE = 6;
+
 
 
     public TabFragment_monday() {
@@ -67,7 +71,7 @@ public class TabFragment_monday extends Fragment{
 
 
     private void init(){
-        listMonHoc =  new ArrayList<MonHoc>();
+        listMonHoc =  new ArrayList<>();
         database = new DatabaseAdapter(TabFragment_monday.super.getContext());
     }
 
@@ -80,13 +84,6 @@ public class TabFragment_monday extends Fragment{
     private void setWidgets(){
         database.open();
         listMonHoc = database.getData(2);
-
-        for(int i=0;i<listMonHoc.size()-1;i++){
-            if(timeConvert(listMonHoc.get(i).getThoiGian2()) > timeConvert(listMonHoc.get(i+1).getThoiGian1())){
-                listMonHoc.get(i).setWarning(true);
-                listMonHoc.get(i+1).setWarning(true);
-            }
-        }
 
         customAdapter = new CustomAdapter(getActivity(), R.layout.dong_listview, listMonHoc);
         lvMonHoc.setAdapter(customAdapter);
@@ -151,11 +148,19 @@ public class TabFragment_monday extends Fragment{
                     });
                     rm.create().show();
                     return true;
+
                 case R.id.itEdit:
                     Intent iEdit = new Intent(TabFragment_monday.super.getContext(),editscr.class);
                     MonHoc monHocEdit = listMonHoc.get(menuInfo.position);
                     iEdit.putExtra("monhocEdit",monHocEdit);
                     startActivityForResult(iEdit,REQUEST_CODE_EDIT);
+                    return true;
+
+                case R.id.itNote:
+                    Intent iNote = new Intent(TabFragment_monday.super.getContext(),notescr.class);
+                    MonHoc monHocNote = listMonHoc.get(menuInfo.position);
+                    iNote.putExtra("monHocNote",monHocNote);
+                    startActivityForResult(iNote,REQUEST_CODE_NOTE);
                     return true;
             }
         }
@@ -196,9 +201,21 @@ public class TabFragment_monday extends Fragment{
                     }
             }
         }
-    }
-    public int timeConvert(String time){
-        String[] strings = time.split(":");
-        return (Integer.valueOf(strings[0].trim())*60 + Integer.valueOf(strings[1].trim()));
+
+        if(requestCode == REQUEST_CODE_NOTE){
+            switch (resultCode){
+                case RESULT_CODE_NOTE:
+                    MonHoc monHoc = (MonHoc) data.getSerializableExtra("monHocNoted");
+                    boolean check = database.update(monHoc,2);
+                    if(check){
+                        listMonHoc = database.getData(2);
+                        customAdapter = new CustomAdapter(getActivity(),R.layout.dong_listview, listMonHoc);
+                        lvMonHoc.setAdapter(customAdapter);
+                        Toast.makeText(TabFragment_monday.super.getActivity(),"Đã lưu ghi chú !", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(TabFragment_monday.super.getActivity(),"Sorry! Lỗi cập nhật dữ liệu.",Toast.LENGTH_SHORT).show();
+                    }
+            }
+        }
     }
 }

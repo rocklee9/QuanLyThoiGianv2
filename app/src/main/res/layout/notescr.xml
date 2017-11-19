@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
@@ -9,17 +10,18 @@
         android:text="@string/title_name_note"
         android:textSize="40dp"
         android:gravity="center"
+        android:textStyle="bold"
         android:layout_marginBottom="@dimen/edt_margin_bottom"
         android:background="#1e7bc9"
         android:textColor="@color/white"/>
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/edtNote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/edt_margin_left"
         android:layout_marginRight="@dimen/edt_margin_right"
-        android:text="@string/text_note" />
+        android:hint="Nhập ghi chú ..."/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -28,26 +30,38 @@
         android:layout_marginRight="@dimen/edt_margin_right"
         android:layout_marginBottom="@dimen/edt_margin_bottom"
         android:layout_marginTop="@dimen/edt_margin_top">
+
         <Button
-            android:id="@+id/btnTickBox"
-            android:layout_width="@dimen/icon_width"
-            android:layout_height="@dimen/icon_hight"
-            android:background="@drawable/icons8_tick_box_50px"
-            android:layout_alignParentBottom="true"
+            android:id="@+id/btnSave"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/btnCamera"
+            android:background="@drawable/corner_button"
+            android:text="Lưu"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/btnCamera"
+            android:background="#999999"
+            android:text="Hủy"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/btnCamera"
-            android:layout_width="@dimen/icon_width"
-            android:layout_height="@dimen/icon_hight"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:background="@drawable/icons8_camera_64px_2"
-            android:layout_alignParentBottom="true"/>
-
-        <ImageView
-            android:id="@+id/imgView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
     </RelativeLayout>
 
 </LinearLayout>

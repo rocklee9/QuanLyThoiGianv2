@@ -123,6 +123,7 @@ public class DatabaseAdapter {
             String email = cursor.getString(cursor.getColumnIndex(MyDatabase.EMAIL));
             String sdt = cursor.getString(cursor.getColumnIndex(MyDatabase.SDT));
             String note = cursor.getString(cursor.getColumnIndex(MyDatabase.NOTE));
+            boolean warning = false;
 
             MonHoc monHoc = new MonHoc();
             monHoc.setId(id);
@@ -134,11 +135,18 @@ public class DatabaseAdapter {
             monHoc.setEmail(email);
             monHoc.setSdt(sdt);
             monHoc.setNote(note);
+            monHoc.setWarning(warning);
 
             listMonHoc.add(monHoc);
             cursor.moveToNext();
         }
 
+        for(int i=0;i<listMonHoc.size()-1;i++){
+            if(timeConvert(listMonHoc.get(i).getThoiGian2()) > timeConvert(listMonHoc.get(i+1).getThoiGian1())){
+                listMonHoc.get(i).setWarning(true);
+                listMonHoc.get(i+1).setWarning(true);
+            }
+        }
 
         return listMonHoc;
     }
@@ -216,5 +224,11 @@ public class DatabaseAdapter {
         }else{
             return false;
         }
+    }
+
+    public int timeConvert(String time){
+        if(time.trim().isEmpty()) return 0;
+        String[] strings = time.split(":");
+        return (Integer.valueOf(strings[0].trim())*60 + Integer.valueOf(strings[1].trim()));
     }
 }

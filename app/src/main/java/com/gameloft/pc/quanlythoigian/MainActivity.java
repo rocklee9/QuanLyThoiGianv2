@@ -10,7 +10,6 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     Button btntkb,btntgb;
-    ConstraintLayout manhinh;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +28,6 @@ public class MainActivity extends AppCompatActivity {
     private void getWidgets() {
         btntkb =(Button)findViewById(R.id.btntkb);
         btntgb=(Button)findViewById(R.id.btntgb);
-        manhinh=(ConstraintLayout)findViewById(R.id.manHinh);
-        manhinh.setBackgroundResource(R.drawable.bia1);
     }
 
     private void setWidgets() {
