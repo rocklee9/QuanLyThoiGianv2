@@ -1,9 +1,531 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:context="com.gameloft.pc.quanlythoigian.thoi_gian_bieu">
 
-</android.support.constraint.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="@dimen/tgb_margin_top"
+               >
+               <Button
+                   android:layout_marginLeft="@dimen/tgb_margin_left"
+                   android:layout_width="@dimen/width_button"
+                   android:layout_height="@dimen/hight_button"
+                   android:background="@drawable/custom3"
+                   android:gravity="center"
+                   android:textSize="@dimen/test_size"
+                   android:text="date"/>
+               <Button
+                   android:textSize="@dimen/test_size"
+                   android:layout_marginLeft="@dimen/tgb_margin_left"
+                   android:id="@+id/btn_week"
+                   android:background="@drawable/custom2"
+                   android:layout_width="@dimen/width_button"
+                   android:layout_height="@dimen/hight_button"
+                   android:text="week"
+
+                  />
+
+
+
+               <TextView
+                   android:layout_width="50dp"
+                   android:layout_height="@dimen/hight_button" />
+
+               <TextView
+                    android:id="@+id/tv_day"
+                   android:gravity="center"
+                   android:layout_marginTop="@dimen/tgb_margin_left"
+                   android:layout_width="match_parent"
+                   android:layout_height="@dimen/hight_button"
+                   android:layout_gravity="right"
+                   android:textSize="20dp"
+                   android:textStyle="bold"
+                   />
+           </LinearLayout>
+
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tgb_margin_top"
+            android:orientation="vertical">
+
+
+        <TableLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:background="@drawable/custom4"
+           android:stretchColumns="*"
+           >
+           <TableRow>
+            <TextView
+                android:layout_span="1"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="0 AM"
+                android:background="@drawable/custom4"
+                />
+            <TextView
+                android:id="@+id/tv_0"
+                android:layout_span="5"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:background="@drawable/custom4"
+                android:onClick="onClick"
+                />
+           </TableRow>
+
+           <TableRow>
+               <TextView
+                   android:layout_span="1"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:text="1 AM"
+                   android:background="@drawable/custom4"
+                   />
+               <TextView
+                   android:id="@+id/tv_1"
+                   android:layout_span="5"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:background="@drawable/custom4"
+                   android:onClick="onClick"
+                   />
+           </TableRow>
+
+
+           <TableRow>
+               <TextView
+                   android:layout_span="1"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:text="2 AM"
+                   android:background="@drawable/custom4"
+                   />
+               <TextView
+                   android:id="@+id/tv_2"
+                   android:layout_span="5"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:background="@drawable/custom4"
+                   android:onClick="onClick"
+                   />
+           </TableRow>
+
+
+           <TableRow>
+               <TextView
+                   android:layout_span="1"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:text="3 AM"
+                   android:background="@drawable/custom4"
+                   />
+               <TextView
+                   android:id="@+id/tv_3"
+                   android:layout_span="5"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:background="@drawable/custom4"
+                   android:onClick="onClick"
+                   />
+           </TableRow>
+
+
+           <TableRow>
+               <TextView
+                   android:layout_span="1"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:text="4 AM"
+                   android:background="@drawable/custom4"
+                   />
+               <TextView
+                   android:id="@+id/tv_4"
+                   android:layout_span="5"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:background="@drawable/custom4"
+                   android:onClick="onClick"
+                   />
+           </TableRow>
+
+
+           <TableRow>
+               <TextView
+                   android:layout_span="1"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:text="5 AM"
+                   android:background="@drawable/custom4"
+                   />
+               <TextView
+                   android:id="@+id/tv_5"
+                   android:layout_span="5"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:background="@drawable/custom4"
+                   android:onClick="onClick"
+                   />
+           </TableRow>
+
+
+           <TableRow>
+               <TextView
+                   android:layout_span="1"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:text="6 AM"
+                   android:background="@drawable/custom4"
+                   />
+               <TextView
+                   android:id="@+id/tv_6"
+                   android:layout_span="5"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:background="@drawable/custom4"
+                   android:onClick="onClick"
+                   />
+           </TableRow>
+
+
+           <TableRow>
+               <TextView
+                   android:layout_span="1"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:text="7 AM"
+                   android:background="@drawable/custom4"
+                   />
+               <TextView
+                   android:id="@+id/tv_7"
+                   android:layout_span="5"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:background="@drawable/custom4"
+                   android:onClick="onClick"
+                   />
+           </TableRow>
+
+
+           <TableRow>
+               <TextView
+                   android:layout_span="1"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:text="8 AM"
+                   android:background="@drawable/custom4"
+                   />
+               <TextView
+                   android:id="@+id/tv_8"
+                   android:layout_span="5"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:background="@drawable/custom4"
+                   android:onClick="onClick"
+                   />
+           </TableRow>
+
+
+           <TableRow>
+               <TextView
+                   android:layout_span="1"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:text="9 AM"
+                   android:background="@drawable/custom4"
+                   />
+               <TextView
+                   android:id="@+id/tv_9"
+                   android:layout_span="5"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:background="@drawable/custom4"
+                   android:onClick="onClick"
+                   />
+           </TableRow>
+
+
+           <TableRow>
+               <TextView
+                   android:layout_span="1"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:text="10 AM"
+                   android:background="@drawable/custom4"
+                   />
+               <TextView
+                   android:id="@+id/tv_10"
+                   android:layout_span="5"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:background="@drawable/custom4"
+                   android:onClick="onClick"
+                   />
+           </TableRow>
+
+
+           <TableRow>
+               <TextView
+                   android:layout_span="1"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:text="11 AM"
+                   android:background="@drawable/custom4"
+                   />
+               <TextView
+                   android:id="@+id/tv_11"
+                   android:layout_span="5"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:background="@drawable/custom4"
+                   android:onClick="onClick"
+                   />
+           </TableRow>
+
+
+           <TableRow>
+               <TextView
+                   android:layout_span="1"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:text="12 PM"
+                   android:background="@drawable/custom4"
+                   />
+               <TextView
+                   android:id="@+id/tv_12"
+                   android:layout_span="5"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:background="@drawable/custom4"
+                   android:onClick="onClick"
+                   />
+           </TableRow>
+
+
+           <TableRow>
+               <TextView
+                   android:layout_span="1"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:text="1 PM"
+                   android:background="@drawable/custom4"
+                   />
+               <TextView
+                   android:id="@+id/tv_13"
+                   android:layout_span="5"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:background="@drawable/custom4"
+                   android:onClick="onClick"
+                   />
+           </TableRow>
+
+
+           <TableRow>
+               <TextView
+                   android:layout_span="1"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:text="2 PM"
+                   android:background="@drawable/custom4"
+                   />
+               <TextView
+                   android:id="@+id/tv_14"
+                   android:layout_span="5"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:background="@drawable/custom4"
+                   android:onClick="onClick"
+                   />
+           </TableRow>
+
+
+           <TableRow>
+               <TextView
+                   android:layout_span="1"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:text="3 PM"
+                   android:background="@drawable/custom4"
+                   />
+               <TextView
+                   android:id="@+id/tv_15"
+                   android:layout_span="5"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:background="@drawable/custom4"
+                   android:onClick="onClick"
+                   />
+           </TableRow>
+
+
+           <TableRow>
+               <TextView
+                   android:layout_span="1"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:text="4 PM"
+                   android:background="@drawable/custom4"
+                   />
+               <TextView
+                   android:id="@+id/tv_16"
+                   android:layout_span="5"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:background="@drawable/custom4"
+                   android:onClick="onClick"
+                   />
+           </TableRow>
+
+
+           <TableRow>
+               <TextView
+                   android:layout_span="1"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:text="5 PM"
+                   android:background="@drawable/custom4"
+                   />
+               <TextView
+                   android:id="@+id/tv_17"
+                   android:layout_span="5"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:background="@drawable/custom4"
+                   android:onClick="onClick"
+                   />
+           </TableRow>
+
+
+           <TableRow>
+               <TextView
+                   android:layout_span="1"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:text="6 PM"
+                   android:background="@drawable/custom4"
+                   />
+               <TextView
+                   android:id="@+id/tv_18"
+                   android:layout_span="5"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:background="@drawable/custom4"
+                   android:onClick="onClick"
+                   />
+           </TableRow>
+
+
+           <TableRow>
+               <TextView
+                   android:layout_span="1"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:text="7 PM"
+                   android:background="@drawable/custom4"
+                   />
+               <TextView
+                   android:id="@+id/tv_19"
+                   android:layout_span="5"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:background="@drawable/custom4"
+                   android:onClick="onClick"
+                   />
+           </TableRow>
+
+
+           <TableRow>
+               <TextView
+                   android:layout_span="1"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:text="8 PM"
+                   android:background="@drawable/custom4"
+                   />
+               <TextView
+                   android:id="@+id/tv_20"
+                   android:layout_span="5"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:background="@drawable/custom4"
+                   android:onClick="onClick"
+                   />
+           </TableRow>
+
+
+           <TableRow>
+               <TextView
+                   android:layout_span="1"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:text="9 PM"
+                   android:background="@drawable/custom4"
+                   />
+               <TextView
+                   android:id="@+id/tv_21"
+                   android:layout_span="5"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:background="@drawable/custom4"
+                   android:onClick="onClick"
+                   />
+           </TableRow>
+
+
+           <TableRow>
+               <TextView
+                   android:layout_span="1"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:text="10 PM"
+                   android:background="@drawable/custom4"
+                   />
+               <TextView
+                   android:id="@+id/tv_22"
+                   android:layout_span="5"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:background="@drawable/custom4"
+                   android:onClick="onClick"
+                   />
+           </TableRow>
+
+
+           <TableRow>
+               <TextView
+                   android:layout_span="1"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:text="11 PM"
+                   android:background="@drawable/custom4"
+                   />
+               <TextView
+                   android:id="@+id/tv_23"
+                   android:layout_span="5"
+                   android:layout_height="50dp"
+                   android:gravity="center"
+                   android:background="@drawable/custom4"
+                   android:onClick="onClick"
+                   />
+           </TableRow>
+
+       </TableLayout>
+
+       </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

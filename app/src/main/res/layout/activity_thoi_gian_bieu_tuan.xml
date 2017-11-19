@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gameloft.pc.quanlythoigian.thoi_gian_bieu_tuan">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tgb_margin_top"
+        >
+        <Button
+            android:id="@+id/btn_date"
+            android:layout_marginLeft="@dimen/tgb_margin_left"
+            android:layout_width="@dimen/width_button"
+            android:layout_height="@dimen/hight_button"
+            android:background="@drawable/custom2"
+            android:gravity="center"
+            android:textSize="@dimen/test_size"
+            android:text="date"/>
+        <Button
+            android:textSize="@dimen/test_size"
+            android:layout_marginLeft="@dimen/tgb_margin_left"
+            android:background="@drawable/custom3"
+            android:layout_width="@dimen/width_button"
+            android:layout_height="@dimen/hight_button"
+            android:text="week"
+
+            />
+
+
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="@dimen/hight_button" />
+
+        <TextView
+            android:id="@+id/tv_day"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/tgb_margin_left"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/hight_button"
+            android:layout_gravity="right"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+    </LinearLayout>
+
+
+</ScrollView>
