@@ -85,7 +85,7 @@
                     android:gravity="center"
                     android:hint="Bắt đầu"
                     android:textSize="20sp"
-                    android:ems="5" />
+                    android:ems="4" />
 
                 <TextView
                     android:id="@+id/textView4"
@@ -167,10 +167,11 @@
                 android:inputType="number" />
         </TableRow>
 
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/edt_margin_top">
+            android:layout_marginTop="25dp">
 
             <Button
                 android:id="@+id/btnSave"
