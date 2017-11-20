@@ -126,23 +126,23 @@ public class TabFragment_monday extends Fragment{
                 case R.id.itDelete:
                     final MonHoc monHoc = listMonHoc.get(menuInfo.position);
                     AlertDialog.Builder rm=new AlertDialog.Builder(TabFragment_monday.super.getActivity());
-                    rm.setMessage(getResources().getString(R.string.ban_co_chac_muon_xoa));
-                    rm.setNegativeButton(getResources().getString(R.string.huy), new DialogInterface.OnClickListener() {
+                    rm.setMessage(R.string.ban_co_chac_muon_xoa);
+                    rm.setNegativeButton(R.string.huy, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.cancel();
                         }
                     });
-                    rm.setPositiveButton(getResources().getString(R.string.xoa), new DialogInterface.OnClickListener() {
+                    rm.setPositiveButton(R.string.xoa, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             final boolean check = database.delete(monHoc,2);
                             if(check){
                                 customAdapter.remove(monHoc);
                                 customAdapter.notifyDataSetChanged();
-                                Toast.makeText(TabFragment_monday.super.getActivity(),getResources().getString(R.string.da_xoa),Toast.LENGTH_SHORT).show();
+                                Toast.makeText(TabFragment_monday.super.getActivity(),R.string.da_xoa,Toast.LENGTH_SHORT).show();
                             }else {
-                                Toast.makeText(TabFragment_monday.super.getActivity(),getResources().getString(R.string.loi_cap_nhat_du_lieu),Toast.LENGTH_SHORT).show();
+                                Toast.makeText(TabFragment_monday.super.getActivity(),R.string.loi_cap_nhat_du_lieu,Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -178,9 +178,9 @@ public class TabFragment_monday extends Fragment{
                     if(check){
                         listMonHoc.add(monHoc);
                         customAdapter.notifyDataSetChanged();
-                        Toast.makeText(TabFragment_monday.super.getActivity(),getResources().getString(R.string.da_them_mon_hoc_moi),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TabFragment_monday.super.getActivity(),R.string.da_them_mon_hoc_moi,Toast.LENGTH_SHORT).show();
                     }else {
-                        Toast.makeText(TabFragment_monday.super.getActivity(),getResources().getString(R.string.loi_cap_nhat_du_lieu),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TabFragment_monday.super.getActivity(),R.string.loi_cap_nhat_du_lieu,Toast.LENGTH_SHORT).show();
                     }
                     //database.close();
             }
@@ -195,9 +195,9 @@ public class TabFragment_monday extends Fragment{
                         listMonHoc = database.getData(2);
                         customAdapter = new CustomAdapter(getActivity(), R.layout.dong_listview, listMonHoc);
                         lvMonHoc.setAdapter(customAdapter);
-                        Toast.makeText(TabFragment_monday.super.getActivity(),getResources().getString(R.string.cap_nhat_thanh_cong),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TabFragment_monday.super.getActivity(),R.string.cap_nhat_thanh_cong,Toast.LENGTH_SHORT).show();
                     }else{
-                        Toast.makeText(TabFragment_monday.super.getActivity(),getResources().getString(R.string.loi_cap_nhat_du_lieu),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TabFragment_monday.super.getActivity(),R.string.loi_cap_nhat_du_lieu,Toast.LENGTH_SHORT).show();
                     }
             }
         }
@@ -211,9 +211,9 @@ public class TabFragment_monday extends Fragment{
                         listMonHoc = database.getData(2);
                         customAdapter = new CustomAdapter(getActivity(),R.layout.dong_listview, listMonHoc);
                         lvMonHoc.setAdapter(customAdapter);
-                        Toast.makeText(TabFragment_monday.super.getActivity(),getResources().getString(R.string.da_luu_ghi_chu), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TabFragment_monday.super.getActivity(),R.string.da_luu_ghi_chu, Toast.LENGTH_SHORT).show();
                     }else{
-                        Toast.makeText(TabFragment_monday.super.getActivity(),getResources().getString(R.string.loi_cap_nhat_du_lieu),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TabFragment_monday.super.getActivity(),R.string.loi_cap_nhat_du_lieu,Toast.LENGTH_SHORT).show();
                     }
             }
         }
