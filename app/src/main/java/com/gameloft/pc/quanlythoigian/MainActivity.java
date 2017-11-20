@@ -22,6 +22,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        String language = sp.getString("language", "");
+        if(language.equals("")){
+            language = "vi";
+        }
+        setLanguage(language);
+
         setContentView(R.layout.activity_main);
 
         init();

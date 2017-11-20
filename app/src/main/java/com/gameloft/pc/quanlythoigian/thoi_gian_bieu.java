@@ -181,8 +181,6 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 SHARED_PREFERENCES_NAME_KT=mytime;
                 read_kt();
 
-
-
             }
 
         });
