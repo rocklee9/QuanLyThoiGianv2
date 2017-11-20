@@ -9,4 +9,9 @@
         <item>SATURDAY</item>
         <item>SUNDAY</item>
     </string-array>
+
+    <string-array name="languages">
+        <item>English</item>
+        <item>Vietnamese</item>
+    </string-array>
 </resources>

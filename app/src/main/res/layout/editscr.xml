@@ -29,7 +29,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Môn:"
+                android:text="@string/mon"
                 android:textSize="20sp"
                 android:gravity="center|start"
                 android:drawableLeft="@drawable/mon_hoc" />
@@ -50,7 +50,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Phòng:"
+                android:text="@string/phong"
                 android:textSize="20sp"
                 android:gravity="center|left"
                 android:drawableLeft="@drawable/phong"/>
@@ -72,7 +72,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Thời gian:"
+                android:text="@string/thoi_gian"
                 android:textSize="20sp"
                 android:gravity="center|left"
                 android:drawableLeft="@drawable/thoigian"/>
@@ -83,7 +83,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:hint="Bắt đầu"
+                    android:hint="@string/bat_dau"
                     android:textSize="20sp"
                     android:ems="4" />
 
@@ -98,7 +98,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:hint="Kết thúc"
+                    android:hint="@string/ket_thuc"
                     android:textSize="20sp"/>
             </LinearLayout>
 
@@ -112,7 +112,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Giảng viên:"
+                android:text="@string/giang_vien"
                 android:textSize="20sp"
                 android:gravity="center|left"
                 android:drawableLeft="@drawable/giang_vien"/>
@@ -133,7 +133,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Email:"
+                android:text="@string/email"
                 android:textSize="20sp"
                 android:gravity="center|left"
                 android:drawableLeft="@drawable/email"/>
@@ -154,7 +154,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Sdt:"
+                android:text="@string/sdt"
                 android:textSize="20sp"
                 android:gravity="center|left"
                 android:drawableLeft="@drawable/sdt"/>
@@ -178,7 +178,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/corner_button"
-                android:text="Lưu"
+                android:text="@string/luu"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:layout_alignParentEnd="true"
@@ -190,7 +190,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/corner_btn_xoa"
-                android:text="Hủy"
+                android:text="@string/huy"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:layout_marginLeft="@dimen/edt_margin_left"/>

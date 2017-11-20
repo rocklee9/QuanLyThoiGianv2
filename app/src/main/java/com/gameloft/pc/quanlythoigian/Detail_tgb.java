@@ -156,7 +156,7 @@ public class Detail_tgb extends AppCompatActivity {
                     Intent intent = new Intent(Detail_tgb.this,thoi_gian_bieu.class);
                     startActivity(intent);
                 }else {
-                    Toast.makeText(Detail_tgb.this,"khong co du lieu de xoa",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Detail_tgb.this,R.string.khong_co_du_lieu_de_xoa,Toast.LENGTH_SHORT).show();
                 }
 
             }

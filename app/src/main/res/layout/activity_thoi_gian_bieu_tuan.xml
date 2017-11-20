@@ -23,14 +23,14 @@
             android:background="@drawable/custom2"
             android:gravity="center"
             android:textSize="@dimen/test_size"
-            android:text="date"/>
+            android:text="@string/ngay"/>
         <Button
             android:textSize="@dimen/test_size"
             android:layout_marginLeft="@dimen/tgb_margin_left"
             android:background="@drawable/custom3"
             android:layout_width="@dimen/width_button"
             android:layout_height="@dimen/hight_button"
-            android:text="week"
+            android:text="@string/tuan"
 
             />
 

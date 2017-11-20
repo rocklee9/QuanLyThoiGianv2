@@ -1,57 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="@string/title_name_note"
-        android:textSize="40dp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:layout_marginBottom="@dimen/edt_margin_bottom"
-        android:background="#1e7bc9"
-        android:textColor="@color/white"/>
-
-    <EditText
-        android:id="@+id/edtNote"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/edt_margin_left"
-        android:layout_marginRight="@dimen/edt_margin_right"
-        android:hint="Nhập ghi chú ..."/>
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/ghi_chu"
+            android:textSize="40dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:background="#1e7bc9"
+            android:textColor="@color/white"/>
+
+        <EditText
+            android:id="@+id/edtNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/edt_margin_left"
+            android:layout_marginRight="@dimen/edt_margin_right"
+            android:hint="@string/nhap_ghi_chu"/>
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/edt_margin_left"
         android:layout_marginRight="@dimen/edt_margin_right"
-        android:layout_marginBottom="@dimen/edt_margin_bottom"
-        android:layout_marginTop="@dimen/edt_margin_top">
+        android:layout_marginBottom="@dimen/edt_margin_bottom">
 
         <Button
             android:id="@+id/btnSave"
-            android:layout_width="60dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/btnCamera"
             android:background="@drawable/corner_button"
-            android:text="Lưu"
+            android:text="@string/luu"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
         <Button
             android:id="@+id/btnCancel"
-            android:layout_width="60dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignTop="@+id/btnCamera"
-            android:background="#999999"
-            android:text="Hủy"
+            android:layout_alignParentBottom="true"
+            android:text="@string/huy"
+            android:background="@drawable/corner_btn_xoa"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -64,4 +63,4 @@
             android:layout_centerHorizontal="true" />
     </RelativeLayout>
 
-</LinearLayout>
+</RelativeLayout>

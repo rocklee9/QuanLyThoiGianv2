@@ -1,10 +1,77 @@
 <resources>
     <string name="app_name">QuanLyThoiGian</string>
 
-    <string name="titles_name_2">MONDAY</string>
-    <string name="text_time">Thời gian:</string>
-    <string name="text_room">Phòng:</string>
-    <string name="text_subject">Môn:</string>
-    <string name="title_name_note">MÔN HỌC</string>
-    <string name="text_note">Ghi chú:</string>
+    //activity_add
+    <string name="them_mon_hoc">THÊM MÔN HỌC</string>
+    <string name="mon"> Môn</string>
+    <string name="phong">Phòng</string>
+    <string name="thoi_gian">Thời gian</string>
+    <string name="bat_dau">Bắt đầu</string>
+    <string name="ket_thuc">Kết Thúc</string>
+    <string name="giang_vien">Giảng viên</string>
+    <string name="email">Email</string>
+    <string name="sdt">Sdt</string>
+    <string name="huy">Hủy</string>
+    <string name="luu">Lưu</string>
+    <string name="chi_tiet">CHI TIẾT</string>
+    <string name="chinh_sua">Chỉnh sửa</string>
+
+
+    <string name="thoi_gian_dong_listview">Thời gian:</string>
+    <string name="phong_dong_listview">Phòng:</string>
+
+    //activity_detail_tgb
+    <string name="cong_viec">Công việc</string>
+    <string name="su_kien">Sự kiện</string>
+    <string name="tro_lai">Trở lại</string>
+    <string name="xoa">Xóa</string>
+    <string name="chinh_sua_them">Chỉnh sửa / Thêm</string>
+
+    //activity_main
+    <string name="thoi_khoa_bieu">THỜI KHÓA BIỂU</string>
+    <string name="thoi_gian_bieu">THỜI GIAN BIỂU</string>
+
+
+    <string name="ngay">Ngày</string>
+    <string name="tuan">Tuần</string>
+
+    <string name="nhan_vao_day">Nhấn vào đây</string>
+
+    <string name="mon_hoc">Môn học</string>
+    <string name="ghi_chu">Ghi chú</string>
+
+
+    <string name="tieu_de">Tiêu đề</string>
+    <string name="noi_dung">Nội dung</string>
+    <string name="gui_email">Gửi Email</string>
+
+    <string name="thu_2">THỨ 2</string>
+    <string name="thu_3">THỨ 3</string>
+    <string name="thu_4">THỨ 4</string>
+    <string name="thu_5">THỨ 5</string>
+    <string name="thu_6">THỨ 6</string>
+    <string name="thu_7">THỨ 7</string>
+    <string name="chu_nhat">CHỦ NHẬT</string>
+
+    <string name="nhap_ghi_chu">Nhập ghi chú ...</string>
+
+    <string name="luu_ma_khong_co_ten_mon_hoc">Lưu mà không có tên môn học?</string>
+    <string name="khong_co_du_lieu_de_xoa">Không có dữ liệu để xóa!</string>
+    <string name="ung_dung_chua_duoc_cap_quyen_de_goi_dien_thoai">Ứng dụng chưa được cấp quyền để gọi điện thoại!</string>
+    <string name="ung_dung_chua_duoc_cap_quyen_de_gui_tin_nhan">Ứng dụng chưa đươc cấp quyền gửi tin nhắn!</string>
+    <string name="khong_ho_tro_email">Không có ứng dụng hỗ trợ email được cài đặt!</string>
+    <string name="ban_khong_duoc_mo_camera">Bạn không được mở máy ảnh!</string>
+    <string name="ban_co_chac_muon_xoa">Bạn có chắc chắn muốn xóa?</string>
+    <string name="da_xoa">Đã xóa !</string>
+    <string name="loi_cap_nhat_du_lieu">Xin lỗi bạn! Đã xảy ra lỗi cập nhật dữ liệu.</string>
+    <string name="da_them_mon_hoc_moi">Đã thêm môn học mới!</string>
+    <string name="cap_nhat_thanh_cong">Cập nhật thành công!</string>
+    <string name="da_luu_ghi_chu">Đã lưu ghi chú!</string>
+    <string name="danh_gia_app">Đánh giá!</string>
+    <string name="ban_co_thich_ung_dung_khong">Bạn có thích ứng dụng này không?</string>
+    <string name="co">Có</string>
+    <string name="khong">Không</string>
+    <string name="de_sau">Để sau</string>
+
+
 </resources>

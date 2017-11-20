@@ -25,4 +25,9 @@
     <dimen name="width_button">60dp</dimen>
 
     <dimen name="test_size">10dp</dimen>
+
+    <dimen name="activity_main_icon_button_size">50dp</dimen>
+    <dimen name="activity_main_icon_button_space">10dp</dimen>
+    <dimen name="activity_main_icon_group_pađing_right">10dp</dimen>
+    <dimen name="activity_main_icon_group_pađing_bottom">10dp</dimen>
 </resources>
