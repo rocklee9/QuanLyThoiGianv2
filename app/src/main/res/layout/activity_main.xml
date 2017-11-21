@@ -9,15 +9,15 @@
         android:orientation="vertical">
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:background="@color/phuc_blue" />
+            android:layout_height="300dp"
+            android:background="@drawable/main_icon2"/>
 
         <Button
             android:id="@+id/btntkb"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
             android:text="@string/thoi_khoa_bieu"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="80dp"
             android:layout_gravity="center"
             android:background="@color/phuc_blue"
             android:textColor="@color/white"
@@ -25,8 +25,8 @@
 
         <Button
             android:id="@+id/btntgb"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
             android:text="@string/thoi_gian_bieu"
             android:layout_gravity="center"
             android:background="@color/phuc_blue"
@@ -44,16 +44,16 @@
         android:layout_alignParentRight="true">
 
         <Button
-            android:layout_width="@dimen/activity_main_icon_button_size"
-            android:layout_height="@dimen/activity_main_icon_button_size"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:background="@drawable/language"
             android:onClick="showSelectLanguage"/>
         <Space
             android:layout_width="@dimen/activity_main_icon_button_space"
             android:layout_height="match_parent" />
         <Button
-            android:layout_width="@dimen/activity_main_icon_button_size"
-            android:layout_height="@dimen/activity_main_icon_button_size"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:background="@drawable/rating"
             android:onClick="showRating"/>
     </LinearLayout>
