@@ -53,10 +53,13 @@ public class MainActivity extends AppCompatActivity {
                 String language = "";
                 switch (i){
                     case 0:
-                        language = "en";
+                        language = "vi";
                         break;
                     case 1:
-                        language = "vi";
+                        language = "en";
+                        break;
+                    case 2:
+                        language = "ja";
                         break;
                 }
                 setLanguage(language);

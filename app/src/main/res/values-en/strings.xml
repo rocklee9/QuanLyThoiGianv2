@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">QuanLyThoiGian</string>
-
     //activity_add
     <string name="them_mon_hoc">ADD SUBJECT</string>
     <string name="mon"> Subject</string>

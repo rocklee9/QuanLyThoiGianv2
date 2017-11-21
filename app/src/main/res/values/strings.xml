@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">QuanLyThoiGian</string>
-
     //activity_add
     <string name="them_mon_hoc">THÊM MÔN HỌC</string>
     <string name="mon"> Môn</string>
