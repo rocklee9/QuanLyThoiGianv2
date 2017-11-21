@@ -20,7 +20,8 @@
             android:layout_marginTop="100dp"
             android:layout_gravity="center"
             android:background="@color/phuc_blue"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:onClick="gotoThoiKhoaBieu"/>
 
         <Button
             android:id="@+id/btntgb"
@@ -30,7 +31,8 @@
             android:layout_gravity="center"
             android:background="@color/phuc_blue"
             android:textColor="@color/white"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="5dp"
+            android:onClick="gotoThoiGianBieu"/>
     </LinearLayout>
 
     <LinearLayout

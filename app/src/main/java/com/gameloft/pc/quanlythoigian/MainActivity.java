@@ -18,7 +18,6 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btntkb,btntgb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,43 +31,16 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        init();
-        getWidgets();
-        setWidgets();
-        addWidgetsListener();
-
     }
 
-    private void init() {
+    public void gotoThoiKhoaBieu(View view){
+        startActivity(new Intent(MainActivity.this, thoi_khoa_bieu.class));
+    }
+    public void gotoThoiGianBieu(View view){
+        startActivity(new Intent(MainActivity.this, thoi_gian_bieu.class));
     }
 
-    private void getWidgets() {
-        btntkb =(Button)findViewById(R.id.btntkb);
-        btntgb=(Button)findViewById(R.id.btntgb);
-    }
-
-    private void setWidgets() {
-    }
-
-    private void addWidgetsListener() {
-        btntkb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent tkb=new Intent(MainActivity.this,thoi_khoa_bieu.class);
-                startActivity(tkb);
-            }
-        });
-
-        btntgb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent tgb=new Intent(MainActivity.this,thoi_gian_bieu.class);
-                startActivity(tgb);
-            }
-        });
-    }
-
+    //dialog chọn ngôn ngữ
     public void showSelectLanguage(View view){
         String []languages = getResources().getStringArray(R.array.languages);
 
@@ -108,8 +80,9 @@ public class MainActivity extends AppCompatActivity {
         editor.commit();
     }
 
+    //dialog đánh giá app
     public void showRating(View view){
-        android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.danh_gia_app);
         builder.setMessage(R.string.ban_co_thich_ung_dung_khong);
         builder.setCancelable(false);
@@ -128,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         builder.setNeutralButton(R.string.de_sau, null);
-        android.support.v7.app.AlertDialog dialog = builder.create();
+        AlertDialog dialog = builder.create();
         dialog.show();
     }
 }
