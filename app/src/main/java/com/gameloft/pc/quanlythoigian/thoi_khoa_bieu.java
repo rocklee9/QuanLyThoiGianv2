@@ -52,31 +52,31 @@ public class thoi_khoa_bieu extends AppCompatActivity implements TabHost.OnTabCh
         tabHost.setup();
 
         TabHost.TabSpec tab_mon = tabHost.newTabSpec("MON");
-        tab_mon.setIndicator("T2");
+        tab_mon.setIndicator("", getResources().getDrawable(R.drawable.mon));
         tab_mon.setContent(new FakeContentTab(this));
 
         TabHost.TabSpec tab_tue = tabHost.newTabSpec("TUE");
-        tab_tue.setIndicator("t3");
+        tab_tue.setIndicator("", getResources().getDrawable(R.drawable.tue));
         tab_tue.setContent(new FakeContentTab(this));
 
         TabHost.TabSpec tab_wed = tabHost.newTabSpec("WED");
-        tab_wed.setIndicator("T4");
+        tab_wed.setIndicator("", getResources().getDrawable(R.drawable.wed));
         tab_wed.setContent(new FakeContentTab(this));
 
         TabHost.TabSpec tab_thu = tabHost.newTabSpec("THU");
-        tab_thu.setIndicator("T5");
+        tab_thu.setIndicator("", getResources().getDrawable(R.drawable.thu));
         tab_thu.setContent(new FakeContentTab(this));
 
         TabHost.TabSpec tab_fri = tabHost.newTabSpec("FRI");
-        tab_fri.setIndicator("T6");
+        tab_fri.setIndicator("", getResources().getDrawable(R.drawable.fri));
         tab_fri.setContent(new FakeContentTab(this));
 
         TabHost.TabSpec tab_sat = tabHost.newTabSpec("SAT");
-        tab_sat.setIndicator("T7");
+        tab_sat.setIndicator("", getResources().getDrawable(R.drawable.sat));
         tab_sat.setContent(new FakeContentTab(this));
 
         TabHost.TabSpec tab_sun = tabHost.newTabSpec("SUN");
-        tab_sun.setIndicator("CN");
+        tab_sun.setIndicator("", getResources().getDrawable(R.drawable.sun));
         tab_sun.setContent(new FakeContentTab(this));
 
         tabHost.addTab(tab_mon);
