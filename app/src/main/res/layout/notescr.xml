@@ -11,7 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="@string/ghi_chu"
-            android:textSize="40dp"
+            android:textSize="40sp"
             android:gravity="center"
             android:textStyle="bold"
             android:background="#1e7bc9"
@@ -36,10 +36,10 @@
         <Button
             android:id="@+id/btnSave"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:background="@drawable/corner_button"
+            android:background="@drawable/corner_btn_luu"
             android:text="@string/luu"
             android:textColor="@color/white"
             android:textSize="20sp" />
@@ -47,10 +47,10 @@
         <Button
             android:id="@+id/btnCancel"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:text="@string/huy"
-            android:background="@drawable/corner_btn_xoa"
+            android:background="@drawable/corner_btn_xoa_activity_add"
             android:textColor="@color/white"
             android:textSize="20sp" />
 

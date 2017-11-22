@@ -107,7 +107,7 @@
                 android:id="@+id/btn_luu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/corner_button"
+                android:background="@drawable/corner_btn_luu"
                 android:text="Lưu"
                 android:textColor="@color/white"
                 android:textSize="20sp"
