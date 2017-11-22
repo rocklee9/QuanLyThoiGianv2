@@ -21,10 +21,11 @@
 
         <ImageButton
             android:id="@+id/btnBack"
-            android:layout_width="60dp"
-            android:layout_height="70dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:background="@drawable/back_btn"
-            />
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"/>
     </RelativeLayout>
 
     <ScrollView
@@ -91,6 +92,7 @@
                             android:gravity="center|left"
                             android:text="@string/phong"
                             android:textSize="18sp"
+                            android:textColor="@color/phuc_blue"
                             android:textStyle="bold" />
 
                         <TextView
@@ -122,6 +124,7 @@
                             android:gravity="center|left"
                             android:text="@string/thoi_gian"
                             android:textSize="18sp"
+                            android:textColor="@color/phuc_blue"
                             android:textStyle="bold" />
 
                         <TextView
@@ -185,6 +188,7 @@
                             android:gravity="center|left"
                             android:text="@string/email"
                             android:textSize="18sp"
+                            android:textColor="@color/phuc_blue"
                             android:textStyle="bold" />
 
                         <TextView
@@ -222,6 +226,7 @@
                             android:gravity="center|left"
                             android:text="@string/sdt"
                             android:textSize="18sp"
+                            android:textColor="@color/phuc_blue"
                             android:textStyle="bold" />
 
                         <TextView
@@ -304,6 +309,7 @@
                         android:layout_marginTop="10dp"
                         android:text="@string/ghi_chu"
                         android:textSize="20sp"
+                        android:textColor="#fd0303"
                         android:layout_marginLeft="10dp" />
 
                     <TextView

@@ -176,16 +176,8 @@ public class tgb_editscr extends AppCompatActivity {
                         remove_data();
                         add_data_thuan(time_start,time_end);
                     }else if(time_end_start == time_start) {
-                        if(time_start_start == time_end_start-1){
-                            remove(time_start_start);
-                        }else {
                             remove_data();
-                        }
-                        if(time_start == time_end_start-1){
-                            add_data();
-                        }else {
-                            add_data_thuan(time_start, time_end-1);
-                        }
+                            add_data_thuan(time_start, time_end);
                     }else if(time_start < time_end_start) {
                         add_data_thuan1(time_start_start, time_start);
                         add_data_thuan(time_start,time_end+1);
@@ -231,7 +223,7 @@ public class tgb_editscr extends AppCompatActivity {
             String s =sharedPreferences.getString(TIME_START,"24");
             remove_kt(Integer.parseInt(s));
             editor.putString(NOTE, edt_cv.getText().toString());
-            editor.putString(TIME_END, tv_time_end.getText().toString());
+            editor.putString(TIME_END, String.valueOf(b)+":00");
             editor.putString(TIME_START,String.valueOf(a));
             editor.putInt(HOUR,a);
             editor.putString(COlOR,"#1e9bef");

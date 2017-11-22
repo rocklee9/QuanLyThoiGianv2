@@ -122,8 +122,6 @@ public class thoi_gian_bieu extends AppCompatActivity {
 
     private void init() {
 
-
-
     }
 
     public void getWidgets() {
@@ -155,10 +153,6 @@ public class thoi_gian_bieu extends AppCompatActivity {
 
         btn_week= (Button)findViewById(R.id.btn_week);
         set_day();
-        mytime= tv_day.getText().toString();
-        SHARED_PREFERENCES_NAME=mytime;
-        SHARED_PREFERENCES_NAME_KT=mytime;
-        read_kt();
         read_data();
     }
 
@@ -175,12 +169,7 @@ public class thoi_gian_bieu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 chon_ngay();
-                mytime= tv_day.getText().toString();
-                SHARED_PREFERENCES_NAME=mytime;
                 read_data();
-                SHARED_PREFERENCES_NAME_KT=mytime;
-                read_kt();
-
             }
 
         });
@@ -221,13 +210,67 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 calendar.set(year, month, dayOfMonth);
                 SimpleDateFormat simpledateformat= new SimpleDateFormat("dd-MM-yyyy");
                 tv_day.setText(simpledateformat.format(calendar.getTime()));
+                clear_data();
+                read_data();
             }
         },nam,thang,ngay);
 
         datepickerdialog.show();
     }
 
-    private String set_day(){
+    private void clear_data() {
+        tv_note_0.setBackgroundResource(R.drawable.custom4);
+        tv_note_1.setBackgroundResource(R.drawable.custom4);
+        tv_note_2.setBackgroundResource(R.drawable.custom4);
+        tv_note_3.setBackgroundResource(R.drawable.custom4);
+        tv_note_4.setBackgroundResource(R.drawable.custom4);
+        tv_note_5.setBackgroundResource(R.drawable.custom4);
+        tv_note_6.setBackgroundResource(R.drawable.custom4);
+        tv_note_7.setBackgroundResource(R.drawable.custom4);
+        tv_note_8.setBackgroundResource(R.drawable.custom4);
+        tv_note_9.setBackgroundResource(R.drawable.custom4);
+        tv_note_10.setBackgroundResource(R.drawable.custom4);
+        tv_note_11.setBackgroundResource(R.drawable.custom4);
+        tv_note_12.setBackgroundResource(R.drawable.custom4);
+        tv_note_13.setBackgroundResource(R.drawable.custom4);
+        tv_note_14.setBackgroundResource(R.drawable.custom4);
+        tv_note_15.setBackgroundResource(R.drawable.custom4);
+        tv_note_16.setBackgroundResource(R.drawable.custom4);
+        tv_note_17.setBackgroundResource(R.drawable.custom4);
+        tv_note_18.setBackgroundResource(R.drawable.custom4);
+        tv_note_19.setBackgroundResource(R.drawable.custom4);
+        tv_note_20.setBackgroundResource(R.drawable.custom4);
+        tv_note_21.setBackgroundResource(R.drawable.custom4);
+        tv_note_22.setBackgroundResource(R.drawable.custom4);
+        tv_note_23.setBackgroundResource(R.drawable.custom4);
+
+        tv_note_0.setText("");
+        tv_note_1.setText("");
+        tv_note_2.setText("");
+        tv_note_3.setText("");
+        tv_note_4.setText("");
+        tv_note_5.setText("");
+        tv_note_6.setText("");
+        tv_note_7.setText("");
+        tv_note_8.setText("");
+        tv_note_9.setText("");
+        tv_note_10.setText("");
+        tv_note_11.setText("");
+        tv_note_12.setText("");
+        tv_note_13.setText("");
+        tv_note_14.setText("");
+        tv_note_15.setText("");
+        tv_note_16.setText("");
+        tv_note_17.setText("");
+        tv_note_18.setText("");
+        tv_note_19.setText("");
+        tv_note_20.setText("");
+        tv_note_21.setText("");
+        tv_note_22.setText("");
+        tv_note_23.setText("");
+    }
+
+    private void set_day(){
         Calendar calendar= Calendar.getInstance();
         int nam= calendar.get(calendar.YEAR);
         int thang= calendar.get(calendar.MONTH);
@@ -236,11 +279,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
         calendar.set(nam, thang, ngay);
         SimpleDateFormat simpleDateFormat= new SimpleDateFormat("dd-MM-yyyy");
         tv_day.setText(simpleDateFormat.format(calendar.getTime()));
-        return simpleDateFormat.format(calendar.getTime());
     }
     public void read_kt(){
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME_KT,MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+        SharedPreferences sharedPreferences = getSharedPreferences(tv_day.getText().toString(),MODE_PRIVATE);
         KT0=sharedPreferences.getInt(KT_0,0);
         KT1=sharedPreferences.getInt(KT_1,0);
         KT2=sharedPreferences.getInt(KT_2,0);
@@ -265,14 +306,13 @@ public class thoi_gian_bieu extends AppCompatActivity {
         KT21=sharedPreferences.getInt(KT_21,0);
         KT22=sharedPreferences.getInt(KT_22,0);
         KT23=sharedPreferences.getInt(KT_23,0);
-        editor.apply();
     }
 
     public void read_data(){
-
-        SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFERENCES_NAME+"0",MODE_PRIVATE);
+        read_kt();
+        SharedPreferences sharedPreferences=getSharedPreferences(tv_day.getText().toString()+"0",MODE_PRIVATE);
         if(KT0==1) {
-            tv_note_0.setText(sharedPreferences.getString(NOTE, ""));
+            tv_note_0.setText("( "+ sharedPreferences.getString(TIME_START,"")+":00 - "+sharedPreferences.getString(TIME_END,"")+" )"+ sharedPreferences.getString(NOTE, ""));
             tv_note_0.setBackgroundResource(R.drawable.custom5);
         }else {
             String s = sharedPreferences.getString(COlOR, "null");
@@ -280,9 +320,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 tv_note_0.setBackgroundColor(Color.parseColor(s));
         }
 
-        SharedPreferences sharedPreferences1=getSharedPreferences(SHARED_PREFERENCES_NAME+"1",MODE_PRIVATE);
+        SharedPreferences sharedPreferences1=getSharedPreferences(tv_day.getText().toString()+"1",MODE_PRIVATE);
         if(KT1==1) {
-            tv_note_1.setText(sharedPreferences1.getString(NOTE, ""));
+            tv_note_1.setText("( "+ sharedPreferences1.getString(TIME_START,"")+":00 - "+sharedPreferences1.getString(TIME_END,"")+" )"+ sharedPreferences1.getString(NOTE, ""));
             tv_note_1.setBackgroundResource(R.drawable.custom5);
         }else {
             String s1 = sharedPreferences1.getString(COlOR, "null");
@@ -290,9 +330,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 tv_note_1.setBackgroundColor(Color.parseColor(s1));
         }
 
-        SharedPreferences sharedPreferences2=getSharedPreferences(SHARED_PREFERENCES_NAME+"2",MODE_PRIVATE);
+        SharedPreferences sharedPreferences2=getSharedPreferences(tv_day.getText().toString()+"2",MODE_PRIVATE);
         if(KT2==1) {
-            tv_note_2.setText(sharedPreferences2.getString(NOTE, ""));
+            tv_note_2.setText("( "+ sharedPreferences2.getString(TIME_START,"")+":00 - "+sharedPreferences2.getString(TIME_END,"")+" )"+ sharedPreferences2.getString(NOTE, ""));
             tv_note_2.setBackgroundResource(R.drawable.custom5);
         }else {
             String s2 = sharedPreferences2.getString(COlOR, "null");
@@ -300,9 +340,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 tv_note_2.setBackgroundColor(Color.parseColor(s2));
         }
 
-        SharedPreferences sharedPreferences3=getSharedPreferences(SHARED_PREFERENCES_NAME+"3",MODE_PRIVATE);
+        SharedPreferences sharedPreferences3=getSharedPreferences(tv_day.getText().toString()+"3",MODE_PRIVATE);
         if(KT3==1) {
-            tv_note_3.setText(sharedPreferences3.getString(NOTE, ""));
+            tv_note_3.setText("( "+ sharedPreferences3.getString(TIME_START,"")+":00 - "+sharedPreferences3.getString(TIME_END,"")+" )"+ sharedPreferences3.getString(NOTE, ""));
             tv_note_3.setBackgroundResource(R.drawable.custom5);
         }else {
             String s3 = sharedPreferences3.getString(COlOR, "null");
@@ -310,9 +350,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 tv_note_3.setBackgroundColor(Color.parseColor(s3));
         }
 
-        SharedPreferences sharedPreferences4=getSharedPreferences(SHARED_PREFERENCES_NAME+"4",MODE_PRIVATE);
+        SharedPreferences sharedPreferences4=getSharedPreferences(tv_day.getText().toString()+"4",MODE_PRIVATE);
         if(KT4==1) {
-            tv_note_4.setText(sharedPreferences4.getString(NOTE, ""));
+            tv_note_4.setText("( "+ sharedPreferences4.getString(TIME_START,"")+":00 - "+sharedPreferences4.getString(TIME_END,"")+" )"+ sharedPreferences4.getString(NOTE, ""));
             tv_note_4.setBackgroundResource(R.drawable.custom5);
         }else {
             String s4 = sharedPreferences4.getString(COlOR, "null");
@@ -320,9 +360,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 tv_note_4.setBackgroundColor(Color.parseColor(s4));
         }
 
-        SharedPreferences sharedPreferences5=getSharedPreferences(SHARED_PREFERENCES_NAME+"5",MODE_PRIVATE);
+        SharedPreferences sharedPreferences5=getSharedPreferences(tv_day.getText().toString()+"5",MODE_PRIVATE);
         if(KT5==1) {
-            tv_note_5.setText(sharedPreferences5.getString(NOTE, ""));
+            tv_note_5.setText("( "+ sharedPreferences5.getString(TIME_START,"")+":00 - "+sharedPreferences5.getString(TIME_END,"")+" )"+ sharedPreferences5.getString(NOTE, ""));
             tv_note_5.setBackgroundResource(R.drawable.custom5);
         }else {
             String s5 = sharedPreferences5.getString(COlOR, "null");
@@ -330,9 +370,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 tv_note_5.setBackgroundColor(Color.parseColor(s5));
         }
 
-        SharedPreferences sharedPreferences6=getSharedPreferences(SHARED_PREFERENCES_NAME+"6",MODE_PRIVATE);
+        SharedPreferences sharedPreferences6=getSharedPreferences(tv_day.getText().toString()+"6",MODE_PRIVATE);
         if(KT6==1) {
-            tv_note_6.setText(sharedPreferences6.getString(NOTE, ""));
+            tv_note_6.setText("( "+ sharedPreferences6.getString(TIME_START,"")+":00 - "+sharedPreferences6.getString(TIME_END,"")+" )"+ sharedPreferences6.getString(NOTE, ""));
             tv_note_6.setBackgroundResource(R.drawable.custom5);
         }else {
             String s6 = sharedPreferences6.getString(COlOR, "null");
@@ -340,9 +380,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 tv_note_6.setBackgroundColor(Color.parseColor(s6));
         }
 
-        SharedPreferences sharedPreferences7=getSharedPreferences(SHARED_PREFERENCES_NAME+"7",MODE_PRIVATE);
+        SharedPreferences sharedPreferences7=getSharedPreferences(tv_day.getText().toString()+"7",MODE_PRIVATE);
         if(KT7==1) {
-            tv_note_7.setText(sharedPreferences7.getString(NOTE, ""));
+            tv_note_7.setText("( "+ sharedPreferences7.getString(TIME_START,"")+":00 - "+sharedPreferences7.getString(TIME_END,"")+" )"+ sharedPreferences7.getString(NOTE, ""));
             tv_note_7.setBackgroundResource(R.drawable.custom5);
         }else {
             String s7 = sharedPreferences7.getString(COlOR, "null");
@@ -350,9 +390,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 tv_note_7.setBackgroundColor(Color.parseColor(s7));
         }
 
-        SharedPreferences sharedPreferences8=getSharedPreferences(SHARED_PREFERENCES_NAME+"8",MODE_PRIVATE);
+        SharedPreferences sharedPreferences8=getSharedPreferences(tv_day.getText().toString()+"8",MODE_PRIVATE);
         if(KT8==1) {
-            tv_note_8.setText(sharedPreferences8.getString(NOTE, ""));
+            tv_note_8.setText("( "+ sharedPreferences8.getString(TIME_START,"")+":00 - "+sharedPreferences8.getString(TIME_END,"")+" )"+ sharedPreferences8.getString(NOTE, ""));
             tv_note_8.setBackgroundResource(R.drawable.custom5);
         }else {
             String s8 = sharedPreferences8.getString(COlOR, "null");
@@ -360,9 +400,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 tv_note_8.setBackgroundColor(Color.parseColor(s8));
         }
 
-        SharedPreferences sharedPreferences9=getSharedPreferences(SHARED_PREFERENCES_NAME+"9",MODE_PRIVATE);
+        SharedPreferences sharedPreferences9=getSharedPreferences(tv_day.getText().toString()+"9",MODE_PRIVATE);
         if(KT9==1) {
-            tv_note_9.setText(sharedPreferences9.getString(NOTE, ""));
+            tv_note_9.setText("( "+ sharedPreferences9.getString(TIME_START,"")+":00 - "+sharedPreferences9.getString(TIME_END,"")+" )"+ sharedPreferences9.getString(NOTE, ""));
             tv_note_9.setBackgroundResource(R.drawable.custom5);
         }else {
             String s9 = sharedPreferences9.getString(COlOR, "null");
@@ -370,9 +410,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 tv_note_9.setBackgroundColor(Color.parseColor(s9));
         }
 
-        SharedPreferences sharedPreferences10=getSharedPreferences(SHARED_PREFERENCES_NAME+"10",MODE_PRIVATE);
+        SharedPreferences sharedPreferences10=getSharedPreferences(tv_day.getText().toString()+"10",MODE_PRIVATE);
         if(KT10==1) {
-            tv_note_10.setText(sharedPreferences10.getString(NOTE, ""));
+            tv_note_10.setText("( "+ sharedPreferences10.getString(TIME_START,"")+":00 - "+sharedPreferences10.getString(TIME_END,"")+" )"+ sharedPreferences10.getString(NOTE, ""));
             tv_note_10.setBackgroundResource(R.drawable.custom5);
         }else {
             String s10 = sharedPreferences10.getString(COlOR, "null");
@@ -380,9 +420,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 tv_note_10.setBackgroundColor(Color.parseColor(s10));
         }
 
-        SharedPreferences sharedPreferences11=getSharedPreferences(SHARED_PREFERENCES_NAME+"11",MODE_PRIVATE);
+        SharedPreferences sharedPreferences11=getSharedPreferences(tv_day.getText().toString()+"11",MODE_PRIVATE);
         if(KT11==1) {
-            tv_note_11.setText(sharedPreferences11.getString(NOTE, ""));
+            tv_note_11.setText("( "+ sharedPreferences11.getString(TIME_START,"")+":00 - "+sharedPreferences11.getString(TIME_END,"")+" )"+ sharedPreferences11.getString(NOTE, ""));
             tv_note_11.setBackgroundResource(R.drawable.custom5);
         }else {
             String s11 = sharedPreferences11.getString(COlOR, "null");
@@ -390,9 +430,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 tv_note_11.setBackgroundColor(Color.parseColor(s11));
         }
 
-        SharedPreferences sharedPreferences12=getSharedPreferences(SHARED_PREFERENCES_NAME+"12",MODE_PRIVATE);
+        SharedPreferences sharedPreferences12=getSharedPreferences(tv_day.getText().toString()+"12",MODE_PRIVATE);
         if(KT12==1) {
-            tv_note_12.setText(sharedPreferences12.getString(NOTE, ""));
+            tv_note_12.setText("( "+ sharedPreferences12.getString(TIME_START,"")+":00 - "+sharedPreferences12.getString(TIME_END,"")+" )"+ sharedPreferences12.getString(NOTE, ""));
             tv_note_12.setBackgroundResource(R.drawable.custom5);
         }else {
             String s12 = sharedPreferences12.getString(COlOR, "null");
@@ -400,9 +440,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 tv_note_12.setBackgroundColor(Color.parseColor(s12));
         }
 
-        SharedPreferences sharedPreferences13=getSharedPreferences(SHARED_PREFERENCES_NAME+"13",MODE_PRIVATE);
+        SharedPreferences sharedPreferences13=getSharedPreferences(tv_day.getText().toString()+"13",MODE_PRIVATE);
         if(KT13==1) {
-            tv_note_13.setText(sharedPreferences13.getString(NOTE, ""));
+            tv_note_13.setText("( "+ sharedPreferences13.getString(TIME_START,"")+":00 - "+sharedPreferences13.getString(TIME_END,"")+" )"+ sharedPreferences13.getString(NOTE, ""));
             tv_note_13.setBackgroundResource(R.drawable.custom5);
         }else {
             String s13 = sharedPreferences13.getString(COlOR, "null");
@@ -410,9 +450,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 tv_note_13.setBackgroundColor(Color.parseColor(s13));
         }
 
-        SharedPreferences sharedPreferences14=getSharedPreferences(SHARED_PREFERENCES_NAME+"14",MODE_PRIVATE);
+        SharedPreferences sharedPreferences14=getSharedPreferences(tv_day.getText().toString()+"14",MODE_PRIVATE);
         if(KT14==1) {
-            tv_note_14.setText(sharedPreferences14.getString(NOTE, ""));
+            tv_note_14.setText("( "+ sharedPreferences14.getString(TIME_START,"")+":00 - "+sharedPreferences14.getString(TIME_END,"")+" )"+ sharedPreferences14.getString(NOTE, ""));
             tv_note_14.setBackgroundResource(R.drawable.custom5);
         }else {
             String s14 = sharedPreferences14.getString(COlOR, "null");
@@ -420,9 +460,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 tv_note_14.setBackgroundColor(Color.parseColor(s14));
         }
 
-        SharedPreferences sharedPreferences15=getSharedPreferences(SHARED_PREFERENCES_NAME+"15",MODE_PRIVATE);
+        SharedPreferences sharedPreferences15=getSharedPreferences(tv_day.getText().toString()+"15",MODE_PRIVATE);
         if(KT15==1) {
-            tv_note_15.setText(sharedPreferences15.getString(NOTE, ""));
+            tv_note_15.setText("( "+ sharedPreferences15.getString(TIME_START,"")+":00 - "+sharedPreferences15.getString(TIME_END,"")+" )"+ sharedPreferences15.getString(NOTE, ""));
             tv_note_15.setBackgroundResource(R.drawable.custom5);
         }else {
             String s15 = sharedPreferences15.getString(COlOR, "null");
@@ -430,9 +470,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 tv_note_15.setBackgroundColor(Color.parseColor(s15));
         }
 
-        SharedPreferences sharedPreferences16=getSharedPreferences(SHARED_PREFERENCES_NAME+"16",MODE_PRIVATE);
+        SharedPreferences sharedPreferences16=getSharedPreferences(tv_day.getText().toString()+"16",MODE_PRIVATE);
         if(KT16==1) {
-            tv_note_16.setText(sharedPreferences16.getString(NOTE, ""));
+            tv_note_16.setText("( "+ sharedPreferences16.getString(TIME_START,"")+":00 - "+sharedPreferences16.getString(TIME_END,"")+" )"+ sharedPreferences16.getString(NOTE, ""));
             tv_note_16.setBackgroundResource(R.drawable.custom5);
         }else {
             String s16 = sharedPreferences16.getString(COlOR, "null");
@@ -440,9 +480,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 tv_note_16.setBackgroundColor(Color.parseColor(s16));
         }
 
-        SharedPreferences sharedPreferences17=getSharedPreferences(SHARED_PREFERENCES_NAME+"17",MODE_PRIVATE);
+        SharedPreferences sharedPreferences17=getSharedPreferences(tv_day.getText().toString()+"17",MODE_PRIVATE);
         if(KT17==1) {
-            tv_note_17.setText(sharedPreferences17.getString(NOTE, ""));
+            tv_note_17.setText("( "+ sharedPreferences17.getString(TIME_START,"")+":00 - "+sharedPreferences17.getString(TIME_END,"")+" )"+ sharedPreferences17.getString(NOTE, ""));
             tv_note_17.setBackgroundResource(R.drawable.custom5);
         }else {
             String s17 = sharedPreferences17.getString(COlOR, "null");
@@ -450,9 +490,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 tv_note_17.setBackgroundColor(Color.parseColor(s17));
         }
 
-        SharedPreferences sharedPreferences18=getSharedPreferences(SHARED_PREFERENCES_NAME+"18",MODE_PRIVATE);
+        SharedPreferences sharedPreferences18=getSharedPreferences(tv_day.getText().toString()+"18",MODE_PRIVATE);
         if(KT18==1) {
-            tv_note_18.setText(sharedPreferences18.getString(NOTE, ""));
+            tv_note_18.setText("( "+ sharedPreferences18.getString(TIME_START,"")+":00 - "+sharedPreferences18.getString(TIME_END,"")+" )"+ sharedPreferences18.getString(NOTE, ""));
             tv_note_18.setBackgroundResource(R.drawable.custom5);
         }else {
             String s18 = sharedPreferences18.getString(COlOR, "null");
@@ -460,9 +500,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 tv_note_18.setBackgroundColor(Color.parseColor(s18));
         }
 
-        SharedPreferences sharedPreferences19=getSharedPreferences(SHARED_PREFERENCES_NAME+"19",MODE_PRIVATE);
+        SharedPreferences sharedPreferences19=getSharedPreferences(tv_day.getText().toString()+"19",MODE_PRIVATE);
         if(KT19==1) {
-            tv_note_19.setText(sharedPreferences19.getString(NOTE, ""));
+            tv_note_19.setText("( "+ sharedPreferences19.getString(TIME_START,"")+":00 - "+sharedPreferences19.getString(TIME_END,"")+" )"+ sharedPreferences19.getString(NOTE, ""));
             tv_note_19.setBackgroundResource(R.drawable.custom5);
         }else {
             String s19 = sharedPreferences19.getString(COlOR, "null");
@@ -470,9 +510,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 tv_note_19.setBackgroundColor(Color.parseColor(s19));
         }
 
-        SharedPreferences sharedPreferences20=getSharedPreferences(SHARED_PREFERENCES_NAME+"20",MODE_PRIVATE);
+        SharedPreferences sharedPreferences20=getSharedPreferences(tv_day.getText().toString()+"20",MODE_PRIVATE);
         if(KT20==1) {
-            tv_note_20.setText(sharedPreferences20.getString(NOTE, ""));
+            tv_note_20.setText("( "+ sharedPreferences20.getString(TIME_START,"")+":00 - "+sharedPreferences20.getString(TIME_END,"")+" )"+ sharedPreferences20.getString(NOTE, ""));
             tv_note_20.setBackgroundResource(R.drawable.custom5);
         }else {
             String s20 = sharedPreferences20.getString(COlOR, "null");
@@ -480,9 +520,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 tv_note_20.setBackgroundColor(Color.parseColor(s20));
         }
 
-        SharedPreferences sharedPreferences21=getSharedPreferences(SHARED_PREFERENCES_NAME+"21",MODE_PRIVATE);
+        SharedPreferences sharedPreferences21=getSharedPreferences(tv_day.getText().toString()+"21",MODE_PRIVATE);
         if(KT21==1) {
-            tv_note_21.setText(sharedPreferences21.getString(NOTE, ""));
+            tv_note_21.setText("( "+ sharedPreferences21.getString(TIME_START,"")+":00 - "+sharedPreferences21.getString(TIME_END,"")+" )"+ sharedPreferences21.getString(NOTE, ""));
             tv_note_21.setBackgroundResource(R.drawable.custom5);
         }else {
             String s21 = sharedPreferences21.getString(COlOR, "null");
@@ -490,9 +530,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 tv_note_21.setBackgroundColor(Color.parseColor(s21));
         }
 
-        SharedPreferences sharedPreferences22=getSharedPreferences(SHARED_PREFERENCES_NAME+"22",MODE_PRIVATE);
+        SharedPreferences sharedPreferences22=getSharedPreferences(tv_day.getText().toString()+"22",MODE_PRIVATE);
         if(KT22==1) {
-            tv_note_22.setText(sharedPreferences22.getString(NOTE, ""));
+            tv_note_22.setText("( "+ sharedPreferences22.getString(TIME_START,"")+":00 - "+sharedPreferences22.getString(TIME_END,"")+" )"+ sharedPreferences22.getString(NOTE, ""));
             tv_note_22.setBackgroundResource(R.drawable.custom5);
         }else {
             String s22 = sharedPreferences22.getString(COlOR, "null");
@@ -500,9 +540,9 @@ public class thoi_gian_bieu extends AppCompatActivity {
                 tv_note_22.setBackgroundColor(Color.parseColor(s22));
         }
 
-        SharedPreferences sharedPreferences23=getSharedPreferences(SHARED_PREFERENCES_NAME+"23",MODE_PRIVATE);
+        SharedPreferences sharedPreferences23=getSharedPreferences(tv_day.getText().toString()+"23",MODE_PRIVATE);
         if(KT23==1) {
-            tv_note_23.setText(sharedPreferences23.getString(NOTE, ""));
+            tv_note_23.setText("( "+ sharedPreferences23.getString(TIME_START,"")+":00 - "+sharedPreferences23.getString(TIME_END,"")+" )"+ sharedPreferences23.getString(NOTE, ""));
             tv_note_23.setBackgroundResource(R.drawable.custom5);
         }else {
             String s23 = sharedPreferences23.getString(COlOR, "null");
