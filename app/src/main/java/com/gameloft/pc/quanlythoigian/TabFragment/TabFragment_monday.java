@@ -186,8 +186,9 @@ public class TabFragment_monday extends Fragment{
                     MonHoc monHoc = (MonHoc) data.getSerializableExtra("monhoc");
                     boolean check = database.AddMonHoc(monHoc,2);
                     if(check){
-                        listMonHoc.add(monHoc);
-                        customAdapter.notifyDataSetChanged();
+                        listMonHoc = database.getData(2);
+                        customAdapter = new CustomAdapter(getActivity(), R.layout.dong_listview, listMonHoc);
+                        lvMonHoc.setAdapter(customAdapter);
                         Toast.makeText(TabFragment_monday.super.getActivity(),R.string.da_them_mon_hoc_moi,Toast.LENGTH_SHORT).show();
                     }else {
                         Toast.makeText(TabFragment_monday.super.getActivity(),R.string.loi_cap_nhat_du_lieu,Toast.LENGTH_SHORT).show();
