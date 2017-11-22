@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,6 +28,8 @@ import android.widget.Toast;
 
 import com.gameloft.pc.quanlythoigian.classPackage.MonHoc;
 
+import static android.icu.util.MeasureUnit.BYTE;
+
 public class detailscr extends AppCompatActivity {
 
     public static final int REQUEST_CODE_CALL = 123;
@@ -34,6 +38,7 @@ public class detailscr extends AppCompatActivity {
 
     TextView tvTenMon, tvPhong, tvTime, tvGV, tvEmail, tvSdt, tvNote;
     ImageButton btnBack, btnSendEmail, btnSendSMS, btnMakeCall;
+    ImageView imgHinh;
     MonHoc monHoc;
 
     @Override
@@ -65,7 +70,7 @@ public class detailscr extends AppCompatActivity {
         btnSendEmail = (ImageButton) findViewById(R.id.btnSendEmail);
         btnSendSMS = (ImageButton) findViewById(R.id.btnSendSMS);
         btnMakeCall = (ImageButton) findViewById(R.id.btnMakeCall);
-
+        imgHinh = (ImageView) findViewById(R.id.imgHinh);
     }
 
     private void setWidgets() {
@@ -77,6 +82,10 @@ public class detailscr extends AppCompatActivity {
         tvEmail.setText(monHoc.getEmail());
         tvSdt.setText(monHoc.getSdt());
         tvNote.setText(monHoc.getNote());
+        if(monHoc.getHinh() != null){
+            Bitmap bitmap = BitmapFactory.decodeByteArray(monHoc.getHinh(), 0, monHoc.getHinh().length);
+            imgHinh.setImageBitmap(bitmap);
+        }
     }
 
     private void addWidgetsListener() {
