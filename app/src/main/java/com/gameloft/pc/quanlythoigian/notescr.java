@@ -18,7 +18,7 @@ import com.gameloft.pc.quanlythoigian.classPackage.MonHoc;
 
 
 public class notescr extends Activity {
-    Button btnCam, btnSave, btnCancel;
+    Button btnCam1, btnSave, btnCancel;
     EditText edtNote;
     MonHoc monHoc;
 
@@ -40,7 +40,7 @@ public class notescr extends Activity {
     }
 
     private void getWidgets() {
-        btnCam = (Button) findViewById(R.id.btnCamera);
+        btnCam1 = (Button) findViewById(R.id.btnCamera);
         btnSave = (Button) findViewById(R.id.btnSave);
         btnCancel = (Button) findViewById(R.id.btnCancel);
         edtNote = (EditText) findViewById(R.id.edtNote);
@@ -64,13 +64,21 @@ public class notescr extends Activity {
             }
         });
 
-        btnCam.setOnClickListener(new View.OnClickListener() {
-            @Override
+        btnCam1.setOnClickListener(new View.OnClickListener() {
+
             public void onClick(View view) {
-                ActivityCompat.requestPermissions(notescr.this,
-                        new String[]{Manifest.permission.CAMERA}, 100);
+                Intent camscr = new Intent(notescr.this, camActiv.class);
+                startActivity(camscr);
             }
         });
+
+//        btnCam.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                ActivityCompat.requestPermissions(notescr.this,
+//                        new String[]{Manifest.permission.CAMERA}, 100);
+//            }
+//        });
 
 
         btnCancel.setOnClickListener(new View.OnClickListener() {
@@ -81,16 +89,16 @@ public class notescr extends Activity {
         });
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-
-        if (requestCode == 100 && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            startActivityForResult(intent, 100);
-        } else {
-            Toast.makeText(this, R.string.ban_khong_duoc_mo_camera, Toast.LENGTH_LONG).show();
-        }
-
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    }
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+//
+//        if (requestCode == 100 && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//            startActivityForResult(intent, 100);
+//        } else {
+//            Toast.makeText(this, R.string.ban_khong_duoc_mo_camera, Toast.LENGTH_LONG).show();
+//        }
+//
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//    }
 }
