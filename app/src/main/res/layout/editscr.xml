@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@color/white">
 
-    <TextView
-        android:id="@+id/tvDay"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="#1e7bc9"
-        android:gravity="center"
-        android:text="CHỈNH SỬA"
-        android:textColor="#fff"
-        android:textSize="@dimen/text_size_title" />
-
-    <TableLayout
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="@dimen/edt_margin_top"
-        android:stretchColumns="*">
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvDay"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="#1e7bc9"
+            android:gravity="center"
+            android:text="CHỈNH SỬA"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:textSize="@dimen/text_size_title" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="@dimen/edt_margin_top"
+            android:stretchColumns="*">
 
         <TableRow
             android:layout_width="match_parent"
@@ -29,10 +35,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/mon"
-                android:textSize="20sp"
+                android:drawableLeft="@drawable/mon_hoc"
                 android:gravity="center|start"
-                android:drawableLeft="@drawable/mon_hoc" />
+                android:text="@string/mon"
+                android:textStyle="bold"
+                android:textColor="@color/phuc_blue"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/edtTenMon"
@@ -50,10 +58,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/phong"
-                android:textSize="20sp"
+                android:drawableLeft="@drawable/phong"
                 android:gravity="center|left"
-                android:drawableLeft="@drawable/phong"/>
+                android:text="@string/phong"
+                android:textStyle="bold"
+                android:textColor="@color/phuc_blue"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/edtPhong"
@@ -72,20 +82,23 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/thoi_gian"
-                android:textSize="20sp"
+                android:drawableLeft="@drawable/thoigian"
                 android:gravity="center|left"
-                android:drawableLeft="@drawable/thoigian"/>
+                android:text="@string/thoi_gian"
+                android:textStyle="bold"
+                android:textColor="@color/phuc_blue"
+                android:textSize="20sp" />
 
             <LinearLayout>
+
                 <TextView
                     android:id="@+id/tvTime1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:ems="4"
                     android:gravity="center"
                     android:hint="@string/bat_dau"
-                    android:textSize="20sp"
-                    android:ems="4" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textView4"
@@ -99,7 +112,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:hint="@string/ket_thuc"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
             </LinearLayout>
 
         </TableRow>
@@ -112,10 +125,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/giang_vien"
-                android:textSize="20sp"
+                android:drawableLeft="@drawable/giang_vien"
                 android:gravity="center|left"
-                android:drawableLeft="@drawable/giang_vien"/>
+                android:text="@string/giang_vien"
+                android:textStyle="bold"
+                android:textColor="@color/phuc_blue"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/edtGV"
@@ -133,10 +148,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/email"
-                android:textSize="20sp"
+                android:drawableLeft="@drawable/email"
                 android:gravity="center|left"
-                android:drawableLeft="@drawable/email"/>
+                android:text="@string/email"
+                android:textStyle="bold"
+                android:textColor="@color/phuc_blue"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/edtEmail"
@@ -154,10 +171,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/sdt"
-                android:textSize="20sp"
+                android:drawableLeft="@drawable/sdt"
                 android:gravity="center|left"
-                android:drawableLeft="@drawable/sdt"/>
+                android:text="@string/sdt"
+                android:textStyle="bold"
+                android:textColor="@color/phuc_blue"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/edtSDT"
@@ -166,221 +185,38 @@
                 android:ems="10"
                 android:inputType="number" />
         </TableRow>
+        </TableLayout>
+    </LinearLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/edt_margin_top"
+        android:layout_marginRight="@dimen/edt_margin_right"
+        android:layout_marginLeft="@dimen/edt_margin_left"
+        android:layout_marginBottom="@dimen/edt_margin_bottom">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="25dp">
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/corner_btn_luu"
+            android:text="@string/luu"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
-            <Button
-                android:id="@+id/btnSave"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/corner_button"
-                android:text="@string/luu"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/edt_margin_right"/>
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/corner_btn_xoa_activity_add"
+            android:text="@string/huy"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
 
-            <Button
-                android:id="@+id/btnCancel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/corner_btn_xoa"
-                android:text="@string/huy"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:layout_marginLeft="@dimen/edt_margin_left"/>
-        </RelativeLayout>
+</RelativeLayout>
 
-
-    </TableLayout>
-
-
-
-</LinearLayout>
-
-    <!-- <TextView
-         android:id="@+id/textView2"
-         android:layout_width="80dp"
-         android:layout_height="50dp"
-         android:layout_marginLeft="8dp"
-         android:layout_marginTop="8dp"
-         android:gravity="center"
-         android:text="Môn:"
-         android:textColor="#e20b0b"
-         android:textSize="24sp"
-         android:textStyle="bold"
-         app:layout_constraintLeft_toLeftOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-     <TextView
-         android:id="@+id/textView4"
-         android:layout_width="80dp"
-         android:layout_height="50dp"
-         android:layout_marginLeft="8dp"
-         android:layout_marginTop="8dp"
-         android:gravity="center"
-         android:text="Phòng:"
-         android:textColor="#0414ef"
-         android:textSize="24sp"
-         android:textStyle="bold"
-         app:layout_constraintLeft_toLeftOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-     <TextView
-         android:id="@+id/textView15"
-         android:layout_width="80dp"
-         android:layout_height="50dp"
-         android:layout_marginLeft="8dp"
-         android:layout_marginTop="8dp"
-         android:gravity="center"
-         android:text="Thời Gian :"
-         android:textColor="#0414ef"
-         android:textSize="18sp"
-         android:textStyle="bold"
-         app:layout_constraintLeft_toLeftOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-     <TextView
-         android:id="@+id/textView16"
-         android:layout_width="80dp"
-         android:layout_height="50dp"
-         android:layout_marginLeft="8dp"
-         android:layout_marginTop="28dp"
-         android:gravity="center"
-         android:text="Giảng Viên :"
-         android:textColor="#e20b0b"
-         android:textSize="18sp"
-         android:textStyle="bold"
-         app:layout_constraintLeft_toLeftOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
-     <TextView
-         android:id="@+id/textView17"
-         android:layout_width="80dp"
-         android:layout_height="50dp"
-         android:layout_marginLeft="8dp"
-         android:layout_marginTop="8dp"
-         android:gravity="center"
-         android:text="email :"
-         android:textColor="#0414ef"
-         android:textSize="24sp"
-         android:textStyle="bold"
-         app:layout_constraintLeft_toLeftOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
-     <TextView
-         android:id="@+id/textView18"
-         android:layout_width="80dp"
-         android:layout_height="50dp"
-         android:layout_marginLeft="8dp"
-         android:layout_marginTop="8dp"
-         android:gravity="center"
-         android:text="Sdt :"
-         android:textColor="#0414ef"
-         android:textSize="24sp"
-         android:textStyle="bold"
-         app:layout_constraintLeft_toLeftOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/textView17" />
-
-     <EditText
-         android:id="@+id/môn"
-         android:layout_width="280dp"
-         android:layout_height="50dp"
-         android:layout_marginLeft="8dp"
-         android:layout_marginRight="8dp"
-         android:layout_marginTop="8dp"
-         android:ems="10"
-         android:inputType="textPersonName"
-         app:layout_constraintHorizontal_bias="0.0"
-         app:layout_constraintLeft_toRightOf="@+id/textView2"
-         app:layout_constraintRight_toRightOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-     <EditText
-         android:id="@+id/phong"
-         android:layout_width="280dp"
-         android:layout_height="50dp"
-         android:layout_marginLeft="8dp"
-         android:layout_marginRight="8dp"
-         android:layout_marginTop="8dp"
-         android:ems="10"
-         android:inputType="textPersonName"
-         app:layout_constraintLeft_toRightOf="@+id/textView4"
-         app:layout_constraintRight_toRightOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/môn" />
-
-     <EditText
-         android:id="@+id/thoigian"
-         android:layout_width="280dp"
-         android:layout_height="50dp"
-         android:layout_marginLeft="8dp"
-         android:layout_marginRight="8dp"
-         android:layout_marginTop="4dp"
-         android:ems="10"
-         android:inputType="textPersonName"
-         app:layout_constraintHorizontal_bias="0.0"
-         app:layout_constraintLeft_toRightOf="@+id/textView15"
-         app:layout_constraintRight_toRightOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/phong" />
-
-     <EditText
-         android:id="@+id/giangvien"
-         android:layout_width="280dp"
-         android:layout_height="50dp"
-         android:layout_marginLeft="8dp"
-         android:layout_marginRight="8dp"
-         android:layout_marginTop="30dp"
-         android:ems="10"
-         android:inputType="textPersonName"
-         app:layout_constraintHorizontal_bias="0.0"
-         app:layout_constraintLeft_toRightOf="@+id/textView16"
-         app:layout_constraintRight_toRightOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/thoigian" />
-
-     <EditText
-         android:id="@+id/email"
-         android:layout_width="280dp"
-         android:layout_height="50dp"
-         android:layout_marginLeft="8dp"
-         android:layout_marginRight="8dp"
-         android:layout_marginTop="18dp"
-         android:ems="10"
-         android:inputType="textPersonName"
-         app:layout_constraintHorizontal_bias="0.0"
-         app:layout_constraintLeft_toRightOf="@+id/textView17"
-         app:layout_constraintRight_toRightOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/giangvien" />
-
-     <EditText
-         android:id="@+id/sdt"
-         android:layout_width="280dp"
-         android:layout_height="50dp"
-         android:layout_marginLeft="8dp"
-         android:layout_marginRight="8dp"
-         android:layout_marginTop="-8dp"
-         android:ems="10"
-         android:inputType="textPersonName"
-         app:layout_constraintHorizontal_bias="0.0"
-         app:layout_constraintLeft_toRightOf="@+id/textView18"
-         app:layout_constraintRight_toRightOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/email" />
-
-     <Button
-         android:id="@+id/btnhienthi"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_marginBottom="16dp"
-         android:layout_marginLeft="8dp"
-         android:layout_marginRight="8dp"
-         android:text="Lưu"
-         android:textSize="18sp"
-         android:textStyle="bold"
-         app:layout_constraintBottom_toBottomOf="parent"
-         app:layout_constraintLeft_toLeftOf="parent"
-         app:layout_constraintRight_toRightOf="parent" />-->
 

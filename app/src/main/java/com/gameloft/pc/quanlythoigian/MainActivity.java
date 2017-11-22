@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         String []languages = getResources().getStringArray(R.array.languages);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Languages");
+        builder.setTitle(R.string.ngon_ngu);
         builder.setItems(languages, new DialogInterface.OnClickListener() {
 
             @Override

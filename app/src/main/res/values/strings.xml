@@ -2,14 +2,14 @@
     <string name="app_name">QuanLyThoiGian</string>
     //activity_add
     <string name="them_mon_hoc">THÊM MÔN HỌC</string>
-    <string name="mon"> Môn</string>
+    <string name="mon">Môn</string>
     <string name="phong">Phòng</string>
     <string name="thoi_gian">Thời gian</string>
     <string name="bat_dau">Bắt đầu</string>
     <string name="ket_thuc">Kết Thúc</string>
     <string name="giang_vien">Giảng viên</string>
     <string name="email">Email</string>
-    <string name="sdt">Sdt</string>
+    <string name="sdt">SDT</string>
     <string name="huy">Hủy</string>
     <string name="luu">Lưu</string>
     <string name="chi_tiet">CHI TIẾT</string>
@@ -20,7 +20,7 @@
     <string name="phong_dong_listview">Phòng:</string>
 
     //activity_detail_tgb
-    <string name="cong_viec">Công việc</string>
+    <string name="cong_viec">CÔNG VIỆC</string>
     <string name="su_kien">Sự kiện</string>
     <string name="tro_lai">Trở lại</string>
     <string name="xoa">Xóa</string>
@@ -45,12 +45,12 @@
     <string name="noi_dung">Nội dung</string>
     <string name="gui_email">Gửi Email</string>
 
-    <string name="thu_2">THỨ 2</string>
-    <string name="thu_3">THỨ 3</string>
-    <string name="thu_4">THỨ 4</string>
-    <string name="thu_5">THỨ 5</string>
-    <string name="thu_6">THỨ 6</string>
-    <string name="thu_7">THỨ 7</string>
+    <string name="thu_2">THỨ HAI</string>
+    <string name="thu_3">THỨ BA</string>
+    <string name="thu_4">THỨ TƯ</string>
+    <string name="thu_5">THỨ NĂM</string>
+    <string name="thu_6">THỨ SÁU</string>
+    <string name="thu_7">THỨ BẢY</string>
     <string name="chu_nhat">CHỦ NHẬT</string>
 
     <string name="nhap_ghi_chu">Nhập ghi chú ...</string>
@@ -74,5 +74,14 @@
     <string name="khong">Không</string>
     <string name="de_sau">Để sau</string>
 
+    <string name="t2">T2</string>
+    <string name="t3">T3</string>
+    <string name="t4">T4</string>
+    <string name="t5">T5</string>
+    <string name="t6">T6</string>
+    <string name="t7">T7</string>
+    <string name="cn">CN</string>
+
+    <string name="ngon_ngu">Ngôn ngữ</string>
 
 </resources>

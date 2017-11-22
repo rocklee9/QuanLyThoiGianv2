@@ -21,10 +21,11 @@
 
         <ImageButton
             android:id="@+id/btnBack"
-            android:layout_width="60dp"
-            android:layout_height="70dp"
-            android:background="@drawable/back"
-            />
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/back_btn"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -81,6 +82,7 @@
                     android:drawableLeft="@drawable/phong"
                     android:gravity="center|left"
                     android:text="@string/phong"
+                    android:textColor="@color/phuc_blue"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -112,6 +114,7 @@
                     android:drawableLeft="@drawable/thoigian"
                     android:gravity="center|left"
                     android:text="@string/thoi_gian"
+                    android:textColor="@color/phuc_blue"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -176,6 +179,7 @@
                     android:gravity="center|left"
                     android:text="@string/email"
                     android:textSize="18sp"
+                    android:textColor="@color/phuc_blue"
                     android:textStyle="bold" />
 
                 <TextView
@@ -212,6 +216,7 @@
                     android:drawableLeft="@drawable/sdt"
                     android:gravity="center|left"
                     android:text="@string/sdt"
+                    android:textColor="@color/phuc_blue"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 

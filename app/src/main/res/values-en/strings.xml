@@ -73,5 +73,14 @@
     <string name="khong">No</string>
     <string name="de_sau">Not now</string>
 
+    <string name="t2">Mon</string>
+    <string name="t3">Tue</string>
+    <string name="t4">Wed</string>
+    <string name="t5">Thu</string>
+    <string name="t6">Fri</string>
+    <string name="t7">Sat</string>
+    <string name="cn">Sun</string>
+
+    <string name="ngon_ngu">Language</string>
 
 </resources>
