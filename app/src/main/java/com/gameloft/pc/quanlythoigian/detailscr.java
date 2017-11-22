@@ -183,13 +183,13 @@ public class detailscr extends AppCompatActivity {
                 if((grantResults.length > 0) && (grantResults[0] == PackageManager.PERMISSION_GRANTED)){
                     makeCall();
                 }else{
-                    Toast.makeText(detailscr.this,"App chưa đươc cấp quyền để gọi điện thoại !",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(detailscr.this,R.string.ung_dung_chua_duoc_cap_quyen_de_goi_dien_thoai,Toast.LENGTH_SHORT).show();
                 }
             case REQUEST_CODE_SMS:
                 if((grantResults.length > 0) && (grantResults[0] == PackageManager.PERMISSION_GRANTED)){
                     makeSMS();
                 }else{
-                    Toast.makeText(detailscr.this,"App chưa đươc cấp quyền gửi tin nhắn !",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(detailscr.this,R.string.ung_dung_chua_duoc_cap_quyen_de_gui_tin_nhan,Toast.LENGTH_SHORT).show();
                 }
         }
     }
@@ -219,7 +219,7 @@ public class detailscr extends AppCompatActivity {
         try{
             startActivity(intent.createChooser(intent,"Email"));
         }catch(android.content.ActivityNotFoundException ex){
-            Toast.makeText(detailscr.this, "Không có ứng dụng hỗ trợ email được cài đặt !", Toast.LENGTH_SHORT).show();
+            Toast.makeText(detailscr.this, R.string.khong_ho_tro_email, Toast.LENGTH_SHORT).show();
         }
     }
 

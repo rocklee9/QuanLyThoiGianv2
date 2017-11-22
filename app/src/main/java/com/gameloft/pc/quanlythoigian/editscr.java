@@ -86,14 +86,14 @@ public class editscr extends AppCompatActivity {
              public void onClick(View v) {
                  if(edtTenMon.getText().toString().isEmpty()){
                      AlertDialog.Builder rm = new AlertDialog.Builder(editscr.this);
-                     rm.setMessage("Lưu mà không có tên môn học ?");
-                     rm.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
+                     rm.setMessage(R.string.luu_ma_khong_co_ten_mon_hoc);
+                     rm.setNegativeButton(R.string.huy, new DialogInterface.OnClickListener() {
                          @Override
                          public void onClick(DialogInterface dialog, int which) {
                              dialog.cancel();
                          }
                      });
-                     rm.setPositiveButton("Lưu", new DialogInterface.OnClickListener() {
+                     rm.setPositiveButton(R.string.luu, new DialogInterface.OnClickListener() {
                          @Override
                          public void onClick(DialogInterface dialog, int which) {
                              setMonHoc();

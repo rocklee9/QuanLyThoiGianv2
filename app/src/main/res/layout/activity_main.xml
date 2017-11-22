@@ -1,41 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:background="@color/phuc_blue"
-        />
-
-    <Button
-        android:id="@+id/btntkb"
-        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="THỜI KHÓA BIỂU"
-        android:layout_marginTop="100dp"
-        android:layout_gravity="center"
-        android:background="@color/phuc_blue"
-        android:textColor="@color/white"/>
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@drawable/main_icon2"/>
 
-    <Button
-        android:id="@+id/btntgb"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="THỜI GIAN BIỂU"
-        android:layout_gravity="center"
-        android:background="@color/phuc_blue"
-        android:textColor="@color/white"
-        android:layout_marginTop="5dp"/>
+        <Button
+            android:id="@+id/btntkb"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:text="@string/thoi_khoa_bieu"
+            android:layout_marginTop="80dp"
+            android:layout_gravity="center"
+            android:background="@color/phuc_blue"
+            android:textColor="@color/white"
+            android:onClick="gotoThoiKhoaBieu"/>
 
-    <TextView
+        <Button
+            android:id="@+id/btntgb"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:text="@string/thoi_gian_bieu"
+            android:layout_gravity="center"
+            android:background="@color/phuc_blue"
+            android:textColor="@color/white"
+            android:layout_marginTop="5dp"
+            android:onClick="gotoThoiGianBieu"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Design By PhucDepTrai"
-        android:layout_gravity="center"
-        android:layout_marginTop="100dp"/>
-</LinearLayout>
+        android:paddingRight="@dimen/activity_main_icon_group_pađing_right"
+        android:paddingBottom="@dimen/activity_main_icon_group_pađing_bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true">
+
+        <Button
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/language"
+            android:onClick="showSelectLanguage"/>
+        <Space
+            android:layout_width="@dimen/activity_main_icon_button_space"
+            android:layout_height="match_parent" />
+        <Button
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/rating"
+            android:onClick="showRating"/>
+    </LinearLayout>
+
+</RelativeLayout>
 
 

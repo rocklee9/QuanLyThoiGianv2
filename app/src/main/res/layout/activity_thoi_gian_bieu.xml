@@ -14,8 +14,8 @@
            <LinearLayout
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:layout_marginTop="@dimen/tgb_margin_top"
-               >
+               android:layout_marginTop="@dimen/tgb_margin_top">
+
                <Button
                    android:layout_marginLeft="@dimen/tgb_margin_left"
                    android:layout_width="@dimen/width_button"
@@ -23,7 +23,8 @@
                    android:background="@drawable/custom3"
                    android:gravity="center"
                    android:textSize="@dimen/test_size"
-                   android:text="date"/>
+                   android:text="@string/ngay"/>
+
                <Button
                    android:textSize="@dimen/test_size"
                    android:layout_marginLeft="@dimen/tgb_margin_left"
@@ -31,10 +32,7 @@
                    android:background="@drawable/custom2"
                    android:layout_width="@dimen/width_button"
                    android:layout_height="@dimen/hight_button"
-                   android:text="week"
-
-                  />
-
+                   android:text="@string/tuan" />
 
 
                <TextView
@@ -66,8 +64,7 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:background="@drawable/custom4"
-           android:stretchColumns="*"
-           >
+           android:stretchColumns="*">
            <TableRow>
             <TextView
                 android:layout_span="1"

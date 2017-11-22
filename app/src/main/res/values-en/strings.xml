@@ -1,0 +1,75 @@
+<resources>
+    <string name="app_name">QuanLyThoiGian</string>
+    //activity_add
+    <string name="them_mon_hoc">ADD SUBJECT</string>
+    <string name="mon"> Subject</string>
+    <string name="phong">Room</string>
+    <string name="thoi_gian">Time</string>
+    <string name="bat_dau">Begin</string>
+    <string name="ket_thuc">End</string>
+    <string name="giang_vien">Teacher</string>
+    <string name="email">Email</string>
+    <string name="sdt">Number</string>
+    <string name="huy">Cancel</string>
+    <string name="luu">Save</string>
+    <string name="chi_tiet">DETAIL</string>
+    <string name="chinh_sua">Edit</string>
+
+
+    <string name="thoi_gian_dong_listview">Time:</string>
+    <string name="phong_dong_listview">Room:</string>
+
+    //activity_detail_tgb
+    <string name="cong_viec">Work to do</string>
+    <string name="su_kien">Event</string>
+    <string name="tro_lai">Back</string>
+    <string name="xoa">Delete</string>
+    <string name="chinh_sua_them">Edit / Add</string>
+
+    //activity_main
+    <string name="thoi_khoa_bieu">TIME TABLE</string>
+    <string name="thoi_gian_bieu">SCHEDULE</string>
+
+
+    <string name="ngay">Date</string>
+    <string name="tuan">Week</string>
+
+    <string name="nhan_vao_day">Click here</string>
+
+    <string name="mon_hoc">Subject</string>
+    <string name="ghi_chu">Note</string>
+
+    <string name="tieu_de">Title</string>
+    <string name="noi_dung">Content</string>
+    <string name="gui_email">Send Email</string>
+
+    <string name="thu_2">MONDAY</string>
+    <string name="thu_3">TUESDAY</string>
+    <string name="thu_4">WEDNESDAY</string>
+    <string name="thu_5">THURSDAY</string>
+    <string name="thu_6">FRIDAY</string>
+    <string name="thu_7">SATURDAY</string>
+    <string name="chu_nhat">SUNDAY</string>
+
+    <string name="nhap_ghi_chu">Enter note ...</string>
+
+    <string name="luu_ma_khong_co_ten_mon_hoc">Save without the subject name?</string>
+    <string name="khong_co_du_lieu_de_xoa">Nothing to delete!</string>
+    <string name="ung_dung_chua_duoc_cap_quyen_de_goi_dien_thoai">The app has not been granted permission to make phone calls!</string>
+    <string name="ung_dung_chua_duoc_cap_quyen_de_gui_tin_nhan">The app has not been granted permission to send messages!</string>
+    <string name="khong_ho_tro_email">No email app installed!</string>
+    <string name="ban_khong_duoc_mo_camera">You must not open the camera!</string>
+    <string name="ban_co_chac_muon_xoa">Are you sure you want to delete?</string>
+    <string name="da_xoa">Deleted!</string>
+    <string name="loi_cap_nhat_du_lieu">Sorry! There was an error updating the data.</string>
+    <string name="da_them_mon_hoc_moi">Add the new subject successful!</string>
+    <string name="cap_nhat_thanh_cong">Update successfull!</string>
+    <string name="da_luu_ghi_chu">Saved notes!</string>
+    <string name="danh_gia_app">Rating!</string>
+    <string name="ban_co_thich_ung_dung_khong">Do you like app?</string>
+    <string name="co">Yes</string>
+    <string name="khong">No</string>
+    <string name="de_sau">Not now</string>
+
+
+</resources>

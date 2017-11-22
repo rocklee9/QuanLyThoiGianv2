@@ -13,13 +13,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/custom3"
-            android:text="date"/>
+            android:text="@string/ngay"/>
         <Button
             android:layout_marginLeft="5dp"
             android:id="@+id/btn_week"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="week"
+            android:text="@string/tuan"
             android:background="@drawable/custom2"
             />
     </LinearLayout>

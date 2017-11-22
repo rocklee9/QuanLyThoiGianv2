@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gameloft.pc.quanlythoigian.camActiv">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Camera"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="40dp"
+            android:gravity="center"
+            android:background="@color/phuc_blue" />
+
+        <ImageView
+            android:id="@+id/imgBitmap"
+            android:layout_width="300dp"
+            android:layout_height="350dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp">
+
+            <Button
+                android:id="@+id/btnSavPic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:background="@color/phuc_blue"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp" />
+
+            <Button
+                android:id="@+id/btnCapture"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/icons8_camera_64px_2"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                />
+
+            <Button
+                android:id="@+id/btnCancelPic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/phuc_blue"
+                android:text="Cancel"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginLeft="40dp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
