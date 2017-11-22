@@ -18,7 +18,7 @@ public class DatabaseAdapter {
     MyDatabase db;
     SQLiteDatabase database;
     String[] columns = {MyDatabase.ID,MyDatabase.MONHOC, MyDatabase.TIME1, MyDatabase.TIME2, MyDatabase.PHONG,
-                        MyDatabase.TENGV, MyDatabase.EMAIL, MyDatabase.SDT, MyDatabase.NOTE};
+                        MyDatabase.TENGV, MyDatabase.EMAIL, MyDatabase.SDT, MyDatabase.NOTE, MyDatabase.PIC};
 
     public DatabaseAdapter(Context context){
         db = new MyDatabase(context);
@@ -42,6 +42,7 @@ public class DatabaseAdapter {
         contentValues.put(MyDatabase.EMAIL,monHoc.getEmail());
         contentValues.put(MyDatabase.SDT,monHoc.getSdt());
         contentValues.put(MyDatabase.NOTE,monHoc.getNote());
+        contentValues.put(MyDatabase.PIC,monHoc.getHinh());
 
         long check = 0;
 
@@ -123,6 +124,7 @@ public class DatabaseAdapter {
             String email = cursor.getString(cursor.getColumnIndex(MyDatabase.EMAIL));
             String sdt = cursor.getString(cursor.getColumnIndex(MyDatabase.SDT));
             String note = cursor.getString(cursor.getColumnIndex(MyDatabase.NOTE));
+            byte[] hinh = cursor.getBlob(cursor.getColumnIndex(MyDatabase.PIC));
             boolean warning = false;
 
             MonHoc monHoc = new MonHoc();
@@ -135,6 +137,7 @@ public class DatabaseAdapter {
             monHoc.setEmail(email);
             monHoc.setSdt(sdt);
             monHoc.setNote(note);
+            monHoc.setHinh(hinh);
             monHoc.setWarning(warning);
 
             listMonHoc.add(monHoc);
@@ -195,6 +198,7 @@ public class DatabaseAdapter {
         contentValues.put(MyDatabase.EMAIL,monHoc.getEmail());
         contentValues.put(MyDatabase.SDT,monHoc.getSdt());
         contentValues.put(MyDatabase.NOTE,monHoc.getNote());
+        contentValues.put(MyDatabase.PIC,monHoc.getHinh());
 
         switch (day){
             case 2:

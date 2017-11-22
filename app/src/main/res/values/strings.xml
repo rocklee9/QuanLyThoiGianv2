@@ -38,6 +38,7 @@
 
     <string name="mon_hoc">Môn học</string>
     <string name="ghi_chu">Ghi chú</string>
+    <string name="chup_anh">Chụp ảnh</string>
 
 
     <string name="tieu_de">Tiêu đề</string>
@@ -66,6 +67,7 @@
     <string name="da_them_mon_hoc_moi">Đã thêm môn học mới!</string>
     <string name="cap_nhat_thanh_cong">Cập nhật thành công!</string>
     <string name="da_luu_ghi_chu">Đã lưu ghi chú!</string>
+    <string name="da_luu_anh">Đã lưu ảnh!</string>
     <string name="danh_gia_app">Đánh giá!</string>
     <string name="ban_co_thich_ung_dung_khong">Bạn có thích ứng dụng này không?</string>
     <string name="co">Có</string>

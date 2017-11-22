@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.gameloft.pc.quanlythoigian.AddActivity;
 import com.gameloft.pc.quanlythoigian.MyDatabase.DatabaseAdapter;
 import com.gameloft.pc.quanlythoigian.R;
+import com.gameloft.pc.quanlythoigian.camActiv;
 import com.gameloft.pc.quanlythoigian.classPackage.CustomAdapter;
 import com.gameloft.pc.quanlythoigian.classPackage.MonHoc;
 import com.gameloft.pc.quanlythoigian.detailscr;
@@ -44,10 +45,12 @@ public class TabFragment_monday extends Fragment{
     public static final int REQUEST_CODE_ADD = 1;
     public static final int REQUEST_CODE_EDIT = 2;
     public static final int REQUEST_CODE_NOTE = 3;
+    public static final int REQUEST_CODE_CAM = 7;
 
     public static final int RESULT_CODE_ADD = 4;
     public static final int RESULT_CODE_EDIT = 5;
     public static final int RESULT_CODE_NOTE = 6;
+    public static final int RESULT_CODE_CAM = 8;
 
 
 
@@ -162,6 +165,13 @@ public class TabFragment_monday extends Fragment{
                     iNote.putExtra("monHocNote",monHocNote);
                     startActivityForResult(iNote,REQUEST_CODE_NOTE);
                     return true;
+
+                case R.id.itCam:
+                    Intent iCam = new Intent(TabFragment_monday.super.getContext(),camActiv.class);
+                    MonHoc monHocCam = listMonHoc.get(menuInfo.position);
+                    iCam.putExtra("monHocCam",monHocCam);
+                    startActivityForResult(iCam,REQUEST_CODE_CAM);
+                    return true;
             }
         }
         return false;
@@ -212,6 +222,22 @@ public class TabFragment_monday extends Fragment{
                         customAdapter = new CustomAdapter(getActivity(),R.layout.dong_listview, listMonHoc);
                         lvMonHoc.setAdapter(customAdapter);
                         Toast.makeText(TabFragment_monday.super.getActivity(),R.string.da_luu_ghi_chu, Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(TabFragment_monday.super.getActivity(),R.string.loi_cap_nhat_du_lieu,Toast.LENGTH_SHORT).show();
+                    }
+            }
+        }
+
+        if (requestCode == REQUEST_CODE_CAM){
+            switch (resultCode){
+                case RESULT_CODE_CAM:
+                    MonHoc monHoc = (MonHoc) data.getSerializableExtra("monHocCamed");
+                    boolean check = database.update(monHoc,2);
+                    if(check){
+                        listMonHoc = database.getData(2);
+                        customAdapter = new CustomAdapter(getActivity(),R.layout.dong_listview, listMonHoc);
+                        lvMonHoc.setAdapter(customAdapter);
+                        Toast.makeText(TabFragment_monday.super.getActivity(),R.string.da_luu_anh, Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(TabFragment_monday.super.getActivity(),R.string.loi_cap_nhat_du_lieu,Toast.LENGTH_SHORT).show();
                     }

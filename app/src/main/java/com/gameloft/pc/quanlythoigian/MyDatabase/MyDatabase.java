@@ -22,6 +22,7 @@ public class MyDatabase extends SQLiteOpenHelper {
     public static final String EMAIL = "EMAILGIANGVIEN";
     public static final String SDT = "SDTGIANGVIEN";
     public static final String NOTE = "NOTE";
+    public static final String PIC = "PICTURE";
 
     public static final String TABLE_MONDAY = "MONDAY";
 
@@ -53,7 +54,8 @@ public class MyDatabase extends SQLiteOpenHelper {
                 + TENGV + " TEXT,"
                 + EMAIL + " TEXT,"
                 + SDT + " TEXT,"
-                + NOTE + " TEXT);";
+                + NOTE + " TEXT,"
+                + PIC + " BLOB);";
         //db.execSQL(query2);
 
 
@@ -66,7 +68,8 @@ public class MyDatabase extends SQLiteOpenHelper {
                 + TENGV + " TEXT,"
                 + EMAIL + " TEXT,"
                 + SDT + " TEXT,"
-                + NOTE + " TEXT);";
+                + NOTE + " TEXT,"
+                + PIC + " BLOB);";
         //db.execSQL(query3);
 
         String query4 = "CREATE TABLE "+ TABLE_WEDNESDAY +" " +
@@ -78,7 +81,8 @@ public class MyDatabase extends SQLiteOpenHelper {
                 + TENGV + " TEXT,"
                 + EMAIL + " TEXT,"
                 + SDT + " TEXT,"
-                + NOTE + " TEXT);";
+                + NOTE + " TEXT,"
+                + PIC + " BLOB);";
         //db.execSQL(query4);
 
         String query5 = "CREATE TABLE "+ TABLE_THURSDAY +" " +
@@ -90,7 +94,8 @@ public class MyDatabase extends SQLiteOpenHelper {
                 + TENGV + " TEXT,"
                 + EMAIL + " TEXT,"
                 + SDT + " TEXT,"
-                + NOTE + " TEXT);";
+                + NOTE + " TEXT,"
+                + PIC + " BLOB);";
         //db.execSQL(query5);
 
         String query6 = "CREATE TABLE "+ TABLE_FRIDAY +" " +
@@ -102,7 +107,8 @@ public class MyDatabase extends SQLiteOpenHelper {
                 + TENGV + " TEXT,"
                 + EMAIL + " TEXT,"
                 + SDT + " TEXT,"
-                + NOTE + " TEXT);";
+                + NOTE + " TEXT,"
+                + PIC + " BLOB);";
        // db.execSQL(query6);
 
         String query7 = "CREATE TABLE "+ TABLE_SATURDAY +" " +
@@ -114,7 +120,8 @@ public class MyDatabase extends SQLiteOpenHelper {
                 + TENGV + " TEXT,"
                 + EMAIL + " TEXT,"
                 + SDT + " TEXT,"
-                + NOTE + " TEXT);";
+                + NOTE + " TEXT,"
+                + PIC + " BLOB);";
        // db.execSQL(query7);
 
         String query8 = "CREATE TABLE "+ TABLE_SUNDAY +" " +
@@ -126,7 +133,8 @@ public class MyDatabase extends SQLiteOpenHelper {
                 + TENGV + " TEXT,"
                 + EMAIL + " TEXT,"
                 + SDT + " TEXT,"
-                + NOTE + " TEXT);";
+                + NOTE + " TEXT,"
+                + PIC + " BLOB);";
         db.execSQL(query2);
         db.execSQL(query3);
         db.execSQL(query4);

@@ -56,7 +56,7 @@ public class thoi_khoa_bieu extends AppCompatActivity implements TabHost.OnTabCh
         tab_mon.setContent(new FakeContentTab(this));
 
         TabHost.TabSpec tab_tue = tabHost.newTabSpec("TUE");
-        tab_tue.setIndicator("T3");
+        tab_tue.setIndicator("t3");
         tab_tue.setContent(new FakeContentTab(this));
 
         TabHost.TabSpec tab_wed = tabHost.newTabSpec("WED");

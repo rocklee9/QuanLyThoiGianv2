@@ -40,7 +40,7 @@ public class notescr extends Activity {
     }
 
     private void getWidgets() {
-        btnCam1 = (Button) findViewById(R.id.btnCamera);
+//        btnCam1 = (Button) findViewById(R.id.btnCamera);
         btnSave = (Button) findViewById(R.id.btnSave);
         btnCancel = (Button) findViewById(R.id.btnCancel);
         edtNote = (EditText) findViewById(R.id.edtNote);
@@ -64,13 +64,13 @@ public class notescr extends Activity {
             }
         });
 
-        btnCam1.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View view) {
-                Intent camscr = new Intent(notescr.this, camActiv.class);
-                startActivity(camscr);
-            }
-        });
+//        btnCam1.setOnClickListener(new View.OnClickListener() {
+//
+//            public void onClick(View view) {
+//                Intent camscr = new Intent(notescr.this, camActiv.class);
+//                startActivity(camscr);
+//            }
+//        });
 
 //        btnCam.setOnClickListener(new View.OnClickListener() {
 //            @Override

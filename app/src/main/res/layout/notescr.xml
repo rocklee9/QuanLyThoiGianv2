@@ -54,13 +54,6 @@
             android:textColor="@color/white"
             android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/btnCamera"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/icons8_camera_64px_2"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
     </RelativeLayout>
 
 </RelativeLayout>
