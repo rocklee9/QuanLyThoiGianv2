@@ -1,0 +1,85 @@
+<resources>
+    <string name="app_name">QuanLyThoiGian</string>
+    //activity_add
+    <string name="them_mon_hoc">追加コース</string>
+    <string name="mon"> 月</string>
+    <string name="phong">部屋</string>
+    <string name="thoi_gian">時間</string>
+    <string name="bat_dau">始める</string>
+    <string name="ket_thuc">エンディング</string>
+    <string name="giang_vien">講師</string>
+    <string name="email">メール</string>
+    <string name="sdt">電話番号</string>
+    <string name="huy">キャンセル</string>
+    <string name="luu">保存する</string>
+    <string name="chi_tiet">詳細</string>
+    <string name="chinh_sua">編集</string>
+
+
+    <string name="thoi_gian_dong_listview">時間:</string>
+    <string name="phong_dong_listview">部屋:</string>
+
+    //activity_detail_tgb
+    <string name="cong_viec">仕事</string>
+    <string name="su_kien">イベント</string>
+    <string name="tro_lai">戻ってくる</string>
+    <string name="xoa">削除</string>
+    <string name="chinh_sua_them">編集 / もっと</string>
+
+    //activity_main
+    <string name="thoi_khoa_bieu">時間スケジュール</string>
+    <string name="thoi_gian_bieu">時代</string>
+
+
+    <string name="ngay">日</string>
+    <string name="tuan">週</string>
+
+    <string name="nhan_vao_day">ここをクリック</string>
+
+    <string name="mon_hoc">件名</string>
+    <string name="ghi_chu">ノート</string>
+
+
+    <string name="tieu_de">タイトル</string>
+    <string name="noi_dung">コンテンツ</string>
+    <string name="gui_email">メールを送信</string>
+
+    <string name="thu_2">げつようび</string>
+    <string name="thu_3">かようび</string>
+    <string name="thu_4">すいようび</string>
+    <string name="thu_5">もくようび</string>
+    <string name="thu_6">きんようび</string>
+    <string name="thu_7">どようび</string>
+    <string name="chu_nhat">にちようび</string>
+
+    <string name="nhap_ghi_chu">メモを入力 ...</string>
+
+    <string name="luu_ma_khong_co_ten_mon_hoc">件名なしで保存しますか？</string>
+    <string name="khong_co_du_lieu_de_xoa">削除するものはありません！</string>
+    <string name="ung_dung_chua_duoc_cap_quyen_de_goi_dien_thoai">アプリに電話をかける権限が与えられていません。！</string>
+    <string name="ung_dung_chua_duoc_cap_quyen_de_gui_tin_nhan">アプリにメッセージを送信する権限が付与されていません。！</string>
+    <string name="khong_ho_tro_email">電子メールアプリがインストールされていません！</string>
+    <string name="ban_khong_duoc_mo_camera">カメラを開けないでください！</string>
+    <string name="ban_co_chac_muon_xoa">削除してもよろしいですか？</string>
+    <string name="da_xoa">削除されました！</string>
+    <string name="loi_cap_nhat_du_lieu">申し訳ありません！ データの更新中にエラーが発生しました。</string>
+    <string name="da_them_mon_hoc_moi">新しいコースを追加しました！</string>
+    <string name="cap_nhat_thanh_cong">更新が正常に完了！</string>
+    <string name="da_luu_ghi_chu">メモを保存しました！</string>
+    <string name="danh_gia_app">評価！</string>
+    <string name="ban_co_thich_ung_dung_khong">このアプリが好きですか？</string>
+    <string name="co">はい</string>
+    <string name="khong">いいえ。</string>
+    <string name="de_sau">後で</string>
+
+    <string name="t2">月</string>
+    <string name="t3">火</string>
+    <string name="t4">水</string>
+    <string name="t5">木</string>
+    <string name="t6">金</string>
+    <string name="t7">土</string>
+    <string name="cn">日</string>
+
+    <string name="ngon_ngu">言語</string>
+
+</resources>
