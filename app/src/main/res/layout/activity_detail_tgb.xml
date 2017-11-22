@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="350dp"
+    android:layout_marginLeft="@dimen/edt_margin_left"
+    android:layout_marginRight="@dimen/edt_margin_right">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tgb_margin_top"
+            android:text="@string/cong_viec"
+            android:background="@color/phuc_blue"
+            android:textSize="24sp"/>
+        <TextView
+
+            android:layout_marginLeft="@dimen/tgb_margin_left"
+            android:id="@+id/tv_cv"
+            android:layout_marginTop="@dimen/tgb_margin_top"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/su_kien"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/hight_button"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:text="@string/ket_thuc"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/hight_button"
+                android:text=":"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_time_end"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/hight_button"
+                android:text="--:--"
+                android:textSize="20sp"
+                android:gravity="center"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/thoi_gian"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:id="@+id/tv_time"
+                    android:layout_marginLeft="@dimen/tgb_margin_left"
+                    android:layout_marginTop="@dimen/tgb_margin_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="th --, -- tháng --, -- -- - -- --"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_huy"
+                android:text="@string/tro_lai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btn_xoa"
+                android:text="@string/xoa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right" />
+
+
+
+            <Button
+                android:id="@+id/btn_sua_them"
+                android:text="@string/chinh_sua_them"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -2,14 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/itEdit"
-        android:title="Chỉnh sửa"
-        />
+        android:title="@string/chinh_sua" />
 
     <item
         android:id="@+id/itDelete"
-        android:title="Xóa"/>
+        android:title="@string/xoa"/>
 
     <item
         android:id="@+id/itNote"
-        android:title="Ghi chú"/>
+        android:title="@string/ghi_chu"/>
 </menu>

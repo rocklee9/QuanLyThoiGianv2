@@ -17,7 +17,7 @@
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="4dp"
-        android:text="email"
+        android:text="@string/email"
         android:textSize="20sp"
         />
     <EditText
@@ -28,7 +28,7 @@
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="4dp"
-        android:hint="Tiêu đề"
+        android:hint="@string/tieu_de"
         />
     <EditText
         android:id="@+id/edtContent"
@@ -38,7 +38,7 @@
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="16dp"
-        android:hint="Nội dung"
+        android:hint="@string/noi_dung"
         />
 
     <LinearLayout
@@ -50,14 +50,14 @@
             android:id="@+id/btnCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hủy"
+            android:text="@string/huy"
             android:layout_weight="1"/>
 
         <Button
             android:id="@+id/btnSend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gửi Email"
+            android:text="@string/gui_email"
             android:layout_weight="1"/>
     </LinearLayout>
 </LinearLayout>

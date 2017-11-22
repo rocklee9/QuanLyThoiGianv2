@@ -10,7 +10,7 @@
         android:layout_height="60dp"
         android:background="#1e7bc9"
         android:gravity="center"
-        android:text="THÊM MÔN HỌC"
+        android:text="@string/them_mon_hoc"
         android:textStyle="bold"
         android:textColor="#fff"
         android:textSize="40dp" />
@@ -30,7 +30,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Môn"
+                android:text="@string/mon"
                 android:textSize="20sp"
                 android:gravity="center|start"
                 android:textStyle="bold"
@@ -52,11 +52,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Phòng"
+                android:text="@string/phong"
                 android:textSize="20sp"
                 android:gravity="center|left"
                 android:textStyle="bold"
-                android:textColor="#999999"
                 android:drawableLeft="@drawable/phong"/>
 
             <EditText
@@ -75,10 +74,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Thời gian"
+                android:text="@string/thoi_gian"
                 android:textSize="20sp"
                 android:gravity="center|left"
-                android:textColor="#999999"
                 android:textStyle="bold"
                 android:drawableLeft="@drawable/thoigian"/>
 
@@ -88,7 +86,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:hint="  Bắt đầu"
+                    android:hint="@string/bat_dau"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="#999999"/>
@@ -98,15 +96,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="       -      "
-                    android:textStyle="bold"
-                    android:textColor="#999999"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvTime2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:hint="Kết Thúc"
+                    android:hint="@string/ket_thuc"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="#999999"
@@ -123,7 +120,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Giảng viên"
+                android:text="@string/giang_vien"
                 android:textSize="20sp"
                 android:gravity="center|left"
                 android:drawableLeft="@drawable/giang_vien"
@@ -145,11 +142,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Email"
+                android:text="@string/email"
                 android:textSize="20sp"
                 android:gravity="center|left"
                 android:drawableLeft="@drawable/email"
-                android:textColor="#999999"
                 android:textStyle="bold"/>
 
             <EditText
@@ -167,12 +163,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Sdt"
+                android:text="@string/sdt"
                 android:textSize="20sp"
                 android:gravity="center|left"
                 android:drawableLeft="@drawable/sdt"
-                android:textStyle="bold"
-                android:textColor="#999999"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edtSDT"
@@ -192,7 +187,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/corner_button"
-                android:text="Lưu"
+                android:text="@string/luu"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:layout_alignParentEnd="true"
@@ -205,7 +200,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#999999"
-                android:text="Hủy"
+                android:text="@string/huy"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:layout_marginLeft="@dimen/edt_margin_left"

@@ -88,7 +88,7 @@ public class notescr extends Activity {
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             startActivityForResult(intent, 100);
         } else {
-            Toast.makeText(this, "ban khong duoc mo camera", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.ban_khong_duoc_mo_camera, Toast.LENGTH_LONG).show();
         }
 
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);

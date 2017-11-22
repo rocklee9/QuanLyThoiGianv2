@@ -31,7 +31,10 @@
         <activity android:name=".notescr" />
         <activity android:name=".editscr" />
         <activity android:name=".detailscr" />
-        <activity android:name=".AddActivity"></activity>
+        <activity android:name=".AddActivity" />
+        <activity android:name=".thoi_gian_bieu_tuan" />
+        <activity android:name=".tgb_editscr" />
+        <activity android:name=".Detail_tgb"></activity>
     </application>
 
 </manifest>
