@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -21,26 +21,18 @@
             android:background="@color/phuc_blue"
             android:textSize="40sp"/>
         <EditText
-
+            android:id="@+id/edt_cv"
             android:layout_marginLeft="@dimen/edt_margin_left"
             android:layout_marginRight="@dimen/edt_margin_right"
-            android:id="@+id/edt_cv"
             android:layout_marginTop="@dimen/tgb_margin_top"
-            android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/su_kien"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/edt_margin_top"
             android:layout_marginLeft="@dimen/edt_margin_left"
             android:layout_marginRight="@dimen/edt_margin_right">
 
@@ -53,7 +45,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="20sp"
                 android:text=":" />
+            <Space
+                android:layout_width="@dimen/activity_main_icon_button_space"
+                android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/tv_time_end"
@@ -61,36 +57,38 @@
                 android:layout_height="@dimen/hight_button"
                 android:hint="@string/nhan_vao_day"
                 android:textSize="20sp"
-                android:gravity="center"
                 />
         </LinearLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="200dp">
 
-            <Button
-                android:id="@+id/btn_luu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/corner_btn_luu"
-                android:text="Lưu"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/edt_margin_right"/>
-
-            <Button
-                android:id="@+id/btn_huy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/corner_btn_xoa_activity_add"
-                android:text="Hủy"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:layout_marginLeft="@dimen/edt_margin_left"/>
-        </RelativeLayout>
     </LinearLayout>
-</LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/edt_margin_top">
+
+        <Button
+            android:id="@+id/btn_luu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/corner_btn_luu"
+            android:text="Lưu"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/edt_margin_right"/>
+
+        <Button
+            android:id="@+id/btn_huy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/corner_btn_xoa_activity_add"
+            android:text="Hủy"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginLeft="@dimen/edt_margin_left"/>
+    </RelativeLayout>
+</RelativeLayout>

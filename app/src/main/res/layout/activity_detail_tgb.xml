@@ -1,38 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="350dp"
-    android:layout_marginLeft="@dimen/edt_margin_left"
-    android:layout_marginRight="@dimen/edt_margin_right">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:orientation="vertical">
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="#1e7bc9">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/tgb_margin_top"
-            android:text="@string/cong_viec"
-            android:background="@color/phuc_blue"
-            android:textSize="24sp"/>
-        <TextView
-
-            android:layout_marginLeft="@dimen/tgb_margin_left"
-            android:id="@+id/tv_cv"
-            android:layout_marginTop="@dimen/tgb_margin_top"
-            android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/su_kien"/>
-    </LinearLayout>
+            android:gravity="center"
+            android:text="@string/cong_viec"
+            android:textColor="#fff"
+            android:textSize="@dimen/text_size_title" />
+
+        <ImageButton
+            android:id="@+id/btn_huy"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/back_btn"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"/>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        >
+        android:layout_marginTop="@dimen/tgb_margin_top"
+        android:layout_marginLeft="@dimen/tgb_margin_left"
+        android:layout_marginRight="@dimen/tgb_margin_right">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/tv_cv"
+            android:textSize="20sp"
+            android:hint="@string/su_kien"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,14 +60,17 @@
                 android:text=":"
                 android:textSize="20sp" />
 
+            <Space
+                android:layout_width="@dimen/activity_main_icon_button_space"
+                android:layout_height="wrap_content" />
+
             <TextView
                 android:id="@+id/tv_time_end"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/hight_button"
                 android:text="--:--"
                 android:textSize="20sp"
-                android:gravity="center"
-                />
+                android:gravity="left" />
 
         </LinearLayout>
 
@@ -75,56 +86,57 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/thoi_gian"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=":"
-                    />
+                    android:textSize="20sp"/>
+
+                <Space
+                    android:layout_width="@dimen/activity_main_icon_button_space"
+                    android:layout_height="wrap_content" />
+
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <TextView
-
-                    android:id="@+id/tv_time"
-                    android:layout_marginLeft="@dimen/tgb_margin_left"
-                    android:layout_marginTop="@dimen/tgb_margin_top"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="th --, -- tháng --, -- -- - -- --"/>
-            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="th --, -- tháng --,-- -- - -- --"/>
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/edt_margin_top">
 
-            <Button
-                android:id="@+id/btn_huy"
-                android:text="@string/tro_lai"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+
 
             <Button
                 android:id="@+id/btn_xoa"
                 android:text="@string/xoa"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right" />
+                android:textColor="@color/white"
+                android:background="@drawable/corner_btn_xoa_activity_add"
+                android:layout_weight="1"/>
 
-
-
+            <Space
+                android:layout_width="@dimen/activity_main_icon_button_space"
+                android:layout_height="match_parent" />
             <Button
                 android:id="@+id/btn_sua_them"
                 android:text="@string/chinh_sua_them"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right" />
+                android:textColor="@color/white"
+                android:background="@color/phuc_blue"
+                android:layout_weight="1"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

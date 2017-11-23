@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,7 +14,7 @@ public class Detail_tgb extends AppCompatActivity {
 
     private Button btn_chinh_sua;
     private Button btn_xoa;
-    private Button btn_tro_lai;
+    private ImageButton btn_tro_lai;
     private TextView tv_cv;
     private TextView tv_time_end;
     private TextView tv_thoigian;
@@ -77,7 +78,7 @@ public class Detail_tgb extends AppCompatActivity {
     private void getWidgets() {
         btn_chinh_sua = (Button)findViewById(R.id.btn_sua_them);
         btn_xoa = (Button)findViewById(R.id.btn_xoa);
-        btn_tro_lai = (Button)findViewById(R.id.btn_huy);
+        btn_tro_lai = (ImageButton)findViewById(R.id.btn_huy);
         tv_cv = (TextView)findViewById(R.id.tv_cv);
         tv_time_end = (TextView)findViewById(R.id.tv_time_end);
         tv_thoigian = (TextView)findViewById(R.id.tv_time);
@@ -129,28 +130,11 @@ public class Detail_tgb extends AppCompatActivity {
                 SharedPreferences sharedPreferences1 = getSharedPreferences(SHARED_PREFERENCES_NAME+String.valueOf(time_start),MODE_PRIVATE);
                 time_start_id = Integer.parseInt(sharedPreferences1.getString(TIME_START,"24"));
                 if(time_start_id<24) {
-                    if (time_end > time_start) {
-
-
-                        for (int i = time_start_id; i < time_end + 1; i++) {
-                            SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME + String.valueOf(i), MODE_PRIVATE);
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.clear();
-                            editor.apply();
-                        }
-                    } else {
-                        for (int i = 0; i <= time_end; i++) {
-                            SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME + String.valueOf(i), MODE_PRIVATE);
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.clear();
-                            editor.apply();
-                        }
-                        for (int i = time_start_id; i < 24; i++) {
-                            SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME + String.valueOf(i), MODE_PRIVATE);
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.clear();
-                            editor.apply();
-                        }
+                    for (int i = time_start_id; i < time_end ; i++) {
+                        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME + String.valueOf(i), MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.clear();
+                        editor.apply();
                     }
                     remove_kt();
                     Intent intent = new Intent(Detail_tgb.this,thoi_gian_bieu.class);
@@ -167,12 +151,15 @@ public class Detail_tgb extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME+ID,MODE_PRIVATE);
         tv_cv.setText(sharedPreferences.getString(NOTE,""));
         tv_time_end.setText(sharedPreferences.getString(TIME_END,"0"));
-        tv_thoigian.setText("th " + sharedPreferences.getString(DAY,"--") + "," + sharedPreferences.getString(DATE,"--") +"thang " + sharedPreferences.getString(MONTH,"--")+ ",    "+ sharedPreferences.getString(TIME_START," ") + " to " + sharedPreferences.getString(TIME_END,"--") );
+        tv_thoigian.setText("th   " + sharedPreferences.getString(DAY,"--")
+                + " , " + sharedPreferences.getString(DATE,"--")
+                +" thang " + sharedPreferences.getString(MONTH,"--")+ ",  "
+                + sharedPreferences.getString(TIME_START," ") + ":00 - "
+                + sharedPreferences.getString(TIME_END,"--") );
     }
     public void remove_kt(){
         SharedPreferences sharedPreferences2 = getSharedPreferences(SHARED_PREFERENCES_NAME_KT,MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences2.edit();
-
         switch (time_start_id){
             case 0:{
                 editor.remove(KT_0);

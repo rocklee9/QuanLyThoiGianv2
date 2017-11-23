@@ -70,7 +70,7 @@
                 android:layout_span="1"
                 android:layout_height="50dp"
                 android:gravity="center"
-                android:text="0 AM"
+                android:text="0h"
                 android:background="@drawable/custom4"
                 />
             <TextView
@@ -88,7 +88,7 @@
                    android:layout_span="1"
                    android:layout_height="50dp"
                    android:gravity="center"
-                   android:text="1 AM"
+                   android:text="1h"
                    android:background="@drawable/custom4"
                    />
                <TextView
@@ -107,7 +107,7 @@
                    android:layout_span="1"
                    android:layout_height="50dp"
                    android:gravity="center"
-                   android:text="2 AM"
+                   android:text="2h"
                    android:background="@drawable/custom4"
                    />
                <TextView
@@ -126,7 +126,7 @@
                    android:layout_span="1"
                    android:layout_height="50dp"
                    android:gravity="center"
-                   android:text="3 AM"
+                   android:text="3h"
                    android:background="@drawable/custom4"
                    />
                <TextView
@@ -145,7 +145,7 @@
                    android:layout_span="1"
                    android:layout_height="50dp"
                    android:gravity="center"
-                   android:text="4 AM"
+                   android:text="4h"
                    android:background="@drawable/custom4"
                    />
                <TextView
@@ -164,7 +164,7 @@
                    android:layout_span="1"
                    android:layout_height="50dp"
                    android:gravity="center"
-                   android:text="5 AM"
+                   android:text="5h"
                    android:background="@drawable/custom4"
                    />
                <TextView
@@ -183,7 +183,7 @@
                    android:layout_span="1"
                    android:layout_height="50dp"
                    android:gravity="center"
-                   android:text="6 AM"
+                   android:text="6h"
                    android:background="@drawable/custom4"
                    />
                <TextView
@@ -202,7 +202,7 @@
                    android:layout_span="1"
                    android:layout_height="50dp"
                    android:gravity="center"
-                   android:text="7 AM"
+                   android:text="7h"
                    android:background="@drawable/custom4"
                    />
                <TextView
@@ -221,7 +221,7 @@
                    android:layout_span="1"
                    android:layout_height="50dp"
                    android:gravity="center"
-                   android:text="8 AM"
+                   android:text="8h"
                    android:background="@drawable/custom4"
                    />
                <TextView
@@ -240,7 +240,7 @@
                    android:layout_span="1"
                    android:layout_height="50dp"
                    android:gravity="center"
-                   android:text="9 AM"
+                   android:text="9h"
                    android:background="@drawable/custom4"
                    />
                <TextView
@@ -259,7 +259,7 @@
                    android:layout_span="1"
                    android:layout_height="50dp"
                    android:gravity="center"
-                   android:text="10 AM"
+                   android:text="10h"
                    android:background="@drawable/custom4"
                    />
                <TextView
@@ -278,7 +278,7 @@
                    android:layout_span="1"
                    android:layout_height="50dp"
                    android:gravity="center"
-                   android:text="11 AM"
+                   android:text="11h"
                    android:background="@drawable/custom4"
                    />
                <TextView
@@ -297,7 +297,7 @@
                    android:layout_span="1"
                    android:layout_height="50dp"
                    android:gravity="center"
-                   android:text="12 PM"
+                   android:text="12h"
                    android:background="@drawable/custom4"
                    />
                <TextView
@@ -316,7 +316,7 @@
                    android:layout_span="1"
                    android:layout_height="50dp"
                    android:gravity="center"
-                   android:text="1 PM"
+                   android:text="13h"
                    android:background="@drawable/custom4"
                    />
                <TextView
@@ -335,7 +335,7 @@
                    android:layout_span="1"
                    android:layout_height="50dp"
                    android:gravity="center"
-                   android:text="2 PM"
+                   android:text="14h"
                    android:background="@drawable/custom4"
                    />
                <TextView
@@ -354,7 +354,7 @@
                    android:layout_span="1"
                    android:layout_height="50dp"
                    android:gravity="center"
-                   android:text="3 PM"
+                   android:text="15h"
                    android:background="@drawable/custom4"
                    />
                <TextView
@@ -373,7 +373,7 @@
                    android:layout_span="1"
                    android:layout_height="50dp"
                    android:gravity="center"
-                   android:text="4 PM"
+                   android:text="16h"
                    android:background="@drawable/custom4"
                    />
                <TextView
@@ -392,7 +392,7 @@
                    android:layout_span="1"
                    android:layout_height="50dp"
                    android:gravity="center"
-                   android:text="5 PM"
+                   android:text="17h"
                    android:background="@drawable/custom4"
                    />
                <TextView
@@ -411,7 +411,7 @@
                    android:layout_span="1"
                    android:layout_height="50dp"
                    android:gravity="center"
-                   android:text="6 PM"
+                   android:text="18h"
                    android:background="@drawable/custom4"
                    />
                <TextView
@@ -430,7 +430,7 @@
                    android:layout_span="1"
                    android:layout_height="50dp"
                    android:gravity="center"
-                   android:text="7 PM"
+                   android:text="19h"
                    android:background="@drawable/custom4"
                    />
                <TextView
@@ -449,7 +449,7 @@
                    android:layout_span="1"
                    android:layout_height="50dp"
                    android:gravity="center"
-                   android:text="8 PM"
+                   android:text="20h"
                    android:background="@drawable/custom4"
                    />
                <TextView
@@ -468,7 +468,7 @@
                    android:layout_span="1"
                    android:layout_height="50dp"
                    android:gravity="center"
-                   android:text="9 PM"
+                   android:text="21h"
                    android:background="@drawable/custom4"
                    />
                <TextView
@@ -487,7 +487,7 @@
                    android:layout_span="1"
                    android:layout_height="50dp"
                    android:gravity="center"
-                   android:text="10 PM"
+                   android:text="22h"
                    android:background="@drawable/custom4"
                    />
                <TextView
@@ -506,7 +506,7 @@
                    android:layout_span="1"
                    android:layout_height="50dp"
                    android:gravity="center"
-                   android:text="11 PM"
+                   android:text="23h"
                    android:background="@drawable/custom4"
                    />
                <TextView

@@ -172,17 +172,17 @@ public class tgb_editscr extends AppCompatActivity {
                     if(time_start_tam < 24 && time_end_tam <24){
                         remove_all(time_start_tam, time_end_tam);
                     }
-                    if(time_end_start < time_start) {
-                        remove_data();
+                    if(time_end_start <= time_start) {
                         add_data_thuan(time_start,time_end);
-                    }else if(time_end_start == time_start) {
-                            remove_data();
-                            add_data_thuan(time_start, time_end);
                     }else if(time_start < time_end_start) {
-                        add_data_thuan1(time_start_start, time_start);
-                        add_data_thuan(time_start,time_end+1);
+                        if(time_start == time_start_start){
+                            remove_data();
+                            add_data_thuan(time_start,time_end);
+                        }else {
+                            add_data_thuan1(time_start_start, time_start);
+                            add_data_thuan(time_start, time_end );
+                        }
                     }
-
                     if(time_start_start<time_start){
                         kt_id(String.valueOf(time_start_start));
                     }
@@ -245,20 +245,6 @@ public class tgb_editscr extends AppCompatActivity {
             editor.apply();
         }
     }
-    public void add_data(){
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME + String.valueOf(time_start), MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        String s =sharedPreferences.getString(TIME_START,"24");
-        remove_kt(Integer.parseInt(s));
-        editor.putString(NOTE, edt_cv.getText().toString());
-        editor.putString(TIME_END, tv_time_end.getText().toString());
-        editor.putString(TIME_START,String.valueOf(time_start));
-        editor.putInt(HOUR,time_start);
-        editor.putString(COlOR,"#1e9bef");
-        editor.putString(DATE,date);
-        editor.putString(MONTH,month);
-        editor.apply();
-    }
     public void read_data(){
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME+ID,MODE_PRIVATE);
         edt_cv.setText(sharedPreferences.getString(NOTE,""));
@@ -274,14 +260,6 @@ public class tgb_editscr extends AppCompatActivity {
             editor.clear();
             editor.apply();
         }
-    }
-    public void remove(int i){
-            SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME + String.valueOf(i), MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            String s =sharedPreferences.getString(TIME_START,"24");
-            remove_kt(Integer.parseInt(s));
-            editor.clear();
-            editor.apply();
     }
     public void remove_all(int a, int b){
         for (int i= a; i< b; i++) {
