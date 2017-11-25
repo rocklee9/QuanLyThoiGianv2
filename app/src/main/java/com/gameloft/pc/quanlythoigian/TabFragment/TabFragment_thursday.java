@@ -53,6 +53,8 @@ public class TabFragment_thursday extends Fragment {
     public static final int RESULT_CODE_NOTE = 6;
     public static final int RESULT_CODE_CAM = 8;
 
+    public static final int REQUEST_CODE_DETAIL = 2408;
+
     public TabFragment_thursday() {
         // Required empty public constructor
     }
@@ -73,7 +75,7 @@ public class TabFragment_thursday extends Fragment {
     }
 
     private void init(){
-        listMonHoc =  new ArrayList<MonHoc>();
+        listMonHoc =  new ArrayList<>();
         database = new DatabaseAdapter(TabFragment_thursday.super.getContext());
     }
 
@@ -108,7 +110,8 @@ public class TabFragment_thursday extends Fragment {
                 MonHoc monHoc;
                 monHoc = listMonHoc.get(position);
                 intent.putExtra("chitietmonhoc",monHoc);
-                startActivity(intent);
+                intent.putExtra("day",5);
+                startActivityForResult(intent,REQUEST_CODE_DETAIL);
             }
         });
     }
@@ -242,6 +245,12 @@ public class TabFragment_thursday extends Fragment {
                         Toast.makeText(TabFragment_thursday.super.getActivity(),R.string.loi_cap_nhat_du_lieu,Toast.LENGTH_SHORT).show();
                     }
             }
+        }
+
+        if(requestCode == REQUEST_CODE_DETAIL){
+            listMonHoc = database.getData(5);
+            customAdapter = new CustomAdapter(getActivity(),R.layout.dong_listview, listMonHoc);
+            lvMonHoc.setAdapter(customAdapter);
         }
     }
 }

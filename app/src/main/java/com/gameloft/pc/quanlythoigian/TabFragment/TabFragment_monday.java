@@ -53,7 +53,6 @@ public class TabFragment_monday extends Fragment{
     public static final int RESULT_CODE_CAM = 8;
 
     public static final int REQUEST_CODE_DETAIL = 2408;
-    public static final int RESULT_CODE_DETAIL = 1511;
 
 
 

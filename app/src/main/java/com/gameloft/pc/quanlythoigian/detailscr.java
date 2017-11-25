@@ -48,7 +48,7 @@ public class detailscr extends AppCompatActivity {
 
     EditText edtTenMon, edtPhong, edtGV, edtEmail, edtSdt, edtNote;
     TextView tvTime1, tvTime2;
-    ImageButton btnBack, btnSendEmail, btnSendSMS, btnMakeCall, btnEdit;
+    ImageButton btnBack, btnSendEmail, btnSendSMS, btnMakeCall, btnEdit, btnTime1, btnTime2;
     Button btnSave, btnCancel;
     ImageView imgHinh;
     MonHoc monHoc;
@@ -93,6 +93,8 @@ public class detailscr extends AppCompatActivity {
         btnEdit = (ImageButton) findViewById(R.id.btnEdit);
         btnSave = (Button) findViewById(R.id.btnSave);
         btnCancel = (Button) findViewById(R.id.btnCancel);
+        btnTime1 = (ImageButton) findViewById(R.id.btnEditTime1);
+        btnTime2 = (ImageButton) findViewById(R.id.btnEditTime2);
         imgHinh = (ImageView) findViewById(R.id.imgHinh);
     }
 
@@ -214,16 +216,18 @@ public class detailscr extends AppCompatActivity {
 //                tvTime2.setKeyListener(keyListener2);
                 btnCancel.setVisibility(View.VISIBLE);
                 btnSave.setVisibility(View.VISIBLE);
+                btnTime1.setVisibility(View.VISIBLE);
+                btnTime2.setVisibility(View.VISIBLE);
             }
         });
 
-        tvTime1.setOnClickListener(new View.OnClickListener() {
+        btnTime1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showTimePickerDialogBatDau();
             }
         });
-        tvTime2.setOnClickListener(new View.OnClickListener() {
+        btnTime2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showTimePickerDialogKetThuc();
@@ -252,12 +256,6 @@ public class detailscr extends AppCompatActivity {
                             }else{
                                 Toast.makeText(detailscr.this,R.string.loi_cap_nhat_du_lieu,Toast.LENGTH_SHORT).show();
                             }
-                            makeEditTextLikeTextView(edtTenMon);
-                            makeEditTextLikeTextView(edtPhong);
-                            makeEditTextLikeTextView(edtGV);
-                            makeEditTextLikeTextView(edtEmail);
-                            makeEditTextLikeTextView(edtNote);
-                            makeEditTextLikeTextView(edtSdt);
                             showDetail();
                         }
                     });
@@ -443,13 +441,16 @@ public class detailscr extends AppCompatActivity {
         btnSave.setVisibility(View.INVISIBLE);
         btnCancel.setVisibility(View.INVISIBLE);
 
-        tvTime1.setClickable(false);
-        tvTime1.setFocusable(false);
-        tvTime1.setFocusableInTouchMode(false);
+        btnTime1.setVisibility(View.INVISIBLE);
+        btnTime2.setVisibility(View.INVISIBLE);
 
-        tvTime2.setClickable(false);
-        tvTime2.setFocusable(false);
-        tvTime2.setFocusableInTouchMode(false);
+//        tvTime1.setClickable(false);
+//        tvTime1.setFocusable(false);
+//        tvTime1.setFocusableInTouchMode(false);
+//
+//        tvTime2.setClickable(false);
+//        tvTime2.setFocusable(false);
+//        tvTime2.setFocusableInTouchMode(false);
 
 
     }
