@@ -82,5 +82,7 @@
     <string name="cn">Sun</string>
 
     <string name="ngon_ngu">Language</string>
+    <string name="chon_mau">Chose color:</string>
+
 
 </resources>

@@ -38,6 +38,7 @@
 
     <string name="mon_hoc">件名</string>
     <string name="ghi_chu">ノート</string>
+    <string name="chup_anh">撮影した</string>
 
 
     <string name="tieu_de">タイトル</string>
@@ -81,5 +82,6 @@
     <string name="cn">日</string>
 
     <string name="ngon_ngu">言語</string>
+    <string name="chon_mau">色を選択:</string>
 
 </resources>

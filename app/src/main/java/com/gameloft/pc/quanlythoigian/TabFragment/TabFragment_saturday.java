@@ -17,15 +17,15 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.gameloft.pc.quanlythoigian.AddActivity;
+import com.gameloft.pc.quanlythoigian.utils.AddActivity;
+import com.gameloft.pc.quanlythoigian.utils.CameraActivity;
 import com.gameloft.pc.quanlythoigian.MyDatabase.DatabaseAdapter;
 import com.gameloft.pc.quanlythoigian.R;
-import com.gameloft.pc.quanlythoigian.camActiv;
-import com.gameloft.pc.quanlythoigian.classPackage.CustomAdapter;
-import com.gameloft.pc.quanlythoigian.classPackage.MonHoc;
-import com.gameloft.pc.quanlythoigian.detailscr;
-import com.gameloft.pc.quanlythoigian.editscr;
-import com.gameloft.pc.quanlythoigian.notescr;
+import com.gameloft.pc.quanlythoigian.adapters.CustomAdapter;
+import com.gameloft.pc.quanlythoigian.models.MonHoc;
+import com.gameloft.pc.quanlythoigian.utils.DetailActivity;
+import com.gameloft.pc.quanlythoigian.utils.EditActivity;
+import com.gameloft.pc.quanlythoigian.utils.NoteActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,11 +54,6 @@ public class TabFragment_saturday extends Fragment {
     public static final int RESULT_CODE_CAM = 8;
 
     public static final int REQUEST_CODE_DETAIL = 2408;
-
-    public TabFragment_saturday() {
-        // Required empty public constructor
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -106,7 +101,7 @@ public class TabFragment_saturday extends Fragment {
         lvMonHoc.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(TabFragment_saturday.super.getContext(),detailscr.class);
+                Intent intent = new Intent(TabFragment_saturday.super.getContext(),DetailActivity.class);
                 MonHoc monHoc;
                 monHoc = listMonHoc.get(position);
                 intent.putExtra("chitietmonhoc",monHoc);
@@ -155,21 +150,21 @@ public class TabFragment_saturday extends Fragment {
                     rm.create().show();
                     return true;
                 case R.id.itEdit:
-                    Intent iEdit = new Intent(TabFragment_saturday.super.getContext(),editscr.class);
+                    Intent iEdit = new Intent(TabFragment_saturday.super.getContext(),EditActivity.class);
                     MonHoc monHocEdit = listMonHoc.get(menuInfo.position);
                     iEdit.putExtra("monhocEdit",monHocEdit);
                     startActivityForResult(iEdit,REQUEST_CODE_EDIT);
                     return true;
 
                 case R.id.itNote:
-                    Intent iNote = new Intent(TabFragment_saturday.super.getContext(),notescr.class);
+                    Intent iNote = new Intent(TabFragment_saturday.super.getContext(),NoteActivity.class);
                     MonHoc monHocNote = listMonHoc.get(menuInfo.position);
                     iNote.putExtra("monHocNote",monHocNote);
                     startActivityForResult(iNote,REQUEST_CODE_NOTE);
                     return true;
 
                 case R.id.itCam:
-                    Intent iCam = new Intent(TabFragment_saturday.super.getContext(),camActiv.class);
+                    Intent iCam = new Intent(TabFragment_saturday.super.getContext(),CameraActivity.class);
                     MonHoc monHocCam = listMonHoc.get(menuInfo.position);
                     iCam.putExtra("monHocCam",monHocCam);
                     startActivityForResult(iCam,REQUEST_CODE_CAM);
