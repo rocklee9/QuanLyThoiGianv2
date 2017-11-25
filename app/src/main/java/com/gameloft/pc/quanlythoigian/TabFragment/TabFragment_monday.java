@@ -52,6 +52,9 @@ public class TabFragment_monday extends Fragment{
     public static final int RESULT_CODE_NOTE = 6;
     public static final int RESULT_CODE_CAM = 8;
 
+    public static final int REQUEST_CODE_DETAIL = 2408;
+    public static final int RESULT_CODE_DETAIL = 1511;
+
 
 
     public TabFragment_monday() {
@@ -109,7 +112,8 @@ public class TabFragment_monday extends Fragment{
                 MonHoc monHoc;
                 monHoc = listMonHoc.get(position);
                 intent.putExtra("chitietmonhoc",monHoc);
-                startActivity(intent);
+                intent.putExtra("day",2);
+                startActivityForResult(intent,REQUEST_CODE_DETAIL);
             }
         });
     }
@@ -156,6 +160,7 @@ public class TabFragment_monday extends Fragment{
                     Intent iEdit = new Intent(TabFragment_monday.super.getContext(),editscr.class);
                     MonHoc monHocEdit = listMonHoc.get(menuInfo.position);
                     iEdit.putExtra("monhocEdit",monHocEdit);
+                    iEdit.putExtra("day",2);
                     startActivityForResult(iEdit,REQUEST_CODE_EDIT);
                     return true;
 
@@ -243,6 +248,12 @@ public class TabFragment_monday extends Fragment{
                         Toast.makeText(TabFragment_monday.super.getActivity(),R.string.loi_cap_nhat_du_lieu,Toast.LENGTH_SHORT).show();
                     }
             }
+        }
+
+        if(requestCode == REQUEST_CODE_DETAIL){
+            listMonHoc = database.getData(2);
+            customAdapter = new CustomAdapter(getActivity(),R.layout.dong_listview, listMonHoc);
+            lvMonHoc.setAdapter(customAdapter);
         }
     }
 }

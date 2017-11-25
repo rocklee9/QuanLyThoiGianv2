@@ -3,7 +3,9 @@ package com.gameloft.pc.quanlythoigian;
 import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -17,6 +19,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.KeyListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -24,11 +27,18 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.gameloft.pc.quanlythoigian.MyDatabase.DatabaseAdapter;
+import com.gameloft.pc.quanlythoigian.TabFragment.TabFragment_monday;
+import com.gameloft.pc.quanlythoigian.classPackage.CustomAdapter;
 import com.gameloft.pc.quanlythoigian.classPackage.MonHoc;
 
-import static android.icu.util.MeasureUnit.BYTE;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+//import static android.icu.util.MeasureUnit.BYTE;
 
 public class detailscr extends AppCompatActivity {
 
@@ -36,10 +46,16 @@ public class detailscr extends AppCompatActivity {
     public static final int REQUEST_CODE_SMS = 456;
 
 
-    TextView tvTenMon, tvPhong, tvTime, tvGV, tvEmail, tvSdt, tvNote;
-    ImageButton btnBack, btnSendEmail, btnSendSMS, btnMakeCall;
+    EditText edtTenMon, edtPhong, edtGV, edtEmail, edtSdt, edtNote;
+    TextView tvTime1, tvTime2;
+    ImageButton btnBack, btnSendEmail, btnSendSMS, btnMakeCall, btnEdit;
+    Button btnSave, btnCancel;
     ImageView imgHinh;
     MonHoc monHoc;
+    DatabaseAdapter database;
+    int day;
+
+//    KeyListener keyListener1, keyListener2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,51 +71,53 @@ public class detailscr extends AppCompatActivity {
     }
 
     private void init() {
+        database = new DatabaseAdapter(detailscr.this);
         monHoc = new MonHoc();
+//        keyListener1 = tvTime1.getKeyListener();
+//        keyListener2 = tvTime2.getKeyListener();
     }
 
     private void getWidgets() {
-        tvTenMon = (TextView) findViewById(R.id.tvTenMon);
-        tvPhong = (TextView) findViewById(R.id.tvPhong);
-        tvTime = (TextView) findViewById(R.id.tvTime);
-        tvGV = (TextView) findViewById(R.id.tvGV);
-        tvEmail = (TextView) findViewById(R.id.tvEmail);
-        tvSdt = (TextView) findViewById(R.id.tvSdt);
-        tvNote = (TextView) findViewById(R.id.tvNote);
+        edtTenMon = (EditText) findViewById(R.id.tvTenMon);
+        edtPhong = (EditText) findViewById(R.id.tvPhong);
+        tvTime1 = (TextView) findViewById(R.id.tvTime1);
+        tvTime2 = (TextView) findViewById(R.id.tvTime2);
+        edtGV = (EditText) findViewById(R.id.tvGV);
+        edtEmail = (EditText) findViewById(R.id.tvEmail);
+        edtSdt = (EditText) findViewById(R.id.tvSdt);
+        edtNote = (EditText) findViewById(R.id.tvNote);
         btnBack = (ImageButton) findViewById(R.id.btnBack);
         btnSendEmail = (ImageButton) findViewById(R.id.btnSendEmail);
         btnSendSMS = (ImageButton) findViewById(R.id.btnSendSMS);
         btnMakeCall = (ImageButton) findViewById(R.id.btnMakeCall);
+        btnEdit = (ImageButton) findViewById(R.id.btnEdit);
+        btnSave = (Button) findViewById(R.id.btnSave);
+        btnCancel = (Button) findViewById(R.id.btnCancel);
         imgHinh = (ImageView) findViewById(R.id.imgHinh);
     }
 
     private void setWidgets() {
+        database.open();
         monHoc = (MonHoc) getIntent().getSerializableExtra("chitietmonhoc");
-        tvTenMon.setText(monHoc.getTenMonHoc());
-        tvPhong.setText(monHoc.getPhong());
-        tvTime.setText(monHoc.getThoiGian1() + "-" + monHoc.getThoiGian2());
-        tvGV.setText(monHoc.getTenGV());
-        tvEmail.setText(monHoc.getEmail());
-        tvSdt.setText(monHoc.getSdt());
-        tvNote.setText(monHoc.getNote());
-        if(monHoc.getHinh() != null){
-            Bitmap bitmap = BitmapFactory.decodeByteArray(monHoc.getHinh(), 0, monHoc.getHinh().length);
-            imgHinh.setImageBitmap(bitmap);
-        }
+        day = getIntent().getIntExtra("day",2);
+        showDetail();
     }
 
     private void addWidgetsListener() {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                Intent data = new Intent();
+//                data.putExtra("monhoc-maybeEdited",monHoc);
+//                setResult(TabFragment_monday.RESULT_CODE_DETAIL,data);
                 finish();
             }
         });
 
-        tvEmail.setOnClickListener(new View.OnClickListener() {
+        edtEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tvEmail.getText().toString().trim().isEmpty()){
+                if(edtEmail.getText().toString().trim().isEmpty()){
                     return;
                 }else{
                     btnSendEmail.setVisibility(View.VISIBLE);
@@ -109,10 +127,10 @@ public class detailscr extends AppCompatActivity {
             }
         });
 
-        tvSdt.setOnClickListener(new View.OnClickListener() {
+        edtSdt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tvEmail.getText().toString().trim().isEmpty()){
+                if(edtEmail.getText().toString().trim().isEmpty()){
                     return;
                 }else{
                     btnMakeCall.setVisibility(View.VISIBLE);
@@ -164,7 +182,7 @@ public class detailscr extends AppCompatActivity {
                 TextView tvMail = (TextView) dialog.findViewById(R.id.tvEmail) ;
                 final EditText edtSubject = (EditText) dialog.findViewById(R.id.edtSubject);
                 final EditText edtContent = (EditText) dialog.findViewById(R.id.edtContent);
-                tvMail.setText("To: " + tvEmail.getText().toString());
+                tvMail.setText("To: " + edtEmail.getText().toString());
                 dialogNegativeButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -180,6 +198,87 @@ public class detailscr extends AppCompatActivity {
                     }
                 });
                 dialog.show();
+            }
+        });
+
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                makeEditTextEditable(edtEmail);
+                makeEditTextEditable(edtGV);
+                makeEditTextEditable(edtNote);
+                makeEditTextEditable(edtSdt);
+                makeEditTextEditable(edtPhong);
+                makeEditTextEditable(edtTenMon);
+//                tvTime1.setKeyListener(keyListener1);
+//                tvTime2.setKeyListener(keyListener2);
+                btnCancel.setVisibility(View.VISIBLE);
+                btnSave.setVisibility(View.VISIBLE);
+            }
+        });
+
+        tvTime1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showTimePickerDialogBatDau();
+            }
+        });
+        tvTime2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showTimePickerDialogKetThuc();
+            }
+        });
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(edtTenMon.getText().toString().isEmpty()){
+                    AlertDialog.Builder rm = new AlertDialog.Builder(detailscr.this);
+                    rm.setMessage(R.string.luu_ma_khong_co_ten_mon_hoc);
+                    rm.setNegativeButton(R.string.huy, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    rm.setPositiveButton(R.string.luu, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            setMonHoc();
+                            boolean check = database.update(monHoc,day);
+                            if(check){
+                                Toast.makeText(detailscr.this,R.string.cap_nhat_thanh_cong,Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(detailscr.this,R.string.loi_cap_nhat_du_lieu,Toast.LENGTH_SHORT).show();
+                            }
+                            makeEditTextLikeTextView(edtTenMon);
+                            makeEditTextLikeTextView(edtPhong);
+                            makeEditTextLikeTextView(edtGV);
+                            makeEditTextLikeTextView(edtEmail);
+                            makeEditTextLikeTextView(edtNote);
+                            makeEditTextLikeTextView(edtSdt);
+                            showDetail();
+                        }
+                    });
+                    rm.create().show();
+                }else{
+                    setMonHoc();
+                    boolean check = database.update(monHoc,day);
+                    if(check){
+                        Toast.makeText(detailscr.this,R.string.cap_nhat_thanh_cong,Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(detailscr.this,R.string.loi_cap_nhat_du_lieu,Toast.LENGTH_SHORT).show();
+                    }
+                    showDetail();
+                }
+            }
+        });
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDetail();
             }
         });
     }
@@ -205,7 +304,7 @@ public class detailscr extends AppCompatActivity {
 
     public void makeCall() {
         Intent intent = new Intent(Intent.ACTION_CALL);
-        intent.setData(Uri.parse("tel:" + tvSdt.getText().toString().trim()));
+        intent.setData(Uri.parse("tel:" + edtSdt.getText().toString().trim()));
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
@@ -214,14 +313,14 @@ public class detailscr extends AppCompatActivity {
 
     public void makeSMS(){
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("sms:" + tvSdt.getText().toString().trim()));
+        intent.setData(Uri.parse("sms:" + edtSdt.getText().toString().trim()));
         startActivity(intent);
     }
 
     public void makeEmail(String sub, String con){
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setData(Uri.parse("mailto:"));
-        intent.putExtra(Intent.EXTRA_EMAIL,tvEmail.getText().toString().trim());
+        intent.putExtra(Intent.EXTRA_EMAIL,edtEmail.getText().toString().trim());
         intent.putExtra(Intent.EXTRA_SUBJECT, sub);
         intent.putExtra(Intent.EXTRA_TEXT, con);
         intent.setType("message/rfc822");
@@ -241,6 +340,118 @@ public class detailscr extends AppCompatActivity {
             }
         }
         return true;
+    }
+
+    private void makeEditTextEditable(EditText editText){
+        if(editText != edtNote) {
+            editText.setBackgroundResource(android.R.drawable.edit_text);
+        }
+        editText.setClickable(true);
+        editText.setCursorVisible(true);
+        editText.setFocusable(true);
+        editText.setFocusableInTouchMode(true);
+        editText.requestFocus();
+    }
+
+
+    private void makeEditTextLikeTextView(EditText editText){
+        if(editText != edtNote) {
+            editText.setBackgroundResource(android.R.drawable.screen_background_light_transparent);
+        }
+        editText.setClickable(false);
+        editText.setCursorVisible(false);
+        editText.setFocusable(false);
+        editText.setFocusableInTouchMode(false);
+//        tvTime1.setKeyListener(null);
+//        tvTime2.setKeyListener(null);
+    }
+
+    public void showTimePickerDialogBatDau() {
+        final Calendar calendar= Calendar.getInstance();
+        int hour= calendar.get(Calendar.HOUR);
+        int min= calendar.get(Calendar.MINUTE);
+
+        TimePickerDialog.OnTimeSetListener onTimeSetListener=new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfday, int minute) {
+                SimpleDateFormat dft = new SimpleDateFormat("HH:mm");
+                calendar.set(Calendar.HOUR_OF_DAY,hourOfday);
+                calendar.set(Calendar.MINUTE,minute);
+                String s = dft.format(calendar.getTime());
+                tvTime1.setText(s);
+            }
+        };
+
+        TimePickerDialog pic=new TimePickerDialog(this, onTimeSetListener, hour, min, true);
+        pic.show();
+
+    }
+    public void showTimePickerDialogKetThuc() {
+        final Calendar calendar= Calendar.getInstance();
+        int hour= calendar.get(Calendar.HOUR);
+        int min= calendar.get(Calendar.MINUTE);
+
+        TimePickerDialog.OnTimeSetListener onTimeSetListener=new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfday, int minute) {
+                SimpleDateFormat dft = new SimpleDateFormat("HH:mm");
+                calendar.set(Calendar.HOUR_OF_DAY,hourOfday);
+                calendar.set(Calendar.MINUTE,minute);
+                String s = dft.format(calendar.getTime());
+                tvTime2.setText(s);
+            }
+        };
+
+        TimePickerDialog pic=new TimePickerDialog(this, onTimeSetListener, hour, min, true);
+        pic.show();
+    }
+
+    public void setMonHoc(){
+        monHoc.setTenMonHoc(edtTenMon.getText().toString());
+        monHoc.setThoiGian1(tvTime1.getText().toString());
+        monHoc.setThoiGian2(tvTime2.getText().toString());
+        monHoc.setPhong(edtPhong.getText().toString());
+        monHoc.setTenGV(edtGV.getText().toString());
+        monHoc.setEmail(edtEmail.getText().toString());
+        monHoc.setSdt(edtSdt.getText().toString());
+        monHoc.setNote(edtNote.getText().toString());
+    }
+
+    private void showDetail(){
+        edtTenMon.setText(monHoc.getTenMonHoc());
+        edtPhong.setText(monHoc.getPhong());
+        tvTime1.setText(monHoc.getThoiGian1());
+        tvTime2.setText(monHoc.getThoiGian2());
+//        tvTime1.setKeyListener(null);
+//        tvTime2.setKeyListener(null);
+        edtGV.setText(monHoc.getTenGV());
+        edtEmail.setText(monHoc.getEmail());
+        edtSdt.setText(monHoc.getSdt());
+        edtNote.setText(monHoc.getNote());
+        if(monHoc.getHinh() != null){
+            Bitmap bitmap = BitmapFactory.decodeByteArray(monHoc.getHinh(), 0, monHoc.getHinh().length);
+            imgHinh.setImageBitmap(bitmap);
+        }
+
+        makeEditTextLikeTextView(edtTenMon);
+        makeEditTextLikeTextView(edtPhong);
+        makeEditTextLikeTextView(edtGV);
+        makeEditTextLikeTextView(edtEmail);
+        makeEditTextLikeTextView(edtNote);
+        makeEditTextLikeTextView(edtSdt);
+
+        btnSave.setVisibility(View.INVISIBLE);
+        btnCancel.setVisibility(View.INVISIBLE);
+
+        tvTime1.setClickable(false);
+        tvTime1.setFocusable(false);
+        tvTime1.setFocusableInTouchMode(false);
+
+        tvTime2.setClickable(false);
+        tvTime2.setFocusable(false);
+        tvTime2.setFocusableInTouchMode(false);
+
+
     }
 }
 

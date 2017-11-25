@@ -1,344 +1,448 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:background="#1e7bc9">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <TextView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/chi_tiet"
-            android:textColor="#fff"
-            android:textSize="@dimen/text_size_title"
-            android:textStyle="bold"/>
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:background="#1e7bc9">
 
-        <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/back_btn"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"/>
-    </RelativeLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <RelativeLayout
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="280dp">
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/chi_tiet"
+                android:textColor="#fff"
+                android:textSize="@dimen/text_size_title"
+                android:textStyle="bold"/>
 
-                <TableLayout
-                    android:id="@+id/table"
-                    android:layout_width="336dp"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:stretchColumns="*">
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/back_btn"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"/>
 
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="4dp">
-
-                        <TextView
-                            android:layout_height="40dp"
-                            android:drawableLeft="@drawable/mon_hoc"
-                            android:gravity="center|left"
-                            android:text="@string/mon_hoc"
-                            android:textColor="@color/phuc_blue"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_height="40dp"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:text=": "
-                            android:textSize="18sp" />
-
-                        <TextView
-                            android:id="@+id/tvTenMon"
-                            android:layout_height="40dp"
-                            android:layout_span="15"
-                            android:gravity="center_vertical"
-                            android:hint="________________________"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="4dp">
-
-                        <TextView
-                            android:layout_height="40dp"
-                            android:drawableLeft="@drawable/phong"
-                            android:gravity="center|left"
-                            android:text="@string/phong"
-                            android:textSize="18sp"
-                            android:textColor="@color/phuc_blue"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_height="40dp"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:text=": "
-                            android:textSize="18sp" />
-
-                        <TextView
-                            android:id="@+id/tvPhong"
-                            android:layout_height="40dp"
-                            android:layout_span="15"
-                            android:gravity="center_vertical"
-                            android:hint="________________________"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                    </TableRow>
+            <ImageButton
+                android:id="@+id/btnEdit"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/edit_btn"
+                android:layout_marginRight="11dp"
+                android:layout_marginEnd="11dp"
+                android:layout_alignTop="@+id/btnBack"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
 
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="4dp">
+        </RelativeLayout>
 
-                        <TextView
-                            android:layout_height="40dp"
-                            android:drawableLeft="@drawable/thoigian"
-                            android:gravity="center|left"
-                            android:text="@string/thoi_gian"
-                            android:textSize="18sp"
-                            android:textColor="@color/phuc_blue"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_height="40dp"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:text=": "
-                            android:textSize="18sp" />
-
-                        <TextView
-                            android:id="@+id/tvTime"
-                            android:layout_height="40dp"
-                            android:layout_span="15"
-                            android:gravity="center_vertical"
-                            android:hint="________________________"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="4dp">
-
-                        <TextView
-                            android:layout_height="40dp"
-                            android:drawableLeft="@drawable/giang_vien"
-                            android:gravity="center|left"
-                            android:text="@string/giang_vien"
-                            android:textColor="@color/phuc_blue"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_height="40dp"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:text=": "
-                            android:textColor="#999999"
-                            android:textSize="18sp" />
-
-                        <TextView
-                            android:id="@+id/tvGV"
-                            android:layout_height="40dp"
-                            android:layout_span="15"
-                            android:gravity="center_vertical"
-                            android:hint="________________________"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                    </TableRow>
-
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="4dp">
-
-                        <TextView
-                            android:layout_height="40dp"
-                            android:drawableLeft="@drawable/email"
-                            android:gravity="center|left"
-                            android:text="@string/email"
-                            android:textSize="18sp"
-                            android:textColor="@color/phuc_blue"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_height="40dp"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:text=": "
-                            android:textColor="#999999"
-                            android:textSize="18sp" />
-
-
-                        <TextView
-                            android:id="@+id/tvEmail"
-                            android:layout_width="wrap_content"
-                            android:layout_height="40dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentLeft="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
-                            android:gravity="center_vertical"
-                            android:hint="________________________"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="4dp">
-
-                        <TextView
-                            android:layout_height="40dp"
-                            android:drawableLeft="@drawable/sdt"
-                            android:gravity="center|left"
-                            android:text="@string/sdt"
-                            android:textSize="18sp"
-                            android:textColor="@color/phuc_blue"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_height="40dp"
-                            android:layout_span="1"
-                            android:gravity="center"
-                            android:text=": "
-                            android:textColor="#999999"
-                            android:textSize="18sp" />
-
-
-                        <TextView
-                            android:id="@+id/tvSdt"
-                            android:layout_width="wrap_content"
-                            android:layout_height="40dp"
-                            android:layout_span="15"
-                            android:gravity="center_vertical"
-                            android:hint="________________________"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-
-                    </TableRow>
-
-                </TableLayout>
-
-                <ImageButton
-                    android:id="@+id/btnSendEmail"
-                    android:layout_width="40dp"
-                    android:layout_height="30dp"
-                    android:layout_above="@+id/btnMakeCall"
-                    android:layout_marginBottom="14dp"
-                    android:layout_toEndOf="@+id/table"
-                    android:layout_toRightOf="@+id/table"
-                    android:background="@drawable/send_email"
-                    android:visibility="invisible"/>
-
-                <ImageButton
-                    android:id="@+id/btnMakeCall"
-                    android:layout_width="40dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="20dp"
-                    android:layout_toRightOf="@id/table"
-                    android:background="@drawable/make_call"
-                    android:visibility="invisible"/>
-
-                <ImageButton
-                    android:id="@+id/btnSendSMS"
-                    android:layout_width="40dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/send_sms"
-                    android:layout_alignTop="@+id/btnSendEmail"
-                    android:layout_toRightOf="@+id/table"
-                    android:layout_toEndOf="@+id/table"
-                    android:visibility="invisible"/>
-
-
-            </RelativeLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <LinearLayout
-                android:layout_height="match_parent"
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:padding="5dp">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp">
+
+                    <TableLayout
+                        android:id="@+id/table"
+                        android:layout_width="336dp"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:stretchColumns="*">
+
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="4dp">
+
+                            <TextView
+                                android:layout_height="40dp"
+                                android:drawableLeft="@drawable/mon_hoc"
+                                android:gravity="center|left"
+                                android:text="@string/mon_hoc"
+                                android:textColor="@color/phuc_blue"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_height="40dp"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:text=": "
+                                android:textSize="18sp" />
+
+                            <EditText
+                                android:id="@+id/tvTenMon"
+                                android:layout_height="40dp"
+                                android:layout_span="15"
+                                android:gravity="center_vertical"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:background="@android:color/transparent"
+                                android:clickable="false"
+                                android:cursorVisible="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="4dp">
+
+                            <TextView
+                                android:layout_height="40dp"
+                                android:drawableLeft="@drawable/phong"
+                                android:gravity="center|left"
+                                android:text="@string/phong"
+                                android:textSize="18sp"
+                                android:textColor="@color/phuc_blue"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_height="40dp"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:text=": "
+                                android:textSize="18sp" />
+
+                            <EditText
+                                android:id="@+id/tvPhong"
+                                android:layout_height="40dp"
+                                android:layout_span="15"
+                                android:gravity="center_vertical"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:background="@android:color/transparent"
+                                android:clickable="false"
+                                android:cursorVisible="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"/>
+
+                        </TableRow>
+
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="4dp">
+
+                            <TextView
+                                android:layout_height="40dp"
+                                android:drawableLeft="@drawable/thoigian"
+                                android:gravity="center|left"
+                                android:text="@string/thoi_gian"
+                                android:textSize="18sp"
+                                android:textColor="@color/phuc_blue"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_height="40dp"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:text=": "
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/tvTime1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ems="4"
+                                android:gravity="center"
+                                android:textSize="20sp"
+                                android:background="@android:color/transparent"
+                                android:clickable="false"
+                                android:cursorVisible="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false" />
+
+                            <TextView
+                                android:id="@+id/textView4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" - " />
+
+                            <TextView
+                                android:id="@+id/tvTime2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ems="4"
+                                android:gravity="center"
+                                android:textSize="20sp"
+                                android:background="@android:color/transparent"
+                                android:clickable="false"
+                                android:cursorVisible="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="4dp">
+
+                            <TextView
+                                android:layout_height="40dp"
+                                android:drawableLeft="@drawable/giang_vien"
+                                android:gravity="center|left"
+                                android:text="@string/giang_vien"
+                                android:textColor="@color/phuc_blue"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_height="40dp"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:text=": "
+                                android:textColor="#999999"
+                                android:textSize="18sp" />
+
+                            <EditText
+                                android:id="@+id/tvGV"
+                                android:layout_height="40dp"
+                                android:layout_span="15"
+                                android:gravity="center_vertical"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:background="@android:color/transparent"
+                                android:clickable="false"
+                                android:cursorVisible="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                />
+                        </TableRow>
+
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="4dp">
+
+                            <TextView
+                                android:layout_height="40dp"
+                                android:drawableLeft="@drawable/email"
+                                android:gravity="center|left"
+                                android:text="@string/email"
+                                android:textSize="18sp"
+                                android:textColor="@color/phuc_blue"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_height="40dp"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:text=": "
+                                android:textColor="#999999"
+                                android:textSize="18sp" />
+
+
+                            <EditText
+                                android:id="@+id/tvEmail"
+                                android:layout_span="15"
+                                android:layout_height="40dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:gravity="center_vertical"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:background="@android:color/transparent"
+                                android:clickable="false"
+                                android:cursorVisible="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"/>
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="4dp">
+
+                            <TextView
+                                android:layout_height="40dp"
+                                android:drawableLeft="@drawable/sdt"
+                                android:gravity="center|left"
+                                android:text="@string/sdt"
+                                android:textSize="18sp"
+                                android:textColor="@color/phuc_blue"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_height="40dp"
+                                android:layout_span="1"
+                                android:gravity="center"
+                                android:text=": "
+                                android:textColor="#999999"
+                                android:textSize="18sp" />
+
+
+                            <EditText
+                                android:id="@+id/tvSdt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="40dp"
+                                android:layout_span="15"
+                                android:gravity="center_vertical"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:background="@android:color/transparent"
+                                android:clickable="false"
+                                android:cursorVisible="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"/>
+
+
+                        </TableRow>
+
+                    </TableLayout>
+
+                    <ImageButton
+                        android:id="@+id/btnSendEmail"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:layout_above="@+id/btnMakeCall"
+                        android:layout_marginBottom="14dp"
+                        android:layout_toEndOf="@+id/table"
+                        android:layout_toRightOf="@+id/table"
+                        android:background="@drawable/send_email"
+                        android:visibility="invisible"/>
+
+                    <ImageButton
+                        android:id="@+id/btnMakeCall"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="20dp"
+                        android:layout_toRightOf="@id/table"
+                        android:background="@drawable/make_call"
+                        android:visibility="invisible"/>
+
+                    <ImageButton
+                        android:id="@+id/btnSendSMS"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/send_sms"
+                        android:layout_alignTop="@+id/btnSendEmail"
+                        android:layout_toRightOf="@+id/table"
+                        android:layout_toEndOf="@+id/table"
+                        android:visibility="invisible"/>
+
+
+                </RelativeLayout>
 
                 <LinearLayout
+                    android:layout_height="wrap_content"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#B0E0E6"
                     android:orientation="vertical"
-                    android:layout_gravity="center">
+                    android:padding="5dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/notep"
-                        android:gravity="center"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/ghi_chu"
-                        android:textSize="20sp"
-                        android:textColor="#fd0303"
-                        android:layout_marginLeft="10dp" />
-
-                    <TextView
-                        android:id="@+id/tvNote"
-                        android:layout_marginLeft="@dimen/edt_margin_left"
-                        android:layout_marginRight="@dimen/edt_margin_right"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:textSize="20sp"/>
+                        android:layout_height="match_parent"
+                        android:background="#B0E0E6"
+                        android:orientation="vertical"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/notep"
+                            android:gravity="center"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/ghi_chu"
+                            android:textSize="20sp"
+                            android:textColor="#fd0303"
+                            android:layout_marginLeft="10dp" />
+
+                        <EditText
+                            android:id="@+id/tvNote"
+                            android:layout_marginLeft="@dimen/edt_margin_left"
+                            android:layout_marginRight="@dimen/edt_margin_right"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textSize="20sp"
+                            android:background="@android:color/transparent"
+                            android:clickable="false"
+                            android:cursorVisible="false"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"/>
+
+
+                    </LinearLayout>
 
 
                 </LinearLayout>
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:id="@+id/imgHinh"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true" />
 
+                </RelativeLayout>
             </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <ImageView
-                    android:id="@+id/imgHinh"
-                    android:layout_gravity="center"
-                    android:layout_width="300dp"
-                    android:layout_height="300dp" />
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/corner_btn_luu"
+        android:text="@string/luu"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:layout_alignBaseline="@+id/btnCancel"
+        android:layout_alignBottom="@+id/btnCancel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="17dp"
+        android:layout_marginEnd="17dp"
+        android:visibility="invisible"/>
 
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/corner_btn_xoa_activity_add"
+        android:text="@string/huy"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginBottom="14dp"
+        android:visibility="invisible"/>
 
-</LinearLayout>
+</RelativeLayout>

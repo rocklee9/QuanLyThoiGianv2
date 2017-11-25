@@ -66,6 +66,7 @@ public class editscr extends AppCompatActivity {
         edtEmail.setText(monHoc.getEmail());
         edtSDT.setText(monHoc.getSdt());
 
+
     }
 
      private void addWidgetsListener() {
