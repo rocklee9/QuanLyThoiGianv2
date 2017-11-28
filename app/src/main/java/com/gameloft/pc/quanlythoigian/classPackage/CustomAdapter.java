@@ -56,21 +56,7 @@ public class CustomAdapter extends ArrayAdapter<MonHoc> {
 
         if(monHoc.isWarning()) viewHolder.lnItem.setBackgroundResource(R.drawable.vientron2);
             else viewHolder.lnItem.setBackgroundResource(R.drawable.vientron);
-//        if(position == 0){
-//            if((timeConvert(monHoc.getThoiGian2()) > timeConvert(arrMonHoc.get(position+1).getThoiGian1()))){
-//                viewHolder.lnItem.setBackgroundResource(R.drawable.vientron2);
-//            }
-//        }else{
-//            if(position == arrMonHoc.size()){
-//
-//            }
-//        }
-//        if((position < arrMonHoc.size()-1) && (position>0)){
-//            if((timeConvert(monHoc.getThoiGian2()) > timeConvert(arrMonHoc.get(position+1).getThoiGian1()))
-//                    || (timeConvert(monHoc.getThoiGian1()) < timeConvert(arrMonHoc.get(position-1).getThoiGian2()))){
-//                viewHolder.lnItem.setBackgroundResource(R.drawable.vientron2);
-//            }
-//        }
+
         return convertView;
     }
 
@@ -79,8 +65,4 @@ public class CustomAdapter extends ArrayAdapter<MonHoc> {
         LinearLayout lnItem;
     }
 
-//    public int timeConvert(String time){
-//        String[] strings = time.split(":");
-//        return (Integer.valueOf(strings[0].trim())*60 + Integer.valueOf(strings[1].trim()));
-//    }
 }
