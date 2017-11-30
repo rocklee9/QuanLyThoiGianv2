@@ -15,6 +15,13 @@
     <dimen name="icon_width">80dp</dimen>
     <dimen name="icon_hight">80dp</dimen>
 
+    <dimen name="thoi_khoa_bieu_btn_width">140dp</dimen>
+    <dimen name="thoi_khoa_bieu_btn_hight">40dp</dimen>
+    <dimen name="thoi_gian_bieu_btn_width">140dp</dimen>
+    <dimen name="thoi_gian_bieu_btn_hight">40dp</dimen>
+    <dimen name="thoi_khoa_bieu_btn_margin_top">80dp</dimen>
+    <dimen name="logo_app_hight">300dp</dimen>
+
     //thoi gian bieu
     <dimen name="tgb_margin_top">5dp</dimen>
     <dimen name="tgb_margin_right">5dp</dimen>
@@ -26,7 +33,7 @@
 
     <dimen name="test_size">10dp</dimen>
 
-    <dimen name="activity_main_icon_button_size">50dp</dimen>
+    <dimen name="activity_main_icon_button_size">40dp</dimen>
     <dimen name="activity_main_icon_button_space">10dp</dimen>
     <dimen name="activity_main_icon_group_pađing_right">10dp</dimen>
     <dimen name="activity_main_icon_group_pađing_bottom">10dp</dimen>

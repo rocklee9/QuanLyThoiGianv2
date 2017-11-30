@@ -123,7 +123,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:background="@drawable/corner_btn_xoa_activity_add"
+                android:background="@drawable/corner_btn_xoa"
                 android:layout_weight="1"/>
 
             <Space
@@ -135,7 +135,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:background="@color/phuc_blue"
+                android:background="@drawable/corner_btn_luu"
                 android:layout_weight="1"/>
         </LinearLayout>
     </LinearLayout>

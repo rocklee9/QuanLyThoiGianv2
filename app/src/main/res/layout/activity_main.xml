@@ -3,43 +3,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/logo_app"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_height="@dimen/logo_app_hight"
+        android:background="@drawable/logo_app"/>
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:background="@drawable/main_icon2"/>
+    <RelativeLayout
+        android:layout_below="@+id/logo_app"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/icon">
 
-        <Button
-            android:id="@+id/btntkb"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
-            android:text="@string/thoi_khoa_bieu"
-            android:layout_marginTop="80dp"
-            android:layout_gravity="center"
-            android:background="@color/phuc_blue"
-            android:textColor="@color/white"
-            android:onClick="gotoThoiKhoaBieu"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btntgb"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
-            android:text="@string/thoi_gian_bieu"
-            android:layout_gravity="center"
-            android:background="@color/phuc_blue"
-            android:textColor="@color/white"
-            android:layout_marginTop="5dp"
-            android:onClick="gotoThoiGianBieu"/>
-    </LinearLayout>
+            <Button
+                android:id="@+id/btntkb"
+                android:layout_width="@dimen/thoi_khoa_bieu_btn_width"
+                android:layout_height="@dimen/thoi_khoa_bieu_btn_hight"
+                android:layout_gravity="center"
+
+                android:background="@color/app_blue"
+                android:onClick="gotoThoiKhoaBieu"
+                android:text="@string/thoi_khoa_bieu"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btntgb"
+                android:layout_width="@dimen/thoi_gian_bieu_btn_width"
+                android:layout_height="@dimen/thoi_gian_bieu_btn_hight"
+                android:layout_gravity="center"
+                android:layout_marginTop="3dp"
+                android:background="@color/app_blue"
+                android:onClick="gotoThoiGianBieu"
+                android:text="@string/thoi_gian_bieu"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+    </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingRight="@dimen/activity_main_icon_group_pađing_right"
@@ -48,16 +56,16 @@
         android:layout_alignParentRight="true">
 
         <Button
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="@dimen/activity_main_icon_button_size"
+            android:layout_height="@dimen/activity_main_icon_button_size"
             android:background="@drawable/language"
             android:onClick="showSelectLanguage"/>
         <Space
             android:layout_width="@dimen/activity_main_icon_button_space"
             android:layout_height="match_parent" />
         <Button
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="@dimen/activity_main_icon_button_size"
+            android:layout_height="@dimen/activity_main_icon_button_size"
             android:background="@drawable/rating"
             android:onClick="showRating"/>
     </LinearLayout>

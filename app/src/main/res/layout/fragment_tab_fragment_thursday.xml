@@ -33,21 +33,13 @@
         android:layout_weight="0.92">
     </ListView>
 
-    <LinearLayout
-        android:layout_width="350dp"
-        android:layout_height="70dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="10dp"
-        android:gravity="center_vertical"
-        android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/btnAdd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/nomal_add" />
+    <ImageButton
+        android:id="@+id/btnAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/add" />
 
-    </LinearLayout>
 </LinearLayout>
 

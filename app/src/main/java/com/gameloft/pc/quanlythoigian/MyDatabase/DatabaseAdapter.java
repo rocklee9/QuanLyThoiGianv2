@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.gameloft.pc.quanlythoigian.classPackage.MonHoc;
+import com.gameloft.pc.quanlythoigian.models.MonHoc;
 
 import java.util.ArrayList;
 import java.util.List;

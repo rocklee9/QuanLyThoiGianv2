@@ -40,7 +40,7 @@
                 android:textSize="20sp"
                 android:gravity="center|start"
                 android:textStyle="bold"
-                android:textColor="@color/phuc_blue"
+                android:textColor="@color/app_blue"
                 android:drawableLeft="@drawable/mon_hoc" />
 
             <EditText
@@ -62,7 +62,7 @@
                 android:textSize="20sp"
                 android:gravity="center|left"
                 android:textStyle="bold"
-                android:textColor="@color/phuc_blue"
+                android:textColor="@color/app_blue"
                 android:drawableLeft="@drawable/phong"/>
 
             <EditText
@@ -85,7 +85,7 @@
                 android:textSize="20sp"
                 android:gravity="center|left"
                 android:textStyle="bold"
-                android:textColor="@color/phuc_blue"
+                android:textColor="@color/app_blue"
                 android:drawableLeft="@drawable/thoigian"/>
 
             <LinearLayout>
@@ -133,7 +133,7 @@
                 android:gravity="center|left"
                 android:drawableLeft="@drawable/giang_vien"
                 android:textStyle="bold"
-                android:textColor="@color/phuc_blue"/>
+                android:textColor="@color/app_blue"/>
 
             <EditText
                 android:id="@+id/edtGV"
@@ -153,7 +153,7 @@
                 android:text="@string/email"
                 android:textSize="20sp"
                 android:gravity="center|left"
-                android:textColor="@color/phuc_blue"
+                android:textColor="@color/app_blue"
                 android:drawableLeft="@drawable/email"
                 android:textStyle="bold"/>
 
@@ -175,7 +175,7 @@
                 android:text="@string/sdt"
                 android:textSize="20sp"
                 android:gravity="center|left"
-                android:textColor="@color/phuc_blue"
+                android:textColor="@color/app_blue"
                 android:drawableLeft="@drawable/sdt"
                 android:textStyle="bold" />
 
@@ -212,7 +212,7 @@
                 android:id="@+id/btnCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/corner_btn_xoa_activity_add"
+                android:background="@drawable/corner_btn_xoa"
                 android:text="@string/huy"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
