@@ -7,30 +7,55 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.gameloft.pc.quanlythoigian.MyDatabase.DatabaseAdapter;
 import com.gameloft.pc.quanlythoigian.R;
+import com.gameloft.pc.quanlythoigian.TabFragment.TabFragment_monday;
+import com.gameloft.pc.quanlythoigian.adapters.GridViewAdapter;
 import com.gameloft.pc.quanlythoigian.models.MonHoc;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 //import static android.icu.util.MeasureUnit.BYTE;
 
@@ -38,23 +63,34 @@ public class DetailActivity extends AppCompatActivity {
 
     public static final int REQUEST_CODE_CALL = 123;
     public static final int REQUEST_CODE_SMS = 456;
+    public static final int REQUEST_CODE_CAMERA_FROM_DETAIL = 1511;
+    public static final int REQUEST_CODE_LOAD_IMAGE = 309;
+
+    public static String strSeparator = "__,__";
 
 
     EditText edtTenMon, edtPhong, edtGV, edtEmail, edtSdt, edtNote;
     TextView tvTime1, tvTime2;
-    ImageButton btnBack, btnSendEmail, btnSendSMS, btnMakeCall, btnEdit, btnTime1, btnTime2;
+    ImageButton btnBack, btnSendEmail, btnSendSMS, btnMakeCall, btnEdit, btnTime1, btnTime2, btnAddImage;
     Button btnSave, btnCancel;
-    ImageView imgHinh;
+    ImageView imvSelected;
+    ImageButton btnBackToDetail;
+    Button btnDelete;
+    ImageButton btnShare;
     MonHoc monHoc;
     DatabaseAdapter database;
     int day;
+    GridViewAdapter adapter;
+    GridView gridView;
 
-//    KeyListener keyListener1, keyListener2;
+    List<String> strImage;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
 
         init();
         getWidgets();
@@ -66,8 +102,7 @@ public class DetailActivity extends AppCompatActivity {
     private void init() {
         database = new DatabaseAdapter(DetailActivity.this);
         monHoc = new MonHoc();
-//        keyListener1 = tvTime1.getKeyListener();
-//        keyListener2 = tvTime2.getKeyListener();
+        adapter = new GridViewAdapter(getApplicationContext());
     }
 
     private void getWidgets() {
@@ -88,7 +123,8 @@ public class DetailActivity extends AppCompatActivity {
         btnCancel = (Button) findViewById(R.id.btnCancel);
         btnTime1 = (ImageButton) findViewById(R.id.btnEditTime1);
         btnTime2 = (ImageButton) findViewById(R.id.btnEditTime2);
-        imgHinh = (ImageView) findViewById(R.id.imgHinh);
+        btnAddImage = (ImageButton) findViewById(R.id.btnAddImage);
+        gridView = (GridView) findViewById(R.id.grvImage);
     }
 
     private void setWidgets() {
@@ -96,15 +132,13 @@ public class DetailActivity extends AppCompatActivity {
         monHoc = (MonHoc) getIntent().getSerializableExtra("chitietmonhoc");
         day = getIntent().getIntExtra("day",2);
         showDetail();
+        gridView.setFocusable(false);
     }
 
     private void addWidgetsListener() {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent data = new Intent();
-//                data.putExtra("monhoc-maybeEdited",monHoc);
-//                setResult(TabFragment_monday.RESULT_CODE_DETAIL,data);
                 finish();
             }
         });
@@ -125,7 +159,7 @@ public class DetailActivity extends AppCompatActivity {
         edtSdt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(edtEmail.getText().toString().trim().isEmpty()){
+                if(edtSdt.getText().toString().trim().isEmpty()){
                     return;
                 }else{
                     btnMakeCall.setVisibility(View.VISIBLE);
@@ -211,6 +245,10 @@ public class DetailActivity extends AppCompatActivity {
                 btnSave.setVisibility(View.VISIBLE);
                 btnTime1.setVisibility(View.VISIBLE);
                 btnTime2.setVisibility(View.VISIBLE);
+
+                btnMakeCall.setVisibility(View.INVISIBLE);
+                btnSendEmail.setVisibility(View.INVISIBLE);
+                btnSendSMS.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -272,6 +310,74 @@ public class DetailActivity extends AppCompatActivity {
                 showDetail();
             }
         });
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                showImage(position);
+            }
+        });
+
+        btnAddImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                registerForContextMenu(btnAddImage);
+                openContextMenu(btnAddImage);
+            }
+        });
+    }
+
+    private void showImage(final int position) {
+        setContentView(R.layout.image_selected);
+        imvSelected = (ImageView) findViewById(R.id.imvSelected);
+        btnBackToDetail = (ImageButton) findViewById(R.id.btnBackToDetail);
+        btnDelete = (Button) findViewById(R.id.btnDelete);
+        btnShare = (ImageButton) findViewById(R.id.btnShare);
+
+     //   decodeBase64AndSetImage(strImage[position],imvSelected);
+
+        try{
+            Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), Uri.parse(strImage.get(position)));
+            imvSelected.setImageBitmap(bitmap);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        btnBackToDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                recreate();
+            }
+        });
+
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            //   Context context = getApplicationContext();
+                File file = new File(Uri.parse(strImage.get(position)).getPath());
+                file.delete();
+             //   context.getContentResolver().delete(Uri.parse(strImage.get(position)),null,null);
+                strImage.remove(position);
+                monHoc.setHinh(convertArrayToString(strImage));
+                boolean check = database.update(monHoc,day);
+                if(check){
+                    Toast.makeText(DetailActivity.this,R.string.deleted,Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(DetailActivity.this,R.string.loi_cap_nhat_du_lieu,Toast.LENGTH_SHORT).show();
+                }
+                recreate();
+            }
+        });
+
+        btnShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent share = new Intent(Intent.ACTION_SEND);
+                share.setType("image/*");
+                share.putExtra(Intent.EXTRA_STREAM, Uri.parse(strImage.get(position)));
+                startActivity(Intent.createChooser(share, getResources().getString(R.string.share_using)));
+            }
+        });
+
     }
 
     @Override
@@ -353,8 +459,6 @@ public class DetailActivity extends AppCompatActivity {
         editText.setCursorVisible(false);
         editText.setFocusable(false);
         editText.setFocusableInTouchMode(false);
-//        tvTime1.setKeyListener(null);
-//        tvTime2.setKeyListener(null);
     }
 
     public void showTimePickerDialogBatDau() {
@@ -413,15 +517,14 @@ public class DetailActivity extends AppCompatActivity {
         edtPhong.setText(monHoc.getPhong());
         tvTime1.setText(monHoc.getThoiGian1());
         tvTime2.setText(monHoc.getThoiGian2());
-//        tvTime1.setKeyListener(null);
-//        tvTime2.setKeyListener(null);
         edtGV.setText(monHoc.getTenGV());
         edtEmail.setText(monHoc.getEmail());
         edtSdt.setText(monHoc.getSdt());
         edtNote.setText(monHoc.getNote());
         if(monHoc.getHinh() != null){
-            Bitmap bitmap = BitmapFactory.decodeByteArray(monHoc.getHinh(), 0, monHoc.getHinh().length);
-            imgHinh.setImageBitmap(bitmap);
+            strImage = convertStringToArray(monHoc.getHinh());
+            adapter = new GridViewAdapter(this,strImage,R.layout.dong_gridview);
+            gridView.setAdapter(adapter);
         }
 
         makeEditTextLikeTextView(edtTenMon);
@@ -437,15 +540,103 @@ public class DetailActivity extends AppCompatActivity {
         btnTime1.setVisibility(View.INVISIBLE);
         btnTime2.setVisibility(View.INVISIBLE);
 
-//        tvTime1.setClickable(false);
-//        tvTime1.setFocusable(false);
-//        tvTime1.setFocusableInTouchMode(false);
-//
-//        tvTime2.setClickable(false);
-//        tvTime2.setFocusable(false);
-//        tvTime2.setFocusableInTouchMode(false);
+        btnMakeCall.setVisibility(View.INVISIBLE);
+        btnSendEmail.setVisibility(View.INVISIBLE);
+        btnSendSMS.setVisibility(View.INVISIBLE);
+
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater menuInflater = this.getMenuInflater();
+        menuInflater.inflate(R.menu.context_menu_image,menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.itAddFromGallery:
+                Intent i = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(i, REQUEST_CODE_LOAD_IMAGE);
+                return true;
+
+            case R.id.itCamera:
+                Intent iCam = new Intent(DetailActivity.this,CameraActivity.class);
+                iCam.putExtra("monHocCam",monHoc);
+                startActivityForResult(iCam,REQUEST_CODE_CAMERA_FROM_DETAIL);
+                return true;
+
+        }
+        return false;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == REQUEST_CODE_CAMERA_FROM_DETAIL ){
+            if(resultCode == TabFragment_monday.RESULT_CODE_CAM){
+                monHoc = (MonHoc) data.getSerializableExtra("monHocCamed");
+                database.update(monHoc,day);
+                showDetail();
+            }
+        }
+
+        if(requestCode == REQUEST_CODE_LOAD_IMAGE ){
+            if(resultCode == RESULT_OK && data != null){
+                Uri selectedImage = data.getData();
+                String[] filePathColumn = { MediaStore.Images.Media.DATA };
+                Cursor cursor = getContentResolver().query(selectedImage,filePathColumn, null, null, null);
+                cursor.moveToFirst();
+                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                String picturePath = cursor.getString(columnIndex);
+                cursor.close();
 
 
+                if (monHoc.getHinh() != null){
+                    monHoc.setHinh(monHoc.getHinh() + strSeparator + "file:" + picturePath);
+                }else {
+                    monHoc.setHinh("file:" + picturePath);
+                }
+                database.update(monHoc,day);
+                showDetail();
+            }
+        }
+    }
+
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  // prefix
+                ".jpg",         // suffix
+                storageDir      // directory
+        );
+
+        // Save a file: path for use with ACTION_VIEW intents
+    //    mCurrentPhotoPath = "file:" + image.getAbsolutePath();
+        return image;
+    }
+
+    public static List<String> convertStringToArray(String str){
+        String[] arr = str.split(strSeparator);
+        List<String> list = new ArrayList<String>(Arrays.asList(arr));
+        return list;
+    }
+
+    public static String convertArrayToString(List<String> array){
+        String str = "";
+        for (int i = 0;i<array.size(); i++) {
+            str = str+array.get(i);
+            // Do not append comma at the end of last element
+            if(i<array.size()-1){
+                str = str+strSeparator;
+            }
+        }
+        return str;
     }
 }
 

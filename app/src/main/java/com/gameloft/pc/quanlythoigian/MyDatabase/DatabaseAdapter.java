@@ -124,7 +124,7 @@ public class DatabaseAdapter {
             String email = cursor.getString(cursor.getColumnIndex(MyDatabase.EMAIL));
             String sdt = cursor.getString(cursor.getColumnIndex(MyDatabase.SDT));
             String note = cursor.getString(cursor.getColumnIndex(MyDatabase.NOTE));
-            byte[] hinh = cursor.getBlob(cursor.getColumnIndex(MyDatabase.PIC));
+            String hinh = cursor.getString(cursor.getColumnIndex(MyDatabase.PIC));
             boolean warning = false;
 
             MonHoc monHoc = new MonHoc();

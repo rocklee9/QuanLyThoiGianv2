@@ -85,4 +85,13 @@
     <string name="ngon_ngu">Ngôn ngữ</string>
     <string name="chon_mau">Chọn màu:</string>
 
+
+
+    <string name="deleted">Đã xóa ảnh</string>
+    <string name="share_using">Chia sẻ đến</string>
+
+    <string name="canot_open_camera">Không mở được Camera!</string>
+
+    <string name="not_take">Bạn chưa chụp ảnh</string>
+
 </resources>

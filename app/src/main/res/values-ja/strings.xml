@@ -83,5 +83,10 @@
 
     <string name="ngon_ngu">言語</string>
     <string name="chon_mau">色を選択:</string>
+    <string name="not_take">あなたはまだ写真を撮っていない</string>
+    <string name="share_using">画像を使って共有する</string>
+    <string name="da_luu_anh">保存された写真！</string>
+    <string name="deleted">写真を削除しました！</string>
+    <string name="canot_open_camera">カメラを開けません</string>
 
 </resources>

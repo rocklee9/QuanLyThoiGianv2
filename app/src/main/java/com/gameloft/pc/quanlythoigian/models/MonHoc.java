@@ -14,7 +14,7 @@ public class MonHoc extends GiangVien implements Serializable {
     private String phong;
     private String note;
     private boolean warning = false;
-    private byte[] hinh;
+    private String hinh;
 
     public MonHoc(){
 
@@ -93,11 +93,11 @@ public class MonHoc extends GiangVien implements Serializable {
         this.warning = warning;
     }
 
-    public byte[] getHinh() {
+    public String getHinh() {
         return hinh;
     }
 
-    public void setHinh(byte[] hinh) {
+    public void setHinh(String hinh) {
         this.hinh = hinh;
     }
 }

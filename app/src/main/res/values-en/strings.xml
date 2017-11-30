@@ -27,8 +27,8 @@
     <string name="chinh_sua_them">Edit / Add</string>
 
     //activity_main
-    <string name="thoi_khoa_bieu">TIME TABLE</string>
-    <string name="thoi_gian_bieu">SCHEDULE</string>
+    <string name="thoi_khoa_bieu">SCHEDULE</string>
+    <string name="thoi_gian_bieu">TIMETABLE</string>
 
 
     <string name="ngay">Date</string>
@@ -83,6 +83,10 @@
 
     <string name="ngon_ngu">Language</string>
     <string name="chon_mau">Chose color:</string>
+    <string name="deleted">Deleted Photo !</string>
+    <string name="share_using">Share image using</string>
+    <string name="canot_open_camera">Can\'t open camera</string>
+    <string name="not_take">You have not taken a picture yet</string>
 
 
 </resources>

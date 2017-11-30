@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/itAddFromGallery"
+        android:title="Chọn ảnh từ thư viện" />
 
+    <item
+        android:id="@+id/itCamera"
+        android:title="@string/chup_anh"/>
 </menu>
