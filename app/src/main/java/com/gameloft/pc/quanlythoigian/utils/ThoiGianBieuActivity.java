@@ -3,18 +3,23 @@ package com.gameloft.pc.quanlythoigian.utils;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.gameloft.pc.quanlythoigian.MyDatabase.DatabaseAdapter;
 import com.gameloft.pc.quanlythoigian.R;
+import com.gameloft.pc.quanlythoigian.models.MonHoc;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class ThoiGianBieuActivity extends AppCompatActivity {
 
@@ -27,9 +32,14 @@ public class ThoiGianBieuActivity extends AppCompatActivity {
     private final String DATE="date";
     private final String DAY="day";
     private final String MONTH="month";
+    private final String HOUR="hour";
     private final String TIME_START="time_start";
     private final String TIME_END="time_end";
     private final String COlOR="color";
+    int x;
+
+    List<MonHoc> listMonHoc;
+    DatabaseAdapter database;
 
     private String KT_0="0", KT_1="1", KT_2="2", KT_3="3", KT_4="4", KT_5="5", KT_6="6", KT_7="7", KT_8="8", KT_9="9", KT_10="10", 
              KT_11="11", KT_12="12", KT_13="13", KT_14="14", KT_15="15", KT_16="16", KT_17="17", KT_18="18", KT_19="19", KT_20="20",
@@ -220,6 +230,8 @@ public class ThoiGianBieuActivity extends AppCompatActivity {
     }
 
     public void read_data(){
+        clear_data();
+        read_data_tkb();
         read_kt();
         read_date(tv_note_0,"0",KT0);
         read_date(tv_note_1,"1",KT1);
@@ -246,8 +258,10 @@ public class ThoiGianBieuActivity extends AppCompatActivity {
         read_date(tv_note_22,"22",KT22);
         read_date(tv_note_23,"23",KT23);
 
+
     }
     public void read_date(TextView x,String i, int KT){
+
         SharedPreferences sharedPreferences=getSharedPreferences(tv_day.getText().toString()+i,MODE_PRIVATE);
         int color = sharedPreferences.getInt(COlOR,0);
         if(KT == 1) {
@@ -255,22 +269,27 @@ public class ThoiGianBieuActivity extends AppCompatActivity {
             switch (color){
                 case 1:{
                     x.setBackgroundResource(R.drawable.nen_xanh);
+                    x.setTextColor(Color.WHITE);
                     break;
                 }
                 case 2:{
                     x.setBackgroundResource(R.drawable.nen_do);
+                    x.setTextColor(Color.WHITE);
                     break;
                 }
                 case 3:{
                     x.setBackgroundResource(R.drawable.nen_xanh_la);
+                    x.setTextColor(Color.WHITE);
                     break;
                 }
                 case 4:{
                     x.setBackgroundResource(R.drawable.nen_tim);
+                    x.setTextColor(Color.WHITE);
                     break;
                 }
                 case 5:{
                     x.setBackgroundResource(R.drawable.nen_vang);
+                    x.setTextColor(Color.parseColor("#999999"));
                     break;
                 }
             }
@@ -383,12 +402,250 @@ public class ThoiGianBieuActivity extends AppCompatActivity {
         }
     }
     public void Onclick(int i){
+        String date=layngay(tv_day.getText().toString());
         Intent intent = new Intent(ThoiGianBieuActivity.this, DetailTgbActivity.class);
         Bundle bd = new Bundle();
         bd.putString("thoi_gian",tv_day.getText().toString());
         bd.putString("id",String.valueOf(i));
         bd.putInt("time_start",i);
+        bd.putString("date",date);
         intent.putExtra("key",bd);
-        startActivity(intent);
+        startActivityForResult(intent,1);
+    }
+    public  String layngay(String dateOfYear){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Calendar calendar = Calendar.getInstance();
+        String dayOfWeek = "";
+        try {
+            calendar.setTime(sdf.parse(dateOfYear));
+            switch (calendar.get(Calendar.DAY_OF_WEEK)){
+                case 1:
+                    dayOfWeek = "Chủ Nhật";
+                    break;
+                case 2:
+                    dayOfWeek = "Thứ hai";
+                    break;
+                case 3:
+                    dayOfWeek = "Thứ ba";
+                    break;
+                case 4:
+                    dayOfWeek = "Thứ tư";
+                    break;
+                case 5:
+                    dayOfWeek = "Thứ năm";
+                    break;
+                case 6:
+                    dayOfWeek = "Thứ sáu";
+                    break;
+                case 7:
+                    dayOfWeek = "Thứ bảy";
+                    break;
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return dayOfWeek;
+    }
+    public void read_data_tkb(){
+        listMonHoc =  new ArrayList<>();
+        database = new DatabaseAdapter(ThoiGianBieuActivity.this);
+        database.open();
+        String n = layngay(tv_day.getText().toString());
+        switch (n){
+            case "Chủ Nhật":{
+                listMonHoc = database.getData(8);
+                break;
+            }
+            case "Thứ hai":{
+                listMonHoc = database.getData(2);
+                break;
+            }
+            case "Thứ ba":{
+                listMonHoc = database.getData(3);
+                break;
+            }
+            case "Thứ tư":{
+                listMonHoc = database.getData(4);
+                break;
+            }
+            case "Thứ năm":{
+                listMonHoc = database.getData(5);
+                break;
+            }
+            case "Thứ sáu":{
+                listMonHoc = database.getData(6);
+                break;
+            }
+            case "Thứ bảy":{
+                listMonHoc = database.getData(7);
+                break;
+            }
+        }
+        MonHoc monHoc;
+        for(int i=0; i<listMonHoc.size(); i++){
+            monHoc=listMonHoc.get(i);
+            String time_start = monHoc.getThoiGian1();
+            String time_end = monHoc.getThoiGian2();
+            String s = "Học môn "+ monHoc.getTenMonHoc() + " tại phòng "+ monHoc.getPhong();
+            String [] tam = time_start.split(":");
+            int time1 = Integer.parseInt(tam[0].trim());
+            String [] tam1 = time_end.split(":");
+            int time2;
+            if(Integer.parseInt(tam1[1].trim()) < 30){
+                time2 = Integer.parseInt(tam1[0].trim());
+            }else {
+                time2 = Integer.parseInt(tam1[0].trim())+1;
+            }
+            add(time1,time2,s);
+        }
+    }
+public void add(int a,int b,String s){
+        if(b==0) b=24;
+        x=a;
+        for(int j=a;j<b;j++){
+            SharedPreferences sharedPreferences = getSharedPreferences(tv_day.getText().toString() + String.valueOf(j),MODE_PRIVATE);
+            String s1 = sharedPreferences.getString(TIME_START,"");
+
+            if(s1 != ""){
+                x++;
+            }else {
+                break;
+            }
+        }
+        if(x<b) {
+
+            for (int i = a; i < b; i++) {
+                switch (i) {
+                    case 0: {
+                        tam(a, tv_note_0, 0, i, b, s, x);
+                        break;
+                    }
+                    case 1: {
+                        tam(a, tv_note_1, 1, i, b, s, x);
+                        break;
+                    }
+                    case 2: {
+                        tam(a, tv_note_2, 2, i, b, s, x);
+                        break;
+                    }
+                    case 3: {
+                        tam(a, tv_note_3, 3, i, b, s, x);
+                        break;
+                    }
+                    case 4: {
+                        tam(a, tv_note_4, 4, i, b, s, x);
+                        break;
+                    }
+                    case 5: {
+                        tam(a, tv_note_5, 5, i, b, s, x);
+                        break;
+                    }
+                    case 6: {
+                        tam(a, tv_note_6, 6, i, b, s, x);
+                        break;
+                    }
+                    case 7: {
+                        tam(a, tv_note_7, 7, i, b, s, x);
+                        break;
+                    }
+                    case 8: {
+                        tam(a, tv_note_8, 8, i, b, s, x);
+                        break;
+                    }
+                    case 9: {
+                        tam(a, tv_note_9, 9, i, b, s, x);
+                        break;
+                    }
+                    case 10: {
+                        tam(a, tv_note_10, 10, i, b, s, x);
+                        break;
+                    }
+                    case 11: {
+                        tam(a, tv_note_11, 11, i, b, s, x);
+                        break;
+                    }
+                    case 12: {
+                        tam(a, tv_note_12, 12, i, b, s, x);
+                        break;
+                    }
+                    case 13: {
+                        tam(a, tv_note_13, 13, i, b, s, x);
+                        break;
+                    }
+                    case 14: {
+                        tam(a, tv_note_14, 14, i, b, s, x);
+                        break;
+                    }
+                    case 15: {
+                        tam(a, tv_note_15, 15, i, b, s, x);
+                        break;
+                    }
+                    case 16: {
+                        tam(a, tv_note_16, 16, i, b, s, x);
+                        break;
+                    }
+                    case 17: {
+                        tam(a, tv_note_17, 17, i, b, s, x);
+                        break;
+                    }
+                    case 18: {
+                        tam(a, tv_note_18, 18, i, b, s, x);
+                        break;
+                    }
+                    case 19: {
+                        tam(a, tv_note_19, 19, i, b, s, x);
+                        break;
+                    }
+                    case 20: {
+                        tam(a, tv_note_20, 20, i, b, s, x);
+                        break;
+                    }
+                    case 21: {
+                        tam(a, tv_note_21, 21, i, b, s, x);
+                        break;
+                    }
+                    case 22: {
+                        tam(a, tv_note_22, 22, i, b, s, x);
+                        break;
+                    }
+                    case 23: {
+                        tam(a, tv_note_23, 23, i, b, s, x);
+                        break;
+                    }
+
+                }
+            }
+        }
+}
+public void tam (int a,TextView x,int j,int i,int b,String s,int k){
+    SharedPreferences sharedPreferences = getSharedPreferences(tv_day.getText().toString()+String.valueOf(j),MODE_PRIVATE);
+    SharedPreferences sharedPreferences1 = getSharedPreferences(tv_day.getText().toString()+String.valueOf(j-1),MODE_PRIVATE);
+    String tam = sharedPreferences1.getString(TIME_END,"24");
+    String [] tam1 = tam.split(":");
+    int y= Integer.parseInt(tam1[0]);
+    if((i==k) || (i==y)){
+        x.setBackgroundResource(R.drawable.nen_xanh);
+        x.setTextColor(Color.WHITE);
+        x.setText("( "+ sharedPreferences.getString(TIME_START,String.valueOf(a))+":00 - "+sharedPreferences.getString(TIME_END,String.valueOf(b)+":00 ) "+s)+ sharedPreferences.getString(NOTE, ""));
+
+    }else {
+        x.setBackgroundResource(R.drawable.custom_ridio_xanh);
+    }
+}
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1){
+            read_data();
+            if(resultCode == 2){
+                read_data();
+
+            }
+            if(resultCode == 5){
+                read_data();
+            }
+            read_data();
+            read_data();
+        }
     }
 }

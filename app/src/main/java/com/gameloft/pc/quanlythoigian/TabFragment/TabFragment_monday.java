@@ -1,11 +1,16 @@
 package com.gameloft.pc.quanlythoigian.TabFragment;
 
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
@@ -16,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
+
 
 import com.gameloft.pc.quanlythoigian.utils.AddActivity;
 import com.gameloft.pc.quanlythoigian.utils.CameraActivity;
@@ -30,10 +36,12 @@ import com.gameloft.pc.quanlythoigian.utils.NoteActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.content.Context.NOTIFICATION_SERVICE;
+
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TabFragment_monday extends Fragment{
+public class TabFragment_monday extends Fragment {
 
     ListView lvMonHoc;
     ImageButton btnAdd;
@@ -170,10 +178,12 @@ public class TabFragment_monday extends Fragment{
                     iCam.putExtra("monHocCam",monHocCam);
                     startActivityForResult(iCam,REQUEST_CODE_CAM);
                     return true;
+
             }
         }
         return false;
     }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

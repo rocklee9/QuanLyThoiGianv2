@@ -88,5 +88,6 @@
     <string name="da_luu_anh">保存された写真！</string>
     <string name="deleted">写真を削除しました！</string>
     <string name="canot_open_camera">カメラを開けません</string>
+    <string name="nhac_nho">思い出させる: </string>
 
 </resources>

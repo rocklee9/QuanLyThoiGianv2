@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -40,6 +39,7 @@ public class EditTgbActivity extends AppCompatActivity {
     private final String COlOR="color";
     private String date;
     private String month;
+    private String day;
 
     private int KT1, KT2, KT3, KT4, KT5, KT6, KT7, KT8, KT9, KT10, KT11, KT12, KT13, KT14, KT15,
             KT16, KT17, KT18, KT19, KT20, KT21, KT22, KT23, KT0;
@@ -92,6 +92,7 @@ public class EditTgbActivity extends AppCompatActivity {
         mytime= bd.get("thoi_gian").toString();
         ID=bd.get("id").toString();
         time_start=bd.getInt("time_start");
+        date=bd.getString("date");
         SHARED_PREFERENCES_NAME=mytime;
         SHARED_PREFERENCES_NAME_KT=mytime;
 
@@ -109,9 +110,8 @@ public class EditTgbActivity extends AppCompatActivity {
         time_end_start = Integer.valueOf(s1[0].trim());
         s= mytime;
          s1= s.split("-");
-        date = s1[0].trim();
+        day = s1[0].trim();
         month = s1[1].trim();
-        tv_time_end.setText("404");
 
     }
 
@@ -143,35 +143,49 @@ public class EditTgbActivity extends AppCompatActivity {
                 time_end = Integer.parseInt(s1[0].trim());
                 if(time_end == 0) time_end = 24;
 
-                if(s=="404"){
+                if(s=="0:00"){
                     Toast.makeText(EditTgbActivity.this,"ban vui long chon thoi gian ket thuc", Toast.LENGTH_SHORT).show();
                 }else if(time_end <= time_start) {
                     Toast.makeText(EditTgbActivity.this,"thoi gian ket thuc phai lon hon thoi gian bat dau,vui long chon lai", Toast.LENGTH_SHORT).show();
                 }else {
-                    SharedPreferences sharedPreferences = getSharedPreferences(mytime+String.valueOf(time_end-1),MODE_PRIVATE);
-                    int time_start_tam = sharedPreferences.getInt(HOUR,24);
-                    String s_tam = sharedPreferences.getString(TIME_END,"24");
-                    String [] s1_tam = s_tam.split(":");
-                    int time_end_tam = Integer.parseInt(s1_tam[0].trim());
-                    if(time_start_tam < 24 && time_end_tam <24){
-                        remove_all(time_start_tam, time_end_tam);
-                    }
+
                     if(time_end_start <= time_start) {
-                        add_data_thuan(time_start,time_end);
-                    }else if(time_start < time_end_start) {
-                        if(time_start == time_start_start){
-                            remove_data();
-                            add_data_thuan(time_start,time_end);
-                        }else {
-                            add_data_thuan1(time_start_start, time_start);
-                            add_data_thuan(time_start, time_end );
+
+                        SharedPreferences sharedPreferences2 = getSharedPreferences(SHARED_PREFERENCES_NAME + String.valueOf(time_end),MODE_PRIVATE);
+                        String s_tam = sharedPreferences2.getString(TIME_END,"24");
+                        String [] s1_tam = s_tam.split(":");
+                        int tam = Integer.parseInt(s1_tam[0].trim());
+                        if(tam < 24) {
+                            add_data_thuan1(time_end, tam, Lay_mau());
                         }
+                        add_data_thuan(time_start,time_end);
+
+
+                    }else {
+                        if(time_end > time_end_start) {
+
+                            if (time_start == time_start_start) {
+                               remove_data();
+                                add_data_thuan(time_start, time_end);
+                            } else {
+                                add_data_thuan1(time_start_start, time_start,Lay_mau());
+                                add_data_thuan(time_start, time_end);
+                            }
+
+                        }else {
+                                add_data_thuan1(time_start_start, time_start, Lay_mau());
+                                add_data_thuan1(time_end, time_end_start, Lay_mau());
+                                add_data_thuan(time_start, time_end);
+                        }
+
                     }
-                    if(time_start_start<time_start){
-                        kt_id(String.valueOf(time_start_start));
+                    for(int i=0 ; i<24; i++){
+                        SharedPreferences sharedPreferences1= getSharedPreferences(SHARED_PREFERENCES_NAME + String.valueOf(i),MODE_PRIVATE);
+                        String h = sharedPreferences1.getString(TIME_START,"24");
+                        kt_id(h);
                     }
-                    kt_id(ID);
                     Toast.makeText(EditTgbActivity.this, " da luu", Toast.LENGTH_SHORT).show();
+                    setResult(3);
                     finish();
                 }
             }
@@ -263,12 +277,13 @@ public class EditTgbActivity extends AppCompatActivity {
             editor.putInt(HOUR,a);
             editor.putInt(COlOR,KTmau);
             editor.putString(DATE,date);
+            editor.putString(DAY,day);
             editor.putString(MONTH,month);
             editor.apply();
         }
     }
 
-    public void add_data_thuan1(int a,int b) {
+    public void add_data_thuan1(int a,int b,int c) {
         for (int i = a; i < b; i++) {
             SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME + String.valueOf(i), MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -277,13 +292,17 @@ public class EditTgbActivity extends AppCompatActivity {
             editor.putString(TIME_END, String.valueOf(b)+":00");
             editor.putString(TIME_START,String.valueOf(a));
             editor.putInt(HOUR,a);
+            editor.putInt(COlOR,c);
+            editor.putString(DATE,date);
+            editor.putString(DAY,day);
+            editor.putString(MONTH,month);
             editor.apply();
         }
     }
     public void read_data(){
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME+ID,MODE_PRIVATE);
         edt_cv.setText(sharedPreferences.getString(NOTE,""));
-        tv_time_end.setText(sharedPreferences.getString(TIME_END,"0"));
+        tv_time_end.setText(sharedPreferences.getString(TIME_END,"0:00"));
         time_start_start = sharedPreferences.getInt(HOUR,24);
     }
     public void remove_data(){
@@ -414,6 +433,11 @@ public class EditTgbActivity extends AppCompatActivity {
         SharedPreferences.Editor editor= sharedPreferences.edit();
         editor.putInt(KT_0, KT0);
         editor.apply();
+    }
+    public int Lay_mau(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME+ID,MODE_PRIVATE);
+        int k=sharedPreferences.getInt(COlOR,1);
+        return k;
     }
     public void remove_kt(int a){
         SharedPreferences sharedPreferences2 = getSharedPreferences(SHARED_PREFERENCES_NAME_KT,MODE_PRIVATE);

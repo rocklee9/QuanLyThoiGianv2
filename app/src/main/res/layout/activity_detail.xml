@@ -27,19 +27,19 @@
 
             <ImageButton
                 android:id="@+id/btnBack"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:background="@drawable/back_btn"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"/>
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"/>
 
             <ImageButton
                 android:id="@+id/btnEdit"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:background="@drawable/edit_btn"
                 android:layout_marginRight="11dp"
-                android:layout_marginEnd="11dp"
+                android:layout_marginTop="5dp"
                 android:layout_alignTop="@+id/btnBack"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
@@ -398,31 +398,47 @@
                         android:orientation="vertical"
                         android:layout_gravity="center">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:drawableLeft="@drawable/notep"
-                            android:gravity="center"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="10dp"
-                            android:text="@string/ghi_chu"
-                            android:textSize="20sp"
-                            android:textColor="#fd0303"
-                            android:layout_marginLeft="10dp" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_centerVertical="true"
+                                android:drawableLeft="@drawable/notep"
+                                android:gravity="center"
+                                android:text="@string/ghi_chu"
+                                android:textColor="#999999"
+                                android:textSize="20sp" />
+                            <CheckBox
+                                android:id="@+id/chkNhacNho"
+                                android:layout_width="50dp"
+                                android:layout_height="40dp"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="@dimen/edt_margin_right"
+                                android:button="@drawable/btn_nhac_nho"
+                                android:checked="false"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_toLeftOf="@id/chkNhacNho"
+                                android:text="@string/nhac_nho"
+                                android:textSize="20dp" />
+
+
+                        </RelativeLayout>
 
                         <EditText
-                            android:id="@+id/tvNote"
-                            android:layout_marginLeft="@dimen/edt_margin_left"
-                            android:layout_marginRight="@dimen/edt_margin_right"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:textSize="20sp"
-                            android:background="@android:color/transparent"
-                            android:clickable="false"
-                            android:cursorVisible="false"
-                            android:focusable="false"
-                            android:focusableInTouchMode="false"/>
+                            android:layout_height="match_parent"
+                            android:id="@+id/edtNote"
+                            android:hint="@string/nhap_ghi_chu"/>
+
 
 
                     </LinearLayout>
@@ -448,8 +464,8 @@
 
                         <ImageButton
                             android:id="@+id/btnAddImage"
-                            android:layout_width="47dp"
-                            android:layout_height="47dp"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
                             android:background="@drawable/add_image"
                             android:layout_gravity="top|right"/>
                     </FrameLayout>

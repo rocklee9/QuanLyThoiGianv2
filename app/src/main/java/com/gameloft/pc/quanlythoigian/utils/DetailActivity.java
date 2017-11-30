@@ -1,7 +1,11 @@
 package com.gameloft.pc.quanlythoigian.utils;
 
 import android.Manifest;
+import android.app.AlarmManager;
 import android.app.Dialog;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -29,6 +33,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
@@ -42,6 +48,7 @@ import com.gameloft.pc.quanlythoigian.MyDatabase.DatabaseAdapter;
 import com.gameloft.pc.quanlythoigian.R;
 import com.gameloft.pc.quanlythoigian.TabFragment.TabFragment_monday;
 import com.gameloft.pc.quanlythoigian.adapters.GridViewAdapter;
+import com.gameloft.pc.quanlythoigian.baoThuc.AlarmReceiver;
 import com.gameloft.pc.quanlythoigian.models.MonHoc;
 
 import java.io.ByteArrayInputStream;
@@ -85,6 +92,11 @@ public class DetailActivity extends AppCompatActivity {
 
     List<String> strImage;
 
+    CheckBox chkNhacNho;
+    Calendar calendarNow, calendarSet;
+    AlarmManager alarmManager;
+    PendingIntent pendingIntent;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +125,7 @@ public class DetailActivity extends AppCompatActivity {
         edtGV = (EditText) findViewById(R.id.tvGV);
         edtEmail = (EditText) findViewById(R.id.tvEmail);
         edtSdt = (EditText) findViewById(R.id.tvSdt);
-        edtNote = (EditText) findViewById(R.id.tvNote);
+        edtNote = (EditText) findViewById(R.id.edtNote);
         btnBack = (ImageButton) findViewById(R.id.btnBack);
         btnSendEmail = (ImageButton) findViewById(R.id.btnSendEmail);
         btnSendSMS = (ImageButton) findViewById(R.id.btnSendSMS);
@@ -125,6 +137,11 @@ public class DetailActivity extends AppCompatActivity {
         btnTime2 = (ImageButton) findViewById(R.id.btnEditTime2);
         btnAddImage = (ImageButton) findViewById(R.id.btnAddImage);
         gridView = (GridView) findViewById(R.id.grvImage);
+
+        chkNhacNho = (CheckBox) findViewById(R.id.chkNhacNho);
+        calendarNow = Calendar.getInstance();
+        calendarSet = (Calendar) calendarNow.clone();
+        alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
     }
 
     private void setWidgets() {
@@ -265,6 +282,51 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
+        /////////////
+        /*final Bundle bundle = new Bundle();
+        bundle.putString("TenMon", monHoc.getTenMonHoc());
+        bundle.putString("ThoiGian", monHoc.getThoiGian1() + "-" + monHoc.getThoiGian2());
+        bundle.putString("Phong", monHoc.getPhong());*/
+
+        final Intent mIntent = new Intent(DetailActivity.this, AlarmReceiver.class);
+        mIntent.putExtra("monHocBaoThuc",monHoc);
+        mIntent.putExtra("day", day);
+
+        chkNhacNho.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked){
+                    calendarSet.set(Calendar.HOUR_OF_DAY, timeConvertHour(monHoc.getThoiGian1())-1);
+                    calendarSet.set(Calendar.MINUTE, timeConvertMinute(monHoc.getThoiGian1()));
+                    calendarSet.set(Calendar.DAY_OF_WEEK, day);
+
+                    if (calendarSet.compareTo(calendarNow) <= 0){
+                        //Today Set time passed, count to tomorrow
+                        calendarSet.add(Calendar.DATE, 7);
+                    }
+
+                    //Toast.makeText(DetailActivity.this, calendarSet.getTime() + "", Toast.LENGTH_LONG).show();
+
+                    mIntent.putExtra("trangThaiCheck", "on");
+
+                    pendingIntent = PendingIntent.getBroadcast(DetailActivity.this, 0, mIntent,
+                            PendingIntent.FLAG_UPDATE_CURRENT);
+
+                    alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendarSet.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+
+                    Toast.makeText(DetailActivity.this, "Hẹn giờ: " + (timeConvertHour(monHoc.getThoiGian1()) - 1 )
+                            + ":" + timeConvertMinute(monHoc.getThoiGian1()) + "\n" + calendarSet.getTime(), Toast.LENGTH_LONG).show();
+
+                }
+                else {
+                    Toast.makeText(DetailActivity.this, "Đã tắt nhắc nhở!", Toast.LENGTH_LONG).show();
+                    alarmManager.cancel(pendingIntent);
+                    //mIntent.putExtra("trangThaiCheck", "off");
+                    //sendBroadcast(mIntent);
+                }
+            }
+        });
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -327,6 +389,18 @@ public class DetailActivity extends AppCompatActivity {
         });
     }
 
+    public int timeConvertHour(String time) {
+        if (time.trim().isEmpty()) return 0;
+        String[] strings = time.split(":");
+        return (Integer.valueOf(strings[0].trim()));
+    }
+
+    public int timeConvertMinute(String time) {
+        if (time.trim().isEmpty()) return 0;
+        String[] strings = time.split(":");
+        return (Integer.valueOf(strings[1].trim()));
+    }
+
     private void showImage(final int position) {
         setContentView(R.layout.image_selected);
         imvSelected = (ImageView) findViewById(R.id.imvSelected);
@@ -334,7 +408,7 @@ public class DetailActivity extends AppCompatActivity {
         btnDelete = (Button) findViewById(R.id.btnDelete);
         btnShare = (ImageButton) findViewById(R.id.btnShare);
 
-     //   decodeBase64AndSetImage(strImage[position],imvSelected);
+        //   decodeBase64AndSetImage(strImage[position],imvSelected);
 
         try{
             Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), Uri.parse(strImage.get(position)));
@@ -352,10 +426,10 @@ public class DetailActivity extends AppCompatActivity {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            //   Context context = getApplicationContext();
+                //   Context context = getApplicationContext();
                 File file = new File(Uri.parse(strImage.get(position)).getPath());
                 file.delete();
-             //   context.getContentResolver().delete(Uri.parse(strImage.get(position)),null,null);
+                //   context.getContentResolver().delete(Uri.parse(strImage.get(position)),null,null);
                 strImage.remove(position);
                 monHoc.setHinh(convertArrayToString(strImage));
                 boolean check = database.update(monHoc,day);
@@ -617,7 +691,7 @@ public class DetailActivity extends AppCompatActivity {
         );
 
         // Save a file: path for use with ACTION_VIEW intents
-    //    mCurrentPhotoPath = "file:" + image.getAbsolutePath();
+        //    mCurrentPhotoPath = "file:" + image.getAbsolutePath();
         return image;
     }
 

@@ -87,6 +87,7 @@
     <string name="share_using">Share image using</string>
     <string name="canot_open_camera">Can\'t open camera</string>
     <string name="not_take">You have not taken a picture yet</string>
+    <string name="nhac_nho">Remind: </string>
 
 
 </resources>
